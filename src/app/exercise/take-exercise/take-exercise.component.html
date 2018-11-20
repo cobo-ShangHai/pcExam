@@ -1,0 +1,71 @@
+<div class="pageBlock pageBgColor pos_r">
+    <div class="pageBlock shadow-bottom fixedTop bgwhite">
+      <app-subnav [showBack]="_showBack" [padLeft]="65" title="{{pageTitle}}"></app-subnav>
+      <div class="countDown"></div>
+      <div class="submitBtn" (click)="confirmSubit()">提交</div>
+    </div>
+  
+    <!-- 没有获取任何数据 -->
+    <ng-container *ngIf="!_breifInfo">
+      <div class="box_padding box-size-b height_100_vh">
+        <ng-container>
+          <app-loading-animation-page></app-loading-animation-page>
+        </ng-container>
+      </div>
+    </ng-container>
+  
+    <!-- 至少加载过一次数据 -->
+    <ng-container *ngIf="_breifInfo">
+      <div class="pad_t_50 pad_b_50" *ngIf="_breifInfo">
+        <ng-container *ngIf="_breifInfo && _breifInfo.questions && _breifInfo.questions.length>0">
+          <ng-container *ngFor="let item of _breifInfo.questions;let index = index;">
+            <div [hidden]="_curr !== index">
+              <ng-container *ngIf=" (item.type === 1 ||  item.type === 2)">
+                <app-question-single-choice [question]="item" [index]="index" [trailType]="'exercise'" [showScore]="_breifInfo.show_score" (change)="changeAnswerMap($event)"></app-question-single-choice>
+              </ng-container>
+  
+              <ng-container *ngIf="(item.type === 3 ||  item.type === 6) ">
+                <app-question-multiple [question]="item" [index]="index" [trailType]="'exercise'" [showScore]="_breifInfo.show_score" (change)="changeAnswerMap($event)"></app-question-multiple>
+              </ng-container>
+  
+              <ng-container *ngIf="item.type === 5 ">
+                <app-question-essay [question]="item" [index]="index" [trailType]="'exercise'" [showScore]="_breifInfo.show_score" (change)="changeAnswerMap($event)"></app-question-essay>
+              </ng-container>
+  
+              <ng-container *ngIf="item.type === 10 ">
+                <app-question-order [question]="item" [index]="index" [trailType]="'exercise'" [showScore]="_breifInfo.show_score" (change)="changeAnswerMap($event)"></app-question-order>
+              </ng-container>
+  
+              <ng-container *ngIf="item.type === 4 ">
+                <app-question-fill-gap [question]="item" [index]="index" [trailType]="'exercise'" [showScore]="_breifInfo.show_score" (change)="changeAnswerMap($event)"></app-question-fill-gap>
+              </ng-container>
+            </div>
+          </ng-container>
+        </ng-container>
+  
+  
+        <ng-container *ngIf="_breifInfo && _breifInfo.questions">
+          <div class="fiexdBottom shadow-top footer color9 pad13 box-size-b fszie15 bgwhite flex item-c justify-b">
+            <div class="flex-width-33">
+              <div class="flex item-c" *ngIf="_curr>0" (click)="prevQues()">
+                <div class="lineh0 pad_5_r ">
+                  <i class="cobo-icon cobo-v3-prev"></i>
+                </div>
+                <div class=" lineh15 ">上一题</div>
+              </div>
+            </div>
+            <div class="flex-width-34 text-c">第{{_curr+1}}/{{_breifInfo.questions.length}}题</div>
+            <div class="flex-width-33">
+              <div class="flex item-c f-right" *ngIf="_curr+1<_breifInfo.questions.length" (click)="nextQues()">
+                <div class="lineh15 ">下一题</div>
+                <div class="lineh0 pad_5_l ">
+                  <i class="cobo-icon cobo-v3-next "></i>
+                </div>
+              </div>
+            </div>
+          </div>
+        </ng-container>
+      </div>
+    </ng-container>
+  </div>
+  

@@ -7,6 +7,10 @@ export const AppRoutes: Routes = [
     canActivate: [AuthGuardService],
     loadChildren: './exam/exam.module#ExamModule'
   }, {
+    path: 'exercise',
+    canActivate: [AuthGuardService],
+    loadChildren: './exercise/exercise.module#ExerciseModule'
+  }, {
     path: '',
     redirectTo: '/exam',
     pathMatch: 'full'

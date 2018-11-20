@@ -26,7 +26,7 @@ import { ExamHistoryComponent } from './exam-history/exam-history.component';
     CountDownComponent,
     ExamDetailsListComponent,
     ExamDetailsAbstractComponent,
-    ExamHistoryComponent
+    ExamHistoryComponent,
   ],
   providers: [
     ExamService,
