@@ -1,0 +1,8 @@
+<ng-container *ngIf="collected">
+  <div class="lineh0" (click)="toggledCollect()">
+    <i  *ngIf="!collected.flag" class="cobo-icon cobo-heart-off"></i>
+    <i  *ngIf="collected.flag" class="cobo-icon cobo-heart-on"></i>
+  </div>
+</ng-container>
+
+

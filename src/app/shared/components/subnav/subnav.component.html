@@ -1,0 +1,8 @@
+<div class="header pageBlock flex item-c subNav pos_r">
+  <div class="backArea" *ngIf="showBack" (click)="getBack()">
+    <div class="pad_12_l pad_12_r flex-shrink-0 lineh0">
+      <i class="cobo-icon cobo-back"></i>
+    </div>
+  </div>
+  <div class="headerText text-c flex-grow-1 fsize16 lineh16 singleOver" [ngStyle]="customStyle">{{title}}</div>
+</div>

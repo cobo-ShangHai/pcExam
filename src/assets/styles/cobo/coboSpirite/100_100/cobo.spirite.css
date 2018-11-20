@@ -1,0 +1,1665 @@
+.cobo-icon {
+    background: url(cobo.spirites.png);
+    display: inline-block;
+    background-size: 1000px auto;
+}
+
+.cobo-icon-2x {
+    background: url(cobo.spirites.png);
+    display: inline-block;
+    background-size: 2000px auto;
+}
+
+.cobo-user {
+    height: 16px;
+    width: 16px;
+    background-position: 0 0;
+}
+
+.cobo-user-2x {
+    height: 32px;
+    width: 32px;
+    background-position: 0 0;
+}
+
+.cobo-user2 {
+    height: 16px;
+    width: 16px;
+    background-position: -50px 0;
+}
+
+.cobo-user2-2x {
+    height: 32px;
+    width: 32px;
+    background-position: -100px 0;
+}
+
+.cobo-shield {
+    height: 16px;
+    width: 16px;
+    background-position: -100px 0;
+}
+
+.cobo-shield-2x {
+    height: 32px;
+    width: 32px;
+    background-position: -200px 0;
+}
+
+.cobo-lock {
+    height: 16px;
+    width: 16px;
+    background-position: -150px 0;
+}
+
+.cobo-lock-2x {
+    height: 32px;
+    width: 32px;
+    background-position: -300px 0;
+}
+
+.cobo-website {
+    height: 16px;
+    width: 16px;
+    background-position: -200px 0;
+}
+
+.cobo-website-2x {
+    height: 32px;
+    width: 32px;
+    background-position: -400px 0;
+}
+
+.cobo-delete {
+    width: 9px;
+    height: 9px;
+    background-position: -350px 0;
+}
+
+.cobo-delete-2x {
+    width: 18px;
+    height: 18px;
+    background-position: -700px 0;
+}
+
+.cobo-eyesOpen {
+    width: 16px;
+    height: 11px;
+    background-position: -250px 0;
+}
+
+.cobo-eyesOpen-2x {
+    width: 32px;
+    height: 22px;
+    background-position: -500px 0;
+}
+
+.cobo-eyesclose {
+    width: 16px;
+    height: 11px;
+    background-position: -300px 0;
+}
+
+.cobo-eyesclose-2x {
+    width: 32px;
+    height: 22px;
+    background-position: -600px 0;
+}
+
+.cobo-warning {
+    width: 32px;
+    height: 32px;
+    background-position: -400px 0;
+}
+
+.cobo-warning-2x {
+    width: 64px;
+    height: 64px;
+    background-position: -800px 0;
+}
+
+.cobo-back {
+    width: 9px;
+    height: 16px;
+    background-position: -450px 0;
+}
+
+.cobo-back-2x {
+    width: 18px;
+    height: 32px;
+    background-position: -900px 0;
+}
+
+.cobo-plus-blue {
+    width: 10px;
+    height: 10px;
+    background-position: 0 -50px;
+}
+
+.cobo-plus-blue-2x {
+    width: 20px;
+    height: 20px;
+    background-position: 0 -100px;
+}
+
+.cobo-tick {
+    width: 10px;
+    height: 7px;
+    background-position: -50px -50px;
+}
+
+.cobo-tick-2x {
+    width: 20px;
+    height: 14px;
+    background-position: -100px -100px;
+}
+
+.cobo-home-off {
+    width: 21px;
+    height: 24px;
+    background-position: -100px -50px;
+}
+
+.cobo-home-off-2x {
+    width: 42px;
+    height: 48px;
+    background-position: -200px -100px;
+}
+
+.cobo-task-off {
+    width: 25px;
+    height: 24px;
+    background-position: -150px -50px;
+}
+
+.cobo-task-off-2x {
+    width: 50px;
+    height: 48px;
+    background-position: -300px -100px;
+}
+
+.cobo-course-off {
+    width: 25px;
+    height: 24px;
+    background-position: -200px -50px;
+}
+
+.cobo-course-off-2x {
+    width: 50px;
+    height: 48px;
+    background-position: -400px -100px;
+}
+
+.cobo-find-off {
+    width: 24px;
+    height: 24px;
+    background-position: -250px -50px;
+}
+
+.cobo-find-off-2x {
+    width: 48px;
+    height: 48px;
+    background-position: -500px -100px;
+}
+
+.cobo-apps-off {
+    width: 24px;
+    height: 24px;
+    background-position: -300px -50px;
+}
+
+.cobo-apps-off-2x {
+    width: 48px;
+    height: 48px;
+    background-position: -600px -100px;
+}
+
+.cobo-home-on {
+    width: 21px;
+    height: 24px;
+    background-position: -350px -50px;
+}
+
+.cobo-home-on-2x {
+    width: 42px;
+    height: 48px;
+    background-position: -700px -100px;
+}
+
+.cobo-task-on {
+    width: 25px;
+    height: 24px;
+    background-position: -400px -50px;
+}
+
+.cobo-task-on-2x {
+    width: 50px;
+    height: 48px;
+    background-position: -800px -100px;
+}
+
+.cobo-course-on {
+    width: 25px;
+    height: 24px;
+    background-position: -450px -50px;
+}
+
+.cobo-course-on-2x {
+    width: 50px;
+    height: 48px;
+    background-position: -900px -100px;
+}
+
+.cobo-find-on {
+    width: 24px;
+    height: 24px;
+    background-position: 0px -100px;
+}
+
+.cobo-course-on-2x {
+    width: 48px;
+    height: 48px;
+    background-position: 0px -200px;
+}
+
+.cobo-find-on {
+    width: 24px;
+    height: 24px;
+    background-position: 0px -100px;
+}
+
+.cobo-find-on-2x {
+    width: 48px;
+    height: 48px;
+    background-position: 0px -200px;
+}
+
+.cobo-apps-on {
+    width: 24px;
+    height: 24px;
+    background-position: -50px -100px;
+}
+
+.cobo-apps-on-2x {
+    width: 48px;
+    height: 48px;
+    background-position: -100px -200px;
+}
+
+.cobo-add {
+    width: 24px;
+    height: 24px;
+    background-position: -100px -100px;
+}
+
+.cobo-add-2x {
+    width: 48px;
+    height: 48px;
+    background-position: -200px -200px;
+}
+
+.cobo-bell {
+    width: 24px;
+    height: 24px;
+    background-position: -150px -100px;
+}
+
+.cobo-bell-2x {
+    width: 48px;
+    height: 48px;
+    background-position: -300px -200px;
+}
+
+
+.cobo-cart {
+    width: 24px;
+    height: 22px;
+    background-position: -200px -100px;
+}
+
+.cobo-cart-2x {
+    width: 48px;
+    height: 44px;
+    background-position: -400px -200px;
+}
+
+.cobo-invoice {
+    width: 22.5px;
+    height: 17px;
+    background-position: -250px -100px;
+}
+
+.cobo-invoice-2x {
+    width: 45px;
+    height: 34px;
+    background-position: -500px -200px;
+}
+
+.cobo-order {
+    width: 19.5px;
+    height: 20px;
+    background-position: -300px -100px;
+}
+
+.cobo-order-2x {
+    width: 39px;
+    height: 40px;
+    background-position: -600px -200px;
+}
+
+.cobo-departReport {
+    width: 32px;
+    height: 32px;
+    background-position: -350px -100px;
+}
+
+.cobo-departReport-2x {
+    width: 64px;
+    height: 64px;
+    background-position: -700px -200px;
+}
+
+.cobo-flower {
+    width: 32px;
+    height: 32px;
+    background-position: -400px -100px;
+}
+
+.cobo-flower-2x {
+    width: 64px;
+    height: 64px;
+    background-position: -800px -200px;
+}
+
+.cobo-yearReport {
+    width: 30px;
+    height: 30px;
+    background-position: -450px -100px;
+}
+
+.cobo-yearReport-2x {
+    width: 60px;
+    height: 60px;
+    background-position: -900px -200px;
+}
+
+.cobo-go {
+    width: 32px;
+    height: 32px;
+    background-position: 0px -150px;
+}
+
+.cobo-go-2x {
+    width: 64px;
+    height: 64px;
+    background-position: -0px -300px;
+}
+
+
+.cobo-apply {
+    width: 16px;
+    height: 16px;
+    background-position: -50px -150px;
+}
+
+.cobo-apply-2x {
+    width: 32px;
+    height: 32px;
+    background-position: -100px -300px;
+}
+
+.cobo-report {
+    width: 14px;
+    height: 16px;
+    background-position: -150px -150px;
+}
+
+.cobo-report-2x {
+    width: 28px;
+    height: 32px;
+    background-position: -300px -300px;
+}
+
+.cobo-approval {
+    width: 16px;
+    height: 16px;
+    background-position: -100px -150px;
+}
+
+.cobo-approval-2x {
+    width: 32px;
+    height: 32px;
+    background-position: -200px -300px;
+}
+
+.cobo-customer {
+    width: 15px;
+    height: 16px;
+    background-position: -250px -150px;
+}
+
+.cobo-customer-2x {
+    width: 30px;
+    height: 32px;
+    background-position: -500px -300px;
+}
+
+.cobo-setting {
+    width: 16px;
+    height: 16px;
+    background-position: -200px -150px;
+}
+
+.cobo-setting-2x {
+    width: 32px;
+    height: 32px;
+    background-position: -400px -300px;
+}
+
+.cobo-user4 {
+    width: 13px;
+    height: 16.5px;
+    background-position: -250px -150px;
+}
+
+.cobo-user4-2x {
+    width: 26px;
+    height: 33px;
+    background-position: -500px -300px;
+}
+
+.cobo-user5 {
+    width: 14.5px;
+    height: 16px;
+    background-position: -300px -150px;
+}
+
+.cobo-user5-2x {
+    width: 29px;
+    height: 32px;
+    background-position: -600px -300px;
+}
+
+.cobo-local {
+    width: 15px;
+    height: 16px;
+    background-position: -350px -150px;
+}
+
+.cobo-local-2x {
+    width: 30px;
+    height: 32px;
+    background-position: -700px -300px;
+}
+
+.cobo-password2 {
+    width: 14.5px;
+    height: 16px;
+    background-position: -400px -150px;
+}
+
+.cobo-password2-2x {
+    width: 29px;
+    height: 32px;
+    background-position: -800px -300px;
+}
+
+.cobo-mark {
+    width: 16px;
+    height: 16px;
+    background-position: -450px -150px;
+}
+
+.cobo-mark-2x {
+    width: 32px;
+    height: 32px;
+    background-position: -900px -300px;
+}
+
+.cobo-trophy {
+    width: 30px;
+    height: 32px;
+    background-position: 0px -200px;
+}
+
+.cobo-trophy-2x {
+    width: 60px;
+    height: 64px;
+    background-position: 0px -400px;
+}
+
+.cobo-onlineCourse {
+    width: 32px;
+    height: 32px;
+    background-position: -50px -200px;
+}
+
+.cobo-onlineCourse-2x {
+    width: 64px;
+    height: 64px;
+    background-position: -100px -400px;
+}
+
+.cobo-coursePackage {
+    width: 32px;
+    height: 32px;
+    background-position: -250px -200px;
+}
+
+.cobo-coursePackage-2x {
+    width: 64px;
+    height: 64px;
+    background-position: -500px -400px;
+}
+
+.cobo-onelineStudyPlan {
+    width: 32px;
+    height: 32px;
+    background-position: -100px -200px;
+}
+
+.cobo-onelineStudyPlan-2x {
+    width: 64px;
+    height: 64px;
+    background-position: -200px -400px;
+}
+
+.cobo-onelineExam {
+    width: 32px;
+    height: 32px;
+    background-position: -150px -200px;
+}
+
+.cobo-onelineExam-2x {
+    width: 64px;
+    height: 64px;
+    background-position: -300px -400px;
+}
+
+.cobo-onelineEva {
+    width: 32px;
+    height: 32px;
+    background-position: -350px -200px;
+}
+
+.cobo-onelineEva-2x {
+    width: 64px;
+    height: 64px;
+    background-position: -700px -400px;
+}
+
+.cobo-onelineCycleeva {
+    width: 32px;
+    height: 32px;
+    background-position: -300px -200px;
+}
+
+.cobo-onelineCycleeva-2x {
+    width: 64px;
+    height: 64px;
+    background-position: -600px -400px;
+}
+
+.cobo-offlineTraining {
+    width: 32px;
+    height: 32px;
+    background-position: -400px -200px;
+}
+
+.cobo-offlineTraining-2x {
+    width: 64px;
+    height: 64px;
+    background-position: -800px -400px;
+}
+
+.cobo-clock {
+    width: 16px;
+    height: 16px;
+    background-position: -450px -200px;
+}
+
+.cobo-clock-2x {
+    width: 32px;
+    height: 32px;
+    background-position: -900px -400px;
+}
+
+.cobo-more {
+    width: 9.5px;
+    height: 9.5px;
+    background-position: 0 -250px;
+}
+
+.cobo-more-2x {
+    width: 19px;
+    height: 19px;
+    background-position: 0 -500px;
+}
+
+.cobo-liveplan {
+    width: 32px;
+    height: 32px;
+    background-position: -50px -250px;
+}
+
+.cobo-liveplan-2x {
+    width: 64px;
+    height: 64px;
+    background-position: -100px -500px;
+}
+
+.cobo-vote {
+    width: 32px;
+    height: 32px;
+    background-position: -100px -250px;
+}
+
+.cobo-vote-2x {
+    width: 64px;
+    height: 64px;
+    background-position: -200px -500px;
+}
+
+.cobo-goldMedal {
+    width: 24.5px;
+    height: 35px;
+    background-position: -150px -250px;
+}
+
+.cobo-goldMedal-2x {
+    width: 49px;
+    height: 70px;
+    background-position: -300px -500px;
+}
+
+.cobo-silverMedal {
+    width: 24.5px;
+    height: 35px;
+    background-position: -200px -250px;
+}
+
+.cobo-silverMedal-2x {
+    width: 49px;
+    height: 70px;
+    background-position: -400px -500px;
+}
+
+.cobo-bronzeMedal {
+    width: 24.5px;
+    height: 35px;
+    background-position: -250px -250px;
+}
+
+.cobo-bronzeMedal-2x {
+    width: 49px;
+    height: 70px;
+    background-position: -500px -500px;
+}
+
+.cobo-clock2 {
+    width: 17px;
+    height: 16px;
+    background-position: -300px -250px;
+}
+
+.cobo-clock2-2x {
+    width: 34px;
+    height: 32px;
+    background-position: -600px -500px;
+}
+
+.cobo-cart2 {
+    width: 22px;
+    height: 22px;
+    background-position: -350px -250px;
+}
+
+.cobo-cart2-2x {
+    width: 44px;
+    height: 44px;
+    background-position: -700px -500px;
+}
+
+.cobo-xmark {
+    width: 9px;
+    height: 9px;
+    background-position: -400px -250px;
+}
+
+.cobo-xmark-2x {
+    width: 18px;
+    height: 18px;
+    background-position: -800px -500px;
+}
+
+.cobo-search {
+    width: 16px;
+    height: 16px;
+    background-position: -450px -250px;
+}
+
+.cobo-search-2x {
+    width: 32px;
+    height: 32px;
+    background-position: -900px -500px;
+}
+
+.cobo-closed {
+    width: 17px;
+    height: 2px;
+    background-position: 0px -300px;
+}
+
+.cobo-closed-2x {
+    width: 34px;
+    height: 4px;
+    background-position: 0px -600px;
+}
+
+.cobo-open {
+    width: 17px;
+    height: 17px;
+    background-position: -50px -300px;
+}
+
+.cobo-open-2x {
+    width: 34px;
+    height: 34px;
+    background-position: -100px -600px;
+}
+
+
+.cobo-store-offlineTraining {
+    width: 50px;
+    height: 50px;
+    background-position: -100px -300px;
+}
+
+.cobo-store-offlineTraining-2x {
+    width: 100px;
+    height: 100px;
+    background-position: -200px -600px;
+}
+
+.cobo-store-live {
+    width: 50px;
+    height: 50px;
+    background-position: -150px -300px;
+}
+
+.cobo-store-live-2x {
+    width: 100px;
+    height: 100px;
+    background-position: -300px -600px;
+}
+
+
+.cobo-store-new {
+    width: 50px;
+    height: 50px;
+    background-position: -200px -300px;
+}
+
+.cobo-store-new-2x {
+    width: 100px;
+    height: 100px;
+    background-position: -400px -600px;
+}
+
+
+.cobo-store-storage {
+    width: 50px;
+    height: 50px;
+    background-position: -250px -300px;
+}
+
+.cobo-store-storage-2x {
+    width: 100px;
+    height: 100px;
+    background-position: -500px -600px;
+}
+
+
+.cobo-store-recommend {
+    width: 50px;
+    height: 50px;
+    background-position: -300px -300px;
+}
+
+.cobo-store-recommend-2x {
+    width: 100px;
+    height: 100px;
+    background-position: -600px -600px;
+}
+
+.cobo-start-dark {
+    width: 13px;
+    height: 12px;
+    background-position: -350px -300px;
+}
+
+.cobo-start-dark-2x {
+    width: 26px;
+    height: 24px;
+    background-position: -700px -600px;
+}
+
+.cobo-start-light {
+    width: 13px;
+    height: 12px;
+    background-position: -400px -300px;
+}
+
+.cobo-start-light-2x {
+    width: 26px;
+    height: 24px;
+    background-position: -800px -600px;
+}
+
+.cobo-delete2 {
+    width: 12px;
+    height: 12px;
+    background-position: -450px -300px;
+}
+
+.cobo-delete2-2x {
+    width: 24px;
+    height: 24px;
+    background-position: -900px -600px;
+}
+
+.cobo-clock3 {
+    width: 12px;
+    height: 12px;
+    background-position: 0px -350px;
+}
+
+.cobo-clock3-2x {
+    width: 24px;
+    height: 24px;
+    background-position: 0px -700px;
+}
+
+.cobo-good {
+    width: 9px;
+    height: 9px;
+    background-position: -50px -350px;
+}
+
+.cobo-good-2x {
+    width: 18px;
+    height: 18px;
+    background-position: -100px -700px;
+}
+
+.cobo-user3 {
+    width: 10px;
+    height: 10px;
+    background-position: -100px -350px;
+}
+
+.cobo-user3-2x {
+    width: 20px;
+    height: 20px;
+    background-position: -200px -700px;
+}
+
+.cobo-excle {
+    width: 32px;
+    height: 32px;
+    background-position: -150px -350px;
+}
+
+.cobo-excle-2x {
+    width: 64px;
+    height: 64px;
+    background-position: -300px -700px;
+}
+
+.cobo-pdf {
+    width: 32px;
+    height: 32px;
+    background-position: -200px -350px;
+}
+
+.cobo-pdf-2x {
+    width: 64px;
+    height: 64px;
+    background-position: -400px -700px;
+}
+
+.cobo-ppt {
+    width: 32px;
+    height: 32px;
+    background-position: -250px -350px;
+}
+
+.cobo-ppt-2x {
+    width: 64px;
+    height: 64px;
+    background-position: -500px -700px;
+}
+
+.cobo-voice {
+    width: 32px;
+    height: 32px;
+    background-position: -300px -350px;
+}
+
+.cobo-voice-2x {
+    width: 64px;
+    height: 64px;
+    background-position: -600px -700px;
+}
+
+.cobo-image {
+    width: 32px;
+    height: 32px;
+    background-position: -350px -350px;
+}
+
+.cobo-image-2x {
+    width: 64px;
+    height: 64px;
+    background-position: -700px -700px;
+}
+
+.cobo-word {
+    width: 32px;
+    height: 32px;
+    background-position: -400px -350px;
+}
+
+.cobo-word-2x {
+    width: 64px;
+    height: 64px;
+    background-position: -800px -700px;
+}
+
+.cobo-video {
+    width: 32px;
+    height: 32px;
+    background-position: -450px -350px;
+}
+
+.cobo-video-2x {
+    width: 64px;
+    height: 64px;
+    background-position: -900px -700px;
+}
+
+.cobo-txt {
+    width: 32px;
+    height: 32px;
+    background-position: 0px -400px;
+}
+
+.cobo-txt-2x {
+    width: 64px;
+    height: 64px;
+    background-position: 0px -800px;
+}
+
+.cobo-zip {
+    width: 32px;
+    height: 32px;
+    background-position: -50px -400px;
+}
+
+.cobo-zip-2x {
+    width: 64px;
+    height: 64px;
+    background-position: -100px -800px;
+}
+
+.cobo-unrecognized {
+    width: 32px;
+    height: 32px;
+    background-position: -100px -400px;
+}
+
+.cobo-unrecognized-2x {
+    width: 64px;
+    height: 64px;
+    background-position: -200px -800px;
+}
+
+.cobo-filter {
+    width: 18px;
+    height: 18px;
+    background-position: -150px -400px;
+}
+
+.cobo-filter-2x {
+    width: 36px;
+    height: 36px;
+    background-position: -300px -800px;
+}
+
+.cobo-cared-off {
+    width: 24px;
+    height: 24px;
+    background-position: -200px -400px;
+}
+
+.cobo-cared-off-2x {
+    width: 48px;
+    height: 48px;
+    background-position: -400px -800px;
+}
+
+.cobo-cared-on {
+    width: 24px;
+    height: 24px;
+    background-position: -250px -400px;
+}
+
+.cobo-cared-on-2x {
+    width: 48px;
+    height: 48px;
+    background-position: -500px -800px;
+}
+
+
+.cobo-up-off {
+    width: 24px;
+    height: 24px;
+    background-position: -300px -400px;
+}
+
+.cobo-up-off-2x {
+    width: 48px;
+    height: 48px;
+    background-position: -600px -800px;
+}
+
+.cobo-up-on {
+    width: 24px;
+    height: 24px;
+    background-position: -350px -400px;
+}
+
+.cobo-up-on-2x {
+    width: 48px;
+    height: 48px;
+    background-position: -700px -800px;
+}
+
+.cobo-message {
+    width: 9px;
+    height: 9px;
+    background-position: -400px -400px;
+}
+
+.cobo-message-2x {
+    width: 18px;
+    height: 18px;
+    background-position: -800px -800px;
+}
+
+.cobo-forum-1 {
+    width: 16px;
+    height: 13.5px;
+    background-position: -450px -400px;
+}
+
+.cobo-forum-1-2x {
+    width: 32px;
+    height: 27px;
+    background-position: -900px -800px;
+}
+
+.cobo-forum-2 {
+    width: 16px;
+    height: 13.5px;
+    background-position: -0px -450px;
+}
+
+.cobo-forum-2-2x {
+    width: 32px;
+    height: 27px;
+    background-position: -0px -900px;
+}
+
+.cobo-forum-3 {
+    width: 16px;
+    height: 13.5px;
+    background-position: -50px -450px;
+}
+
+.cobo-forum-3-2x {
+    width: 32px;
+    height: 27px;
+    background-position: -100px -900px;
+}
+
+.cobo-choose-image {
+    width: 18px;
+    height: 18px;
+    background-position: -100px -450px;
+}
+
+.cobo-choose-image-2x {
+    width: 36px;
+    height: 36px;
+    background-position: -200px -900px;
+}
+
+.cobo-camera {
+    width: 22px;
+    height: 18px;
+    background-position: -150px -450px;
+}
+
+.cobo-camera-2x {
+    width: 44px;
+    height: 36px;
+    background-position: -300px -900px;
+}
+
+.cobo-keybord {
+    width: 24px;
+    height: 18px;
+    background-position: -200px -450px;
+}
+
+.cobo-keybord-2x {
+    width: 48px;
+    height: 36px;
+    background-position: -400px -900px;
+}
+
+.cobo-v3-folder {
+    width: 18px;
+    height: 18px;
+    background-position: -250px -450px;
+}
+
+.cobo-v3-folder-2x {
+    width: 36px;
+    height: 36px;
+    background-position: -500px -900px;
+}
+
+.cobo-v3-course {
+    width: 18px;
+    height: 18px;
+    background-position: -300px -450px;
+}
+
+.cobo-v3-course-2x {
+    width: 36px;
+    height: 36px;
+    background-position: -600px -900px;
+}
+
+.cobo-v3-game {
+    width: 18px;
+    height: 18px;
+    background-position: -350px -450px;
+}
+
+.cobo-v3-game-2x {
+    width: 36px;
+    height: 36px;
+    background-position: -700px -900px;
+}
+
+.cobo-v3-exam {
+    width: 18px;
+    height: 18px;
+    background-position: -400px -450px;
+}
+
+.cobo-v3-exam-2x {
+    width: 36px;
+    height: 36px;
+    background-position: -800px -900px;
+}
+
+.cobo-v3-eva {
+    width: 18px;
+    height: 18px;
+    background-position: -450px -450px;
+}
+
+.cobo-v3-eva-2x {
+    width: 36px;
+    height: 36px;
+    background-position: -900px -900px;
+}
+
+.cobo-v3-cycleeva {
+    width: 18px;
+    height: 18px;
+    background-position: 0px -500px;
+}
+
+.cobo-v3-cycleeva-2x {
+    width: 36px;
+    height: 36px;
+    background-position: 0px -1000px;
+}
+
+.cobo-v3-training {
+    width: 18px;
+    height: 18px;
+    background-position: -50px -500px;
+}
+
+.cobo-v3-training-2x {
+    width: 36px;
+    height: 36px;
+    background-position: -100px -1000px;
+}
+
+.cobo-v3-book {
+    width: 18px;
+    height: 18px;
+    background-position: -100px -500px;
+}
+
+.cobo-v3-book-2x {
+    width: 36px;
+    height: 36px;
+    background-position: -200px -1000px;
+}
+
+.cobo-v3-pencile {
+    width: 18px;
+    height: 18px;
+    background-position: -150px -500px;
+}
+
+.cobo-v3-pencile-2x {
+    width: 36px;
+    height: 36px;
+    background-position: -300px -1000px;
+}
+
+.cobo-v3-heart {
+    width: 18px;
+    height: 18px;
+    background-position: -200px -500px;
+}
+
+.cobo-v3-heart-2x {
+    width: 36px;
+    height: 36px;
+    background-position: -400px -1000px;
+}
+
+.cobo-v3-chat {
+    width: 18px;
+    height: 18px;
+    background-position: -250px -500px;
+}
+
+.cobo-v3-chat-2x {
+    width: 36px;
+    height: 36px;
+    background-position: -500px -1000px;
+}
+
+.cobo-v3-docs {
+    width: 18px;
+    height: 18px;
+    background-position: -300px -500px;
+}
+
+.cobo-v3-docs-2x {
+    width: 36px;
+    height: 36px;
+    background-position: -600px -1000px;
+}
+
+.cobo-v3-up {
+    width: 18px;
+    height: 18px;
+    background-position: -350px -500px;
+}
+
+.cobo-v3-up-2x {
+    width: 36px;
+    height: 36px;
+    background-position: -700px -1000px;
+}
+
+.cobo-v3-planing {
+    width: 18px;
+    height: 18px;
+    background-position: -400px -500px;
+}
+
+.cobo-v3-planing-2x {
+    width: 36px;
+    height: 36px;
+    background-position: -800px -1000px;
+}
+
+.cobo-v3-add {
+    width: 18px;
+    height: 18px;
+    background-position: -450px -500px;
+}
+
+.cobo-v3-add-2x {
+    width: 36px;
+    height: 36px;
+    background-position: -900px -500px;
+}
+
+.cobo-v3-on {
+    width: 18px;
+    height: 18px;
+    background-position: 0px -550px;
+}
+
+.cobo-v3-on-2x {
+    width: 36px;
+    height: 36px;
+    background-position: 0px -1100px;
+}
+
+.cobo-v3-video {
+    width: 50px;
+    height: 50px;
+    background-position: -50px -550px;
+}
+
+.cobo-v3-video-2x {
+    width: 100px;
+    height: 100px;
+    background-position: -100px -1100px;
+}
+
+.cobo-v3-success {
+    width: 50px;
+    height: 50px;
+    background-position: -100px -550px;
+}
+
+.cobo-v3-success-2x {
+    width: 100px;
+    height: 100px;
+    background-position: -200px -1100px;
+}
+
+.cobo-v3-from {
+    width: 8px;
+    height: 8px;
+    background-position: -150px -550px;
+}
+
+.cobo-v3-from-2x {
+    width: 16px;
+    height: 16px;
+    background-position: -300px -1100px;
+}
+
+.cobo-v3-home {
+    width: 8px;
+    height: 8px;
+    background-position: -200px -550px;
+}
+
+.cobo-v3-home-2x {
+    width: 16px;
+    height: 16px;
+    background-position: -400px -1100px;
+}
+
+.cobo-v3-coursecenter {
+    width: 8px;
+    height: 8px;
+    background-position: -250px -550px;
+}
+
+.cobo-v3-coursecenter-2x {
+    width: 16px;
+    height: 16px;
+    background-position: -500px -1100px;
+}
+
+.cobo-v3-mobile {
+    width: 8px;
+    height: 8px;
+    background-position: -300px -550px;
+}
+
+.cobo-v3-mobile-2x {
+    width: 16px;
+    height: 16px;
+    background-position: -600px -1100px;
+}
+
+.cobo-circle-right {
+    width: 16px;
+    height: 16px;
+    background-position: -350px -550px;
+}
+
+.cobo-circle-right-2x {
+    width: 32px;
+    height: 32px;
+    background-position: -700px -1100px;
+}
+
+.cobo-v3-stars-on {
+    width: 24px;
+    height: 24px;
+    background-position: -400px -550px;
+}
+
+.cobo-v3-stars-on-2x {
+    width: 48px;
+    height: 48px;
+    background-position: -800px -1100px;
+}
+
+.cobo-v3-stars-off {
+    width: 24px;
+    height: 24px;
+    background-position: -450px -550px;
+}
+
+.cobo-v3-stars-off-2x {
+    width: 48px;
+    height: 48px;
+    background-position: -900px -1100px;
+}
+
+.cobo-v3-stars-halfOn {
+    width: 24px;
+    height: 24px;
+    background-position: 0px -600px;
+}
+
+.cobo-v3-stars-halfOn-2x {
+    width: 48px;
+    height: 48px;
+    background-position: 0px -1200px;
+}
+
+.cobo-v3-menu {
+    width: 14px;
+    height: 14px;
+    background-position: -50px -600px;
+}
+
+.cobo-v3-menu-2x {
+    width: 28px;
+    height: 28px;
+    background-position: -100px -1200px;
+}
+
+.cobo-v3-prev {
+    width: 9px;
+    height: 15px;
+    background-position: -100px -600px;
+}
+
+.cobo-v3-prev-2x {
+    width: 18px;
+    height: 30px;
+    background-position: -200px -1200px;
+}
+
+.cobo-v3-next {
+    width: 9px;
+    height: 15px;
+    background-position: -150px -600px;
+}
+
+.cobo-v3-next-2x {
+    width: 18px;
+    height: 30px;
+    background-position: -300px -1200px;
+}
+
+.cobo-vote-up {
+    width: 21px;
+    height: 23px;
+    background-position: -200px -600px;
+}
+
+.cobo-vote-up-2x {
+    width: 42px;
+    height: 46px;
+    background-position: -400px -1200px;
+}
+
+.cobo-vote-off {
+    width: 21px;
+    height: 23px;
+    background-position: -250px -600px;
+}
+
+.cobo-vote-off-2x {
+    width: 42px;
+    height: 46px;
+    background-position: -500px -1200px;
+}
+
+.cobo-arrow-up {
+    width: 12px;
+    height: 6px;
+    background-position: -300px -600px;
+}
+
+.cobo-arrow-up-2x {
+    width: 24px;
+    height: 12px;
+    background-position: -600px -1200px;
+}
+
+.cobo-arrow-down {
+    width: 12px;
+    height: 6px;
+    background-position: -350px -600px;
+}
+
+.cobo-arrow-down-2x {
+    width: 24px;
+    height: 12px;
+    background-position: -700px -1200px;
+}
+
+
+.cobo-course-status1 {
+    width: 14px;
+    height: 14px;
+    background-position: -400px -600px;
+}
+
+.cobo-course-status1-2x {
+    width: 28px;
+    height: 28px;
+    background-position: -800px -1200px;
+}
+
+.cobo-course-status2 {
+    width: 14px;
+    height: 14px;
+    background-position: -450px -600px;
+}
+
+.cobo-course-status2-2x {
+    width: 28px;
+    height: 28px;
+    background-position: -900px -1200px;
+}
+
+.cobo-course-status3 {
+    width: 14px;
+    height: 14px;
+    background-position: 0px -650px;
+}
+
+.cobo-course-status3-2x {
+    width: 28px;
+    height: 28px;
+    background-position: 0px -1300px;
+}
+
+.cobo-course-status4 {
+    width: 14px;
+    height: 14px;
+    background-position: -50px -650px;
+}
+
+.cobo-course-status4-2x {
+    width: 28px;
+    height: 28px;
+    background-position: -100px -1300px;
+}
+
+.cobo-heart-off {
+    width: 19px;
+    height: 17px;
+    background-position: -100px -650px;
+}
+
+.cobo-heart-off-2x {
+    width: 38px;
+    height: 34px;
+    background-position: -200px -1300px;
+}
+
+.cobo-heart-on {
+    width: 19px;
+    height: 17px;
+    background-position: -150px -650px;
+}
+
+.cobo-heart-on-2x {
+    width: 38px;
+    height: 34px;
+    background-position: -300px -1300px;
+}
+
+
+.cobo-user6 {
+    width: 10px;
+    height: 11px;
+    background-position: -250px -650px;
+}
+
+.cobo-user6-2x {
+    width: 20px;
+    height: 22px;
+    background-position: -500px -1300px;
+}
+
+
+.cobo-shop {
+    width: 10px;
+    height: 10px;
+    background-position: -300px -650px;
+}
+
+.cobo-shop-2x {
+    width: 20px;
+    height: 20px;
+    background-position: -600px -1300px;
+}

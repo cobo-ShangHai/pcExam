@@ -1,0 +1,93 @@
+<ng-container *ngIf="info">
+  <div class="bgwhite">
+    <!-- 封面 -->
+    <div class="cover lineh0">
+      <img src="/ng/assets/images/coboUnvariable/default_exam.jpg" alt="">
+    </div>
+
+    <div class="mg10">
+      <div class="fsize16 mainTitleColor fontB line2Over pad_10_b">{{info.name}}</div>
+      <div class="desBox  fsize14 secondaryInfoColor line5Over" (click)="showAllBriefText(info.des1)" [innerHtml]="info.des1 | safeHtml "></div>
+    </div>
+
+    <div class="mg10 fsize12 secondaryInfoColor">
+      <div class="flex item-c">
+        <div class="flex-width-50">
+          <span>开始日期：</span>
+          <span>{{info.begin | timeStandard:'standard'}}</span>
+        </div>
+        <div class="flex-width-50">
+          <span>截至日期：</span>
+          <span>{{info.end | timeStandard:'standard'}}</span>
+        </div>
+      </div>
+      <div class="flex item-c ">
+        <div class="flex-width-50">
+          <span>考试时间：</span>
+          <span *ngIf="info.time_limit>0">{{info.time_limit}}分钟</span>
+          <span *ngIf="info.time_limit===0">无限制</span>
+        </div>
+        <div class="flex-width-50">
+          <span>通过百分制：</span>
+          <span>{{info.pass_score}}</span>
+        </div>
+      </div>
+    </div>
+
+    <!-- 考试状态说明 -->
+    <ng-container *ngIf="info.notStart || info.isEnd">
+      <div class="separte_line_b separte_line_t text-c fsize14 status_text">
+        <ng-container *ngIf="info.notStart">
+          <span>距离开始考试还有</span>
+          <span>{{info.distanceTime}}</span>
+        </ng-container>
+        <ng-container *ngIf="info.isEnd">
+          <span>本次考试已经结束</span>
+          <span *ngIf="info.records && info.records.length===0">,你没有参加</span>
+          <span>!</span>
+        </ng-container>
+      </div>
+    </ng-container>
+
+    <!-- 考试按钮 -->
+    <div class="pad10">
+      <ng-container *ngIf="!(!info.available ||  info.remain_times <= 0 ||   info.notStart || info.isEnd) ">
+        <ng-container *ngIf="underway && !submitted">
+          <!-- 没有时间限制 -->
+          <ng-container *ngIf="info.time_limit===0">
+            <div class="pad13 fsize16 subtn-success colorw text-c rdius" (click)="takeTrail(info.eid)">继续考试</div>
+          </ng-container>
+          <!-- 有时间限制 -->
+          <ng-container *ngIf="info.time_limit>0">
+            <ng-container *ngIf="info.records && info.records.length>0">
+              <ng-container *ngIf="info.records[0].available_time>0">
+                <div class="pad13 fsize16 subtn-success colorw text-c rdius" (click)="takeTrail(info.eid)">继续考试</div>
+              </ng-container>
+              <ng-container *ngIf="info.records[0].available_time===-1">
+                <div class="pad13 fsize16 subtn-success colorw text-c rdius" (click)="postAnswer()">提交试卷</div>
+              </ng-container>
+            </ng-container>
+          </ng-container>
+        </ng-container>
+        <ng-container *ngIf="!underway && submitted">
+          <div class="pad13 fsize16 subtn-success colorw text-c rdius" (click)="postAnswer()">提交试卷</div>
+        </ng-container>
+        <ng-container *ngIf="!underway && !submitted">
+          <div class="pad13 fsize16 subtn-success colorw text-c rdius" (click)="takeTrail(info.eid)">开始考试</div>
+        </ng-container>
+      </ng-container>
+      <ng-container *ngIf="(!info.available ||  info.remain_times <= 0 ||   info.notStart || info.isEnd)  ">
+        <div class="pad13 fsize16 subtn-falid colorw text-c rdius">开始考试</div>
+      </ng-container>
+    </div>
+
+    <div class="pad_10_b">
+      <div class="pad10 fsize14 lineh14 secondaryInfoColor text-c">
+        <span>您可以参加考试{{info.max_times}}次，剩余</span>
+        <span class="colorR">{{info.remain_times}}</span>
+        <span>次</span>
+      </div>
+    </div>
+
+  </div>
+</ng-container>

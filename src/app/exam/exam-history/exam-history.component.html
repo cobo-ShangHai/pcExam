@@ -1,0 +1,69 @@
+<div class="pageBlock pageBgColor pos_r">
+  <div class="pageBlock shadow-bottom fixedTop bgwhite">
+    <app-subnav showBack="true" title="{{pageTitle}}"></app-subnav>
+  </div>
+  <!-- 没有获取任何数据 -->
+  <ng-container *ngIf="!_info">
+    <div class="box_padding box-size-b height_100_vh">
+      <ng-container>
+        <app-loading-animation-page></app-loading-animation-page>
+      </ng-container>
+    </div>
+  </ng-container>
+  <!-- 至少加载过一次数据 -->
+  <ng-container *ngIf="_info">
+    <div class="pad_t_50 pad_b_50">
+      <ng-container *ngIf="_info && _info.ques && _info.ques.length>0">
+        <ng-container *ngFor="let item of _info.ques;let index = index;">
+          <div [hidden]="_curr !== index">
+            <div *ngIf=" (item.type === 1 ||  item.type === 2)">
+              <app-question-choice-statistics [question]="item" [index]="index" [trailType]="'exam'" [showRightOrWrong]="_info.showRightOrWrong"
+                [showAnswer]="_info.showAnswer" [showScore]="_info.showValue">
+              </app-question-choice-statistics>
+            </div>
+            <div *ngIf="(item.type === 3 ||  item.type === 6) ">
+              <app-question-choice-statistics [question]="item" [index]="index" [trailType]="'exam'" [showRightOrWrong]="_info.showRightOrWrong"
+                [showAnswer]="_info.showAnswer" [showScore]="_info.showValue">
+              </app-question-choice-statistics>
+            </div>
+            <div *ngIf="item.type === 5 ">
+              <app-question-essay-statistics [question]="item" [index]="index" [trailType]="'exam'" [showRightOrWrong]="_info.showRightOrWrong"
+                [showAnswer]="_info.showAnswer" [showScore]="_info.showValue"></app-question-essay-statistics>
+            </div>
+            <div *ngIf="item.type === 10 ">
+              <app-question-order-statistics [question]="item" [index]="index" [trailType]="'exam'" [showRightOrWrong]="_info.showRightOrWrong"
+                [showAnswer]="_info.showAnswer" [showScore]="_info.showValue"></app-question-order-statistics>
+            </div>
+            <ng-container *ngIf="item.type === 4 ">
+              <app-question-fill-gap-statistics [question]="item" [index]="index" [trailType]="'exam'" [showRightOrWrong]="_info.showRightOrWrong"
+                [showAnswer]="_info.showAnswer" [showScore]="_info.showValue">
+              </app-question-fill-gap-statistics>
+            </ng-container>
+          </div>
+        </ng-container>
+      </ng-container>
+
+      <ng-container *ngIf="_info && _info.ques">
+        <div class="fiexdBottom shadow-top footer bgwhite color9 pad13 box-size-b fszie15 flex item-c justify-b">
+          <div class="flex-width-33">
+            <div class="flex item-c" *ngIf="_curr>0" (click)="prevQues()">
+              <div class="lineh0 pad_5_r ">
+                <i class="cobo-icon cobo-v3-prev"></i>
+              </div>
+              <div class=" lineh15 ">上一题</div>
+            </div>
+          </div>
+          <div class="flex-width-34 text-c">第{{_curr+1}}/{{_info.ques.length}}题</div>
+          <div class="flex-width-33">
+            <div class="flex item-c f-right" *ngIf="_curr+1<_info.ques.length" (click)="nextQues()">
+              <div class="lineh15 ">下一题</div>
+              <div class="lineh0 pad_5_l ">
+                <i class="cobo-icon cobo-v3-next "></i>
+              </div>
+            </div>
+          </div>
+        </div>
+      </ng-container>
+    </div>
+  </ng-container>
+</div>

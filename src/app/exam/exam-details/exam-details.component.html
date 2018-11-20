@@ -1,0 +1,34 @@
+<div class="pageBlock pageBgColor pos_r">
+  <div class="pageBlock shadow-bottom fixedTop bgwhite">
+    <app-subnav showBack="true" [title]="'考试'"></app-subnav>
+    <div class="enshrine" *ngIf="_sotredUp">
+      <div class="flex item-c">
+        <app-store-up [collected]="_sotredUp"></app-store-up>
+      </div>
+    </div>
+  </div>
+
+  <!-- 没有获取任何数据 -->
+  <ng-container *ngIf="!_breifInfo">
+    <app-loading-animation-page></app-loading-animation-page>
+  </ng-container>
+
+  <!-- 获取详情 -->
+  <ng-container *ngIf="_breifInfo">
+    <div class="pad_t_44">
+      <!-- 没有权限 -->
+      <ng-container *ngIf=" _breifInfo.status==-20">
+        <app-permission-denied [deniedInfo]="_breifInfo"></app-permission-denied>
+      </ng-container>
+
+      <ng-container *ngIf="_breifInfo.status==0">
+        <!-- 简介 -->
+        <app-exam-details-abstract [info]="_breifInfo" [underway]="_isUnderway" [submitted]="_isSubmitted" (change)="repostAnswer($event)">
+        </app-exam-details-abstract>
+        <!-- 考试列表 -->
+        <app-exam-details-list [info]="_breifInfo" [underway]="_isUnderway" [submitted]="_isSubmitted" (change)="repostAnswer($event)">
+        </app-exam-details-list>
+      </ng-container>
+    </div>
+  </ng-container>
+</div>

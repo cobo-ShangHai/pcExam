@@ -1,0 +1,82 @@
+<ng-container *ngIf="info && info.records && info.records.length>0">
+  <div class="bgwhite">
+    <div class="flex item-c">
+      <div class="borderTextBlock"></div>
+      <div class="pad_10_l fsize16 lineh16 mainTitleColor fontB">考试纪录</div>
+    </div>
+    <ng-container *ngIf="info.records && info.records.length>0">
+      <ng-container *ngFor="let record of info.records; let last = last">
+        <div class="mg_10_l mg_10_r separte_line_b secondaryInfoColor" [ngClass]="{'border-none': last}">
+          <div class="flex item-c pad_10_t pad_10_b fsize12" (click)="clickRecord(record)">
+            <div class="flex-grow-1">
+              <div class="flex item-c">
+                <div class="lineh0"></div>
+                <div class="pad_10_l lineh12">
+                  <span>时间：</span>
+                  <span>{{record.creation | timeStandard:'standard'}}</span>
+                </div>
+              </div>
+              <div class="flex item-c pad_5_b pad_5_t">
+                <div class="lineh0"></div>
+                <div class="pad_10_l lineh12">
+                  <span>用时：</span>
+                  <span>{{record.time}}</span>
+                </div>
+              </div>
+              <div class="flex item-c">
+                <div class="lineh0"></div>
+                <div class="pad_10_l lineh12 flex item-c">
+                  <div>分数：</div>
+                  <ng-container *ngIf="info.showScore && info.publishScore && record.score !==undefined">
+                    <div>{{record.score}}</div>
+                    <div *ngIf=" (record.paper_status_v4 === 1 ||  record.paper_status_v4 === 3)  ">分</div>
+                  </ng-container>
+                  <ng-container *ngIf="!(info.showScore && info.publishScore && record.score !==undefined)">-</ng-container>
+                </div>
+              </div>
+            </div>
+            <div class="flex-shrink-0">
+              <ng-container [ngSwitch]="record.paper_status_v4">
+                <ng-container *ngSwitchCase="'1'">
+                  <ng-container *ngIf="(info.pass_score!== '不计是否通过' &&  info.showPassed && info.publishScore)">
+                    <div class="normal_btm text-c colorw  bgr">未通过</div>
+                  </ng-container>
+                </ng-container>
+                <ng-container *ngSwitchCase="'3'">
+                  <ng-container *ngIf="(info.pass_score!== '不计是否通过' &&  info.showPassed && info.publishScore)">
+                    <div class="normal_btm text-c colorw  bgg">通过</div>
+                  </ng-container>
+                </ng-container>
+                <ng-container *ngSwitchCase="'4'">
+                  <div class="normal_btm text-c colorw  bggreay">批阅中</div>
+                </ng-container>
+                <ng-container *ngSwitchCase="'2'">
+                  <!-- 进行中的考试 -->
+                  <ng-container *ngIf="underway">
+                    <!-- 没有时间限制 -->
+                    <ng-container *ngIf="info.time_limit===0">
+                      <div class="normal_btm text-c colorw bgb">进行中</div>
+                    </ng-container>
+                    <!-- 有时间限制 -->
+                    <ng-container *ngIf="info.time_limit>0">
+                      <ng-container *ngIf="record.available_time>0">
+                        <div class="normal_btm text-c colorw bgb">进行中</div>
+                      </ng-container>
+                      <ng-container *ngIf="record.available_time===-1">
+                        <div class="normal_btm text-c colorw bgy">未交卷</div>
+                      </ng-container>
+                    </ng-container>
+                  </ng-container>
+                  <!-- 提交失败 -->
+                  <ng-container *ngIf="submitted">
+                    <div class="normal_btm text-c colorw bgy">未交卷</div>
+                  </ng-container>
+                </ng-container>
+              </ng-container>
+            </div>
+          </div>
+        </div>
+      </ng-container>
+    </ng-container>
+  </div>
+</ng-container>

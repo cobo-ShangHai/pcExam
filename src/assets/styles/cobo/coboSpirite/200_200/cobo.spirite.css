@@ -1,0 +1,23 @@
+.cobo-icon-200 {
+    background: url(cobo.spirites.png);
+    display: inline-block;
+    background-size: 2000px auto;
+}
+
+.cobo-passed {
+    width: 71px;
+    height: 71px;
+    background-position: 0 0;
+}
+
+.cobo-smile {
+    width: 61px;
+    height: 60px;
+    background-position: -200px 0;
+}
+
+.cobo-locker {
+    width: 42px;
+    height: 55px;
+    background-position: -400px 0;
+}

@@ -1,0 +1,49 @@
+<div class="bgwhite" *ngIf="question">
+  <div class="pad13 mainTitleColor fsize13 flex item-c separte_line_b">
+    <div class="pad_5_r">{{index+1}}.</div>
+    <div class="pad_5_r">问答题</div>
+    <div class="pad_5_r " *ngIf="showScore">({{question.value || 0}}分)</div>
+    <div class="pad_5_r colorr" *ngIf="question.required">(必答)</div>
+  </div>
+  <div *ngIf="trailType === 'cycleeva' || trailType === 'eva'">
+    <div class="pad13 fsize12 secondaryInfoColor separte_line_b" *ngIf="showGroup">
+      评估项：{{question.group_name}}
+    </div>
+  </div>
+  <div class="pad13 mainTitleColor fsize15" [innerHtml]="question.des | safeHtml"></div>
+
+  <ng-container *ngIf="trailType === 'cycleeva' || trailType === 'eva' ">
+    <ng-container *ngIf="question.answer_detail && question.answer_detail.length">
+      <ng-container *ngFor="let ans of question.answer_detail;let last = last">
+        <div class="flex  pad13 separte_line_b" [ngClass]="{'border-none':last}">
+          <div class="photoBox flex-shrink-0 lineh0">
+            <img [src]="ans.photo" class="circleImage" *ngIf="ans.photo" alt="">
+          </div>
+          <div class="pad_13_l flex-grow-1">
+            <div class="pad_13_b">{{ans.name}}</div>
+            <div class="fsize12">{{ans.answer}}</div>
+          </div>
+        </div>
+      </ng-container>
+    </ng-container>
+  </ng-container>
+
+  <ng-container *ngIf="trailType === 'exam' ">
+    <div class="pad13 fsize14 secondaryInfoColor separte_line_t">
+      <div *ngIf="showRightOrWrong">
+        <span *ngIf="question.score<=0" class="colorr">回答错误</span>
+        <span *ngIf="question.score>0" class="colorg">回答正确</span>
+      </div>
+      <div class="showAnswer">
+        <span>正确答案：</span>
+        <span *ngFor="let item of question.correctAnswer">{{item }}</span>
+      </div>
+      <div class="">
+        <span>你的答案：</span>
+        <span *ngFor="let item of question.yourAnswer">{{item }}</span>
+      </div>
+    </div>
+  </ng-container>
+
+
+</div>

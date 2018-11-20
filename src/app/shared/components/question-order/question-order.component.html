@@ -1,0 +1,30 @@
+<div class="bgwhite" *ngIf="question">
+  <div class="pad13 mainTitleColor fsize13 flex item-c separte_line_b">
+    <div class="pad_5_r">{{index+1}}.</div>
+    <div class="pad_5_r">排序题</div>
+    <div class="pad_5_r " *ngIf="showScore">({{question.value || 0}}分)</div>
+    <div class="pad_5_r colorr" *ngIf="question.required">(必答)</div>
+  </div>
+  <div *ngIf="trailType === 'cycleeva' || trailType === 'eva'">
+    <div class="pad13 fsize12 secondaryInfoColor separte_line_b" *ngIf="showGroup">
+      <div>评估项：{{question.group_name}}</div>
+      <div>注意事项：直接拖动条目可以上下移动</div>
+    </div>
+  </div>
+  <div class="pad13 mainTitleColor fsize15" [innerHtml]="question.des | safeHtml"></div>
+  <div class="choiceBox color6 pad_13_l  pad_13_r pad_13_b">
+    <ng-container *ngIf=" question.choices &&  question.choices.length>0">
+      <div class="list-group" [sortablejs]="question.choices" [sortablejsOptions]="eventOptions">
+        <ng-container *ngFor="let item of question.choices; let index = index;">
+          <div class="flex pad_13_b">
+            <div class="choice_label text-c flex-shrink-0 label_on">
+              <span *ngIf="trailType === 'exam'">{{item.inx | indextochar }}</span>
+              <span *ngIf="trailType !== 'exam'">{{item.label}}</span>
+             </div>
+            <div class="choiceContent flex-grow-1" [innerHtml]="item.des | safeHtml"></div>
+          </div>
+        </ng-container>
+      </div>
+    </ng-container>
+  </div>
+</div>

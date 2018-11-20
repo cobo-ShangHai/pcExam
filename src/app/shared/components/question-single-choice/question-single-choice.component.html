@@ -1,0 +1,25 @@
+<div class="bgwhite" *ngIf="question">
+  <div class="pad13 mainTitleColor fsize13 flex item-c separte_line_b">
+    <div class="pad_5_r">{{index+1}}.</div>
+    <div class="pad_5_r">
+      <span *ngIf="!((trailType === 'exam' || trailType === 'exercise') &&  question.type === 1)">单选题</span>
+      <span *ngIf=" ((trailType === 'exam' || trailType === 'exercise') &&  question.type === 1) ">对错题</span>
+    </div>
+    <div class="pad_5_r" *ngIf="showScore">({{question.value || 0}}分)</div>
+    <div class="pad_5_r colorr" *ngIf="question.required">(必答)</div>
+  </div>
+  <div *ngIf="trailType === 'cycleeva' || trailType === 'eva' ">
+    <div class="pad13 fsize12 secondaryInfoColor separte_line_b" *ngIf="showGroup">
+      评估项:{{question.group_name}}
+    </div>
+  </div>
+  <div class="pad13 mainTitleColor fsize15" [innerHtml]="question.des | safeHtml"></div>
+  <div class="choiceBox color6 pad_13_l  pad_13_r">
+    <ng-container *ngIf="question.choices && question.choices.length>0">
+      <div class="flex pad_13_b" *ngFor="let item of question.choices ; let index  = index;" (click)="changeAnswer(index)">
+        <div class="choice_label text-c flex-shrink-0" [ngClass]="{'label_on':flags[index].flag ,'label_off':!flags[index].flag  }">{{index | indextochar }} </div>
+        <div class="choiceContent" [innerHtml]="item.des | safeHtml"></div>
+      </div>
+    </ng-container>
+  </div>
+</div>

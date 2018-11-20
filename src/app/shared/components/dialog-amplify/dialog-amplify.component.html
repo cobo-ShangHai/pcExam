@@ -1,0 +1,12 @@
+<h3 mat-dialog-title>{{data.title}}</h3>
+<mat-dialog-content>
+<div *ngIf="data">
+  <ng-container *ngIf="data.type === 'image' ">
+    <img [src]="data.content" alt="">
+  </ng-container>
+
+  <ng-container *ngIf="data.type === 'text' ">
+    <div [innerHtml]="data.content | safeHtml"></div>
+  </ng-container>
+</div>
+</mat-dialog-content>

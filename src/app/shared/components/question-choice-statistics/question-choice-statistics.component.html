@@ -1,0 +1,67 @@
+<div class="bgwhite" *ngIf="question">
+  <div class="pad13 mainTitleColor fsize13 flex item-c separte_line_b">
+    <div class="pad_5_r">{{index+1}}.</div>
+    <div class="pad_5_r">
+      <span *ngIf=" question.type === 1  "> 对错题 </span>
+      <span *ngIf=" question.type === 2 || question.type === 'MULTI_CHOICE' ">单选题</span>
+      <span *ngIf="question.type === 3 || question.type === 'SINGLE_CHOICE'  ">多选题</span>
+      <span *ngIf=" question.type === 6  "> 不定项选择题 </span>
+    </div>
+    <div class="pad_5_r " *ngIf="showScore">({{question.value || 0}}分)</div>
+    <div class="pad_5_r colorr" *ngIf="question.required">(必答)</div>
+  </div>
+
+  <div *ngIf="trailType === 'cycleeva' || trailType === 'eva' ">
+    <div class="pad13 fsize12 secondaryInfoColor separte_line_b" *ngIf="showGroup">
+      评估项：{{question.group_name}}
+    </div>
+  </div>
+
+  <div class="pad13 mainTitleColor fsize15" [innerHtml]="question.des | safeHtml"></div>
+
+  <div class="choiceBox color6 pad_13_l  pad_13_r">
+    <ng-container *ngIf="question.choices && question.choices.length>0">
+      <ng-container *ngFor="let item of question.choices ; let index  = index;">
+        <div class="flex pad_13_b">
+          <div class="choice_label text-c label_off flex-shrink-0">{{index | indextochar }} </div>
+          <div class="choiceContent" [innerHtml]="item.des | safeHtml"></div>
+        </div>
+      </ng-container>
+    </ng-container>
+  </div>
+
+  <ng-container *ngIf="trailType === 'cycleeva' || trailType === 'eva' ">
+    <div class="pad13 fsize12 secondaryInfoColor separte_line_t">
+      <ng-container *ngFor="let item of question.choices ; let index  = index;">
+        <div class="flex item-c">
+          <div class="flex-shrink-0 text-l textBox2">{{index | indextochar }}:</div>
+          <div class="flex-grow-1 pad_13_r">
+            <mat-progress-bar mode="determinate" value="{{item.rate*100 || 0}}"></mat-progress-bar>
+          </div>
+          <div class="flex-shrink-0 textBox">
+            <span *ngIf="item.rate > 0">{{item.rate*100 | number:'1.0-1'}}%</span>
+            <span *ngIf="item.rate === 0">0%</span>
+          </div>
+        </div>
+      </ng-container>
+    </div>
+  </ng-container>
+
+  <ng-container *ngIf="trailType === 'exam' ">
+    <div class="pad13 fsize14 secondaryInfoColor separte_line_t">
+        <div *ngIf="showRightOrWrong">
+          <span *ngIf="question.score<=0" class="colorr">回答错误</span>
+          <span *ngIf="question.score>0" class="colorg">回答正确</span>
+        </div>
+        <div *ngIf="showAnswer">
+          <span>正确答案：</span>
+          <span *ngFor="let item of question.correctAnswer">{{item | indextochar }}</span>
+        </div>
+        <div class="">
+          <span>你的答案：</span>
+          <span *ngFor="let item of question.yourAnswer">{{item | indextochar }}</span>
+        </div>
+    </div>
+  </ng-container>
+
+</div>

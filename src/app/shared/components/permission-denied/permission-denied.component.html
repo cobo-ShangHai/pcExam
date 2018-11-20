@@ -1,0 +1,12 @@
+<ng-container *ngIf="deniedInfo">
+  <div class="lineh0 cover bgwhite">
+    <img [src]="deniedInfo.imageUrl" alt="">
+  </div>
+  <div class="pad13 fsize15 mainTitleColor fontB">{{deniedInfo.title}}</div>
+  <div class="deniedBox text-c">
+    <div class="text-c">
+      <i class=" cobo-icon-200 cobo-locker "></i>
+    </div>
+    <div class="fsize15 mainTitleColor fontB text-c pad13">您无权查看该内容</div>
+  </div>
+</ng-container>

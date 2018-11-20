@@ -1,0 +1,11 @@
+<form #myForm="ngForm">
+  <h3 mat-dialog-title>{{data.title}}</h3>
+  <div mat-dialog-content>
+    <textarea name="myinput" id="" [(ngModel)]="inputText" required cols="30" rows="10"></textarea>
+  </div>
+  <div mat-dialog-actions>
+    <button type="button" mat-button mat-dialog-close>取消</button>
+    <button type="button" *ngIf="!myForm.form.valid" mat-raised-button disabled>确认</button>
+    <button type="button" *ngIf="myForm.form.valid" mat-raised-button class="mat-primary" mat-button  [mat-dialog-close]="inputText">确认</button>
+  </div>
+</form>

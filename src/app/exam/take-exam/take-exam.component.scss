@@ -1,0 +1,26 @@
+.footer {
+  height: 44px;
+  background: #EAE8F0;
+}
+
+.submitBtn {
+  position: absolute;
+  top: 0;
+  right: 0;
+  width: 34px;
+  height: 44px;
+  line-height: 44px;
+}
+
+.countDown {
+  position: absolute;
+  top: 0;
+  left: 0;
+  padding-left: 5px;
+  padding-right:5px;
+  height: 44px;
+  line-height: 44px;
+  z-index: 10;
+}
+
+[hidden] { display: none !important;}

@@ -1,0 +1,57 @@
+<div class="bgwhite" *ngIf="question">
+  <div class="pad13 mainTitleColor fsize13 flex item-c separte_line_b">
+    <div class="pad_5_r">{{index+1}}.</div>
+    <div class="pad_5_r">填空题</div>
+    <div class="pad_5_r " *ngIf="showScore">({{question.value || 0}}分)</div>
+    <div class="pad_5_r colorr" *ngIf="question.required">(必答)</div>
+  </div>
+
+  <div *ngIf="trailType === 'cycleeva' || trailType === 'eva'">
+    <div  class="pad13 fsize12 secondaryInfoColor separte_line_b" *ngIf="showGroup">
+      评估项：{{question.group_name}}
+    </div>
+  </div>
+
+  <div class="pad13 mainTitleColor fsize15">
+    <ng-container *ngIf="question.subs && question.subs.length>0">
+      <div class="flex flex-wrap">
+        <ng-container *ngFor="let item of question.subs">
+          <ng-container *ngIf="item.type === 'text' ">
+            <div [innerHtml]="item.text | safeHtml"></div>
+          </ng-container>
+          <ng-container *ngIf="item.type === 'blank' ">
+            <div class="flex secondaryInfoColor">
+              <div>___</div>
+              <div class="text-c blankCircle">{{item.inx+1}}</div>
+              <div>___</div>
+            </div>
+          </ng-container>
+        </ng-container>
+      </div>
+    </ng-container>
+  </div>
+
+  <ng-container *ngIf="trailType === 'exam' ">
+    <div class="pad13 fsize14 secondaryInfoColor separte_line_t">
+      <div *ngIf="showRightOrWrong">
+        <span *ngIf="question.score<=0" class="colorr">回答错误</span>
+        <span *ngIf="question.score>0" class="colorg">回答正确</span>
+      </div>
+      <div class="showAnswer ">
+        <div>正确答案：</div>
+        <div *ngFor="let item of question.correctAnswer;let ind = index;">
+          <span>{{ind+1}}. </span>
+          <span>{{item}}</span>
+        </div>
+      </div>
+      <div class="pad_9_t">
+        <div>你的答案：</div>
+        <div *ngFor="let item of question.yourAnswer;let ind = index;">
+          <span>{{ind+1}}. </span>
+          <span>{{item}}</span>
+        </div>
+      </div>
+    </div>
+  </ng-container>
+
+</div>

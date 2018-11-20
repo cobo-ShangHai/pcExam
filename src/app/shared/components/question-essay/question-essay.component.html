@@ -1,0 +1,18 @@
+<div class="bgwhite" *ngIf="question">
+    <div class="pad13 mainTitleColor fsize13 flex item-c separte_line_b">
+      <div class="pad_5_r">{{index+1}}.</div>
+      <div class="pad_5_r">问答题</div>
+      <div class="pad_5_r " *ngIf="showScore">({{question.value || 0}}分)</div>
+      <div class="pad_5_r colorr" *ngIf="question.required">(必答)</div>
+    </div>
+    <div *ngIf="trailType === 'cycleeva' || trailType === 'eva'">
+      <div class="pad13 fsize12 secondaryInfoColor separte_line_b" *ngIf="showGroup">
+        评估项：{{question.group_name}}
+      </div>
+    </div>
+    <div class="pad13 mainTitleColor fsize15" [innerHtml]="question.des | safeHtml"></div>
+    <div class="choiceBox color6 pad_13_l  pad_13_r pad_13_b">
+      <textarea name="" [(ngModel)]="_fibvalue"  (blur)="changeAnswer()" id="" rows="10"></textarea>
+    </div>
+  </div>
+  

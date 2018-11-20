@@ -1,0 +1,916 @@
+
+
+/**
+1.此文件是上海功途4.x 版本的设计标准
+2.实际字体font=设计字体/2
+ */
+
+/*for test*/
+
+.borderR {
+  border: 1px dashed red;
+}
+
+.borderG {
+  border: 1px dashed green;
+}
+
+.border-none {
+  border: none;
+}
+
+.disnone {
+  display: none;
+}
+
+.disBlock {
+  display: block;
+}
+
+.pageBlock {
+  width: 100%;
+  margin: 0 auto;
+  padding-bottom: 1px;
+}
+
+.vertical-m {
+  vertical-align: middle;
+}
+
+.pos_r {
+  position: relative;
+}
+
+.flex {
+  display: flex;
+}
+
+.flex-wrap {
+  flex-wrap: wrap;
+}
+
+.item-c {
+  align-items: center;
+}
+
+.item-stretch {
+  align-items: stretch;
+}
+
+.item-e {
+  align-items: flex-end;
+}
+
+.justify-e {
+  justify-content: flex-end;
+}
+
+.justify-a {
+  justify-content: space-around;
+}
+
+.justify-c {
+  justify-content: center;
+}
+
+.justify-b {
+  justify-content: space-between;
+}
+
+.flex-shrink-0 {
+  flex-shrink: 0;
+}
+
+.flex-grow-0 {
+  flex-grow: 0;
+}
+
+.flex-grow-1 {
+  flex-grow: 1;
+}
+
+.flex-width-90 {
+  width: 90%;
+}
+
+.flex-width-80 {
+  width: 80%;
+}
+
+.flex-width-70 {
+  width: 70%;
+}
+
+.flex-width-60 {
+  width: 60%;
+}
+
+.flex-width-50 {
+  width: 50%;
+}
+
+.flex-width-40 {
+  width: 40%;
+}
+
+.flex-width-30 {
+  width: 30%;
+}
+
+.flex-width-34 {
+  width: 34%;
+}
+
+.flex-width-33 {
+  width: 33%;
+}
+
+.flex-width-25 {
+  width: 25%;
+}
+
+.flex-width-20 {
+  width: 20%;
+}
+
+.flex-width-10 {
+  width: 10%;
+}
+
+.f-left {
+  float: left;
+}
+
+.f-right {
+  float: right;
+}
+
+.f-clear {
+  clear: both;
+}
+
+.text-c {
+  text-align: center;
+}
+
+.text-r {
+  text-align: right;
+}
+
+.curP {
+  cursor: pointer;
+}
+
+.box-size-b {
+  box-sizing: border-box;
+}
+
+.singleOver {
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap
+}
+
+.line1Over {
+  overflow: hidden;
+  text-overflow: ellipsis;
+  display: -webkit-box;
+  -webkit-line-clamp: 1;
+  -webkit-box-orient: vertical;
+}
+
+.line2Over {
+  overflow: hidden;
+  text-overflow: ellipsis;
+  display: -webkit-box;
+  -webkit-line-clamp: 2;
+  -webkit-box-orient: vertical;
+}
+
+.line3Over {
+  overflow: hidden;
+  text-overflow: ellipsis;
+  display: -webkit-box;
+  -webkit-line-clamp: 3;
+  -webkit-box-orient: vertical;
+}
+
+.line4Over {
+  overflow: hidden;
+  text-overflow: ellipsis;
+  display: -webkit-box;
+  -webkit-line-clamp: 4;
+  -webkit-box-orient: vertical;
+}
+
+.line5Over {
+  overflow: hidden;
+  text-overflow: ellipsis;
+  display: -webkit-box;
+  -webkit-line-clamp: 5;
+  -webkit-box-orient: vertical;
+}
+
+.fontB {
+  font-weight: bold;
+}
+
+.fsize25 {
+  font-size: 25px;
+}
+
+.fsize20 {
+  font-size: 20px;
+}
+
+.fsise19 {
+  font-size: 19px;
+}
+
+.fsise18 {
+  font-size: 18px;
+}
+
+.fsize16 {
+  font-size: 16px;
+}
+
+.fsize15 {
+  font-size: 15px;
+}
+
+.fsize14 {
+  font-size: 14px;
+}
+
+.fsize13 {
+  font-size: 13px;
+}
+
+.fsize12 {
+  font-size: 12px;
+}
+
+.fsize11 {
+  font-size: 11px;
+}
+
+.fsize10 {
+  font-size: 10px;
+}
+
+.height25 {
+  height: 25px;
+}
+
+.height20 {
+  height: 20px;
+}
+
+.fsise19 {
+  height: 19px;
+}
+
+.fsise18 {
+  height: 18px;
+}
+
+.height16 {
+  height: 16px;
+}
+
+.height15 {
+  height: 15px;
+}
+
+.height14 {
+  height: 14px;
+}
+
+.height13 {
+  height: 13px;
+}
+
+.height12 {
+  height: 12px;
+}
+
+.height11 {
+  height: 11px;
+}
+
+.height10 {
+  height: 10px;
+}
+
+.lineh0 {
+  line-height: 0;
+}
+
+.lineh30 {
+  line-height: 30px;
+}
+
+.lineh25 {
+  line-height: 25px;
+}
+
+.lineh20 {
+  line-height: 20px;
+}
+
+.lineh19 {
+  line-height: 19px;
+}
+
+.lineh18 {
+  line-height: 18px;
+}
+
+.lineh16 {
+  line-height: 16px;
+}
+
+.lineh15 {
+  line-height: 15px;
+}
+
+.lineh14 {
+  line-height: 14px;
+}
+
+.lineh13 {
+  line-height: 13px;
+}
+
+.lineh12 {
+  line-height: 12px;
+}
+
+.lineh11 {
+  line-height: 11px;
+}
+
+.lineh10 {
+  line-height: 10px;
+}
+
+.whiteContent {
+  height: 100vh;
+  background: white;
+  box-sizing: border-box;
+}
+
+.width100 {
+  width: 100%;
+}
+
+.height_100_vh{
+  height: 100vh;
+}
+
+.pad_t_88 {
+  padding-top: 88px;
+}
+
+.pad_t_50 {
+  padding-top: 50px;
+}
+
+.pad_b_50 {
+  padding-bottom: 50px;
+}
+
+.pad_t_44 {
+  padding-top: 44px;
+}
+
+.pad_1_t {
+  padding-top: 1px;
+}
+
+.pad_3_t {
+  padding-top: 3px;
+}
+
+.pad_1_b {
+  padding-bottom: 1px;
+}
+
+.pad13 {
+  padding: 13px;
+}
+
+.pad_13_t {
+  padding-top: 13px;
+}
+
+.pad_13_l {
+  padding-left: 13px;
+}
+
+.pad_13_b {
+  padding-bottom: 13px;
+}
+
+.pad_13_r {
+  padding-right: 13px;
+}
+
+.mg10 {
+  margin: 10px;
+}
+
+.pad10 {
+  padding: 10px;
+}
+
+.pad_10_t {
+  padding-top: 10px;
+}
+
+.pad_10_l {
+  padding-left: 10px;
+}
+
+.pad_10_r {
+  padding-right: 10px;
+}
+
+.pad_10_b {
+  padding-bottom: 10px;
+}
+
+.mg_12_t {
+  margin-top: 12px;
+}
+
+.mg_12_b {
+  margin-bottom: 12px;
+}
+
+.mg_12_l {
+  margin-left: 12px;
+}
+
+.mg_12_r {
+  margin-right: 12px;
+}
+
+.pad12 {
+  padding: 12px;
+}
+
+.pad_12_t {
+  padding-top: 12px;
+}
+
+.pad_12_l {
+  padding-left: 12px;
+}
+
+.pad_12_r {
+  padding-right: 12px;
+}
+
+.pad_12_b {
+  padding-bottom: 12px;
+}
+
+.mg_10 {
+  margin: 10px;
+}
+
+.mg_10_t {
+  margin-top: 10px;
+}
+
+.mg_10_b {
+  margin-bottom: 10px;
+}
+
+.mg_10_l {
+  margin-left: 10px;
+}
+
+.mg_10_r {
+  margin-right: 10px;
+}
+
+.pad_9_b {
+  padding-bottom: 9px;
+}
+
+.pad_9_t {
+  padding-top: 9px;
+}
+
+.pad_9_l {
+  padding-left: 9px;
+}
+
+.pad_9_r {
+  padding-right: 9px;
+}
+
+.mg_5 {
+  margin: 5px;
+}
+
+.mg_5_t {
+  margin-top: 5px;
+}
+
+.mg_5_b {
+  margin-bottom: 5px;
+}
+
+.pad_5 {
+  padding: 5px;
+}
+
+.pad_5_l {
+  padding-left: 5px;
+}
+
+.pad_5_r {
+  padding-right: 5px;
+}
+
+.pad_5_t {
+  padding-top: 5px;
+}
+
+.pad_5_b {
+  padding-bottom: 5px;
+}
+
+.pad_15_b {
+  padding-bottom: 15px;
+}
+
+.header {
+  height: 44px;
+}
+
+.h_44 {
+  height: 44px;
+}
+
+.overflow-x-s {
+  overflow-x: scroll;
+}
+
+.colorw {
+  color: rgb(255, 255, 255);
+}
+
+.colorr {
+  color: red;
+}
+
+.colorg {
+  color: green;
+}
+
+.colory {
+  color: rgb(243, 158, 5);
+}
+
+.headerText {
+  color: rgb(71, 71, 71);
+}
+
+.formHeaderText {
+  color: rgb(59, 146, 253);
+}
+
+.reportText {
+  color: rgb(41, 129, 255);
+}
+
+.color3 {
+  color: #333;
+}
+
+.color6 {
+  color: #666;
+}
+
+.color9 {
+  color: #999;
+}
+
+.colorR {
+  color: red;
+}
+
+.color-blue {
+  color: #5793CF;
+}
+
+/*界面主色*/
+
+$pageMainColor: #2981ff;
+/*界面辅助色*/
+
+$pageAuxiliaryColor: #ff4b64;
+/*界面背景色*/
+
+$pageBgColor: #f8f8f8;
+/*主标题色*/
+
+$mainTitleColor: #474747;
+/*次级信息颜色*/
+
+$secondaryInfoColor: #999999;
+/*辅助信息颜色*/
+
+$AuxiliaryInfoColor: #d8d8d8;
+$btnSusscussBlue:linear-gradient(to right, #489eff, #1b77f9);
+$btnFailedBlue:#75b5ff;
+$btnDafalut:#f7f7f7;
+/*rgb(71,71,71)*/
+
+.mainTitleColor {
+  color: $mainTitleColor;
+}
+
+/*rgb(153,153,153)*/
+
+.secondaryInfoColor {
+  color: $secondaryInfoColor;
+}
+
+.subNavBox {
+  border-bottom: 1px solid #d0d0d0;
+}
+
+.bgwhite {
+  background: rgba($color: #fff, $alpha: 1.0);
+}
+
+.bgf {
+  background: #fff;
+}
+
+.pageBgColor {
+  background: $pageBgColor;
+}
+
+.shadow-block {
+  margin: 13px 12px;
+  background: rgba($color: #fff, $alpha: 1.0);
+}
+
+.shadow-top {
+  box-shadow: 0 -5px 5px rgba($color: #999, $alpha: .2);
+}
+
+.shadow-bottom {
+  box-shadow: 0 5px 5px rgba($color: #999, $alpha: .2);
+}
+
+.shadow-all {
+  box-shadow: 0 0 5px rgba($color: #999, $alpha: .2);
+}
+
+.shadow-all_1 {
+  box-shadow: 0 0 5px rgba($color: #999, $alpha: .1);
+}
+
+.shadow-all_2 {
+  box-shadow: 0 0 5px rgba($color: #999, $alpha: .2);
+}
+
+.shadow-all_3 {
+  box-shadow: 0 0 5px rgba($color: #999, $alpha: .3);
+}
+
+.shadow-all_4 {
+  box-shadow: 0 0 5px rgba($color: #999, $alpha: .4);
+}
+
+.fixedTop {
+  position: fixed;
+  left: 0;
+  right: 0;
+  top: 0;
+  z-index: 10;
+  width: 100%;
+}
+
+.enshrine{
+  position: absolute;
+  top:0px;
+  right: 13px;
+  height: 44px;
+}
+
+.enshrine > div{
+  padding-top:13.5px;
+}
+
+.fiexdBottom {
+  position: fixed;
+  bottom: 0;
+  left: 0;
+  width: 100%;
+}
+
+.footer-bg-1 {
+  background: #f7f7f7;
+}
+
+.break-all {
+  word-break: break-all;
+}
+
+.maxwidth100 {
+  max-width: 100% !important;
+}
+
+.separte_line_b_dashed {
+  border-bottom: 1px dashed #e1e1e1;
+}
+
+.separte_line_b {
+  border-bottom: 1px solid #e1e1e1;
+}
+
+.separte_line_t {
+  border-top: 1px solid #e1e1e1;
+}
+
+.separte_line_l {
+  border-left: 1px solid #e1e1e1;
+}
+
+.separte_line_r {
+  border-right: 1px solid #e1e1e1;
+}
+
+.rdius {
+  border-radius: 5px;
+}
+
+.btn-radius {
+  border-radius: 5px;
+}
+
+.circleImage {
+  border-radius: 50%;
+}
+
+.mga {
+  margin: 0 auto;
+}
+
+.subBtn {
+  width: 100%;
+  height: 50px;
+  line-height: 50px;
+  border: none;
+  color: rgb(255, 255, 255);
+}
+
+.cdk-overlay-container {
+  z-index: 4000 !important;
+}
+
+.error-dialog-container .mat-dialog-container {
+  border-radius: 5px;
+  color: white;
+  background: rgba(0, 0, 0, .5);
+  min-width: 144px;
+}
+
+.cobo-form .form-group {
+  margin: 15px auto;
+  padding: 15px 0;
+  width: 100%;
+  background: #e7e7e7;
+  border-radius: 5px;
+}
+
+.cobo-form .box,
+.cobo-form .box>div {
+  height: 16px;
+  line-height: 16px;
+}
+
+.cobo-form .input-item {
+  padding: 0;
+  width: 100%;
+  border: none;
+  background: #e7e7e7;
+}
+
+.cobo-form .box .cutline {
+  margin: 0 12px;
+  width: 1px;
+  height: 16px;
+  background: #999;
+}
+
+.cobo-form .domainText {
+  color: rgb(148, 192, 255)
+}
+
+.subtn {
+  margin-top: 25px;
+  margin-bottom: 25px;
+}
+
+.subtn-success {
+  background: $btnSusscussBlue;
+}
+
+.subtn-falid {
+  background: $btnFailedBlue;
+}
+
+.subtn-defalut {
+  background: $btnDafalut;
+}
+
+.customPage .mat-radio-container,
+.customPage .mat-radio-container .mat-radio-outer-circle,
+.customPage .mat-radio-container .mat-radio-inner-circle {
+  width: 13px !important;
+  height: 13px !important;
+}
+
+.waringBox {
+  margin-top: 18px;
+  margin-bottom: 14px;
+}
+
+.waringBox img {
+  width: 12px;
+  height: 12px;
+}
+
+.coreMenuContent {
+  padding-top: 44px;
+  padding-bottom: 55px;
+}
+
+// 置顶
+.topIcon {
+  font-size: 7px;
+  padding-left: 2px;
+  padding-right: 2px;
+  height: 11px;
+  line-height: 12px;
+  border-radius: 2px;
+  border: 1px solid rgba(208, 2, 27, 1);
+  color: rgba(208, 2, 27, 1);
+}
+
+// version3 old css
+.mg_20_b {
+  margin-bottom: 20px;
+}
+
+.mg_10_20 {
+  margin: 10px 0 20px;
+}
+
+.pad_5_10 {
+  padding: 5px 10px;
+}
+
+.white-block {
+  margin: 20px auto;
+  background: #fff;
+}
+
+.bgcolorYellow {
+  background: #F39E06;
+}
+
+.bgcolorGreen {
+  background: rgb(69, 109, 85);
+}
+
+.bgcolorBlue {
+  background: #2B6DB7;
+}
+
+.bgcolor {
+  background: #EEEDF3;
+}
+
+.submit_button_1 {
+  margin: 0 auto;
+  width: 50%;
+  padding: 6px;
+  letter-spacing: 3px;
+  border-radius: 5px;
+}
+
+.courseBox {
+  padding-top: 7.5px;
+  padding-bottom: 7.5px;
+}

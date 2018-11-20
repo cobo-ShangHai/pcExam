@@ -1,0 +1,33 @@
+<div mat-dialog-content>
+    <div class="waringBox colory">
+      <div class="flex item-c justify-c">
+        <div class="lineh0 flex-grow-0">
+          <img src="/ng/assets/images/coboVersion3/no_info.png" alt="">
+        </div>
+        <div class="pad_5_l fsize12 lineh12 flex-grow-0">
+            {{data.text}}
+        </div>
+      </div>
+    </div>
+    <div *ngIf="_array && _array.length>0">
+      <ng-container *ngFor="let item of _array; let index = index;">
+        <ng-container *ngIf="item.noAnswer">
+          <div class="pad_13_t pad_13_b flex item-c separte_line_t" (click)="goTo(index)">
+            <div>题目编号：</div>
+            <div class="pad_12_r pad_12_l">{{index+1}}</div>
+            <div *ngIf="item.required" class="colorr">(必答)</div>
+            <div class="flex-grow-1 text-r">
+              <i class="cobo-icon cobo-go"></i>
+            </div>
+          </div>
+        </ng-container>
+      </ng-container>
+    </div>
+  </div>
+  <div mat-dialog-footer>
+    <div mat-dialog-actions>
+      <button type="button" mat-button mat-dialog-close>取消</button>
+      <button type="button" mat-raised-button *ngIf="data.canSubmit" class="mat-primary" [mat-dialog-close]="'dosub'">确认提交</button>
+    </div>
+  </div>
+  

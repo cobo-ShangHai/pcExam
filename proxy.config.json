@@ -1,0 +1,18 @@
+[{
+  "context": [
+    "/m/**",
+    "/portal/**",
+    "/kaptcha*",
+    "/static/**",
+    "/images/**",
+    "/dl?*",
+    "/util/**",
+    "/ars/**",
+    "/weixin_pay/**",
+    "/ng/assets/**"
+  ],
+  "target": "http://liu.cobocn.net",
+  "secure": false,
+  "logLevel": "debug",
+  "changeOrigin": true
+}]

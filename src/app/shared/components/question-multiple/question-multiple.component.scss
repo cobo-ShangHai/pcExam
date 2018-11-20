@@ -1,0 +1,26 @@
+
+.choice_label {
+  width: 26px;
+  height: 26px;
+  border-radius: 50%;
+  border: 1px solid #ccc;
+  line-height: 26px;
+  box-sizing: border-box;
+}
+
+.choiceContent{
+  padding-left: 20px;
+  line-height: 26px;
+}
+
+.label_off {
+  color:#666;
+  border: 1px solid #ccc;
+  background: white;
+}
+
+.label_on{
+ color:white;
+ border:none;
+ background: #2B6DB7;
+}

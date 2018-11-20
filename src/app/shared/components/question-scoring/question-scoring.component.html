@@ -1,0 +1,21 @@
+<div class="bgwhite" *ngIf="question">
+    <div class="pad13 mainTitleColor fsize13 flex item-c separte_line_b">
+      <div class="pad_5_r">{{index+1}}.</div>
+      <div class="pad_5_r">打分题</div>
+      <div class="pad_5_r " *ngIf="showScore">({{question.value || 0}}分)</div>
+      <div class="pad_5_r colorr" *ngIf="question.required">(必答)</div>
+    </div>
+    <div *ngIf="trailType === 'cycleeva' || trailType === 'eva'">
+      <div class="pad13 fsize12 secondaryInfoColor separte_line_b" *ngIf="showGroup">
+        <div>评估项：{{question.group_name}}</div>
+      </div>
+    </div>
+    <div class="choiceBox color6 pad_13_b">
+      <ng-container *ngIf="question.items && question.items.length>0">
+        <div *ngFor="let item of question.items ; let first = first; let index = index;" class="separte_line_t" [ngClass]="{'border-none':first}">
+          <app-question-scoring-item [des]="item.subdes" [index]="index" [choices]="question.choices" (changed)="selectScore($event)"></app-question-scoring-item>
+        </div>
+      </ng-container>
+    </div>
+  </div>
+  
