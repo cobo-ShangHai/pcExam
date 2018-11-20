@@ -67,7 +67,9 @@ export class TakeExamComponent implements OnInit {
   // 获取路由信息
   getRouterInfo() {
     return new Promise((resolve, reject) => {
-      this.route.paramMap.subscribe((info: any) => resolve(info.params));
+     const str = this.storage.getLocal('takeExamInfo');
+     const obj = JSON.parse(str) || {};
+     resolve(obj);
     });
   }
 
@@ -347,6 +349,7 @@ export class TakeExamComponent implements OnInit {
     this.dialog.warningDialog(obj);
     setTimeout(() => {
       this.storage.removeLocal(this._examAnswerKey);
+      this.storage.removeLocal('takeExamInfo');
       this.cs.getBack();
     }, this._delayTime);
   }

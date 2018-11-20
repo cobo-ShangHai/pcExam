@@ -28,7 +28,7 @@
 }
 
 .pageBlock {
-  width: 100%;
+  width: 400px;
   margin: 0 auto;
   padding-bottom: 1px;
 }
@@ -697,7 +697,7 @@ $btnDafalut:#f7f7f7;
   right: 0;
   top: 0;
   z-index: 10;
-  width: 100%;
+  width: 400px;
 }
 
 .enshrine{
@@ -714,8 +714,9 @@ $btnDafalut:#f7f7f7;
 .fiexdBottom {
   position: fixed;
   bottom: 0;
-  left: 0;
-  width: 100%;
+  left: 50%;
+  margin-left:-200px; 
+  width: 400px;
 }
 
 .footer-bg-1 {
