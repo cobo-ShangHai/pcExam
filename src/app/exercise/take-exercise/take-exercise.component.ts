@@ -18,7 +18,7 @@ export class TakeExerciseComponent implements OnInit {
   _answersMap = new Map();
   _breifInfo;
   _curr = 0;
-
+  progressActive = '0%';
   constructor(
     private route: ActivatedRoute,
     private es: ExerciseService,
@@ -39,6 +39,18 @@ export class TakeExerciseComponent implements OnInit {
     this._examAnswerKey = this._eid + '_' + result[1].selfEid;
     this.storage.removeSession(this._examAnswerKey);
     await this.loadingPaper();
+    this.setActiveProgress();
+  }
+
+  setActiveProgress() {
+    if (this._breifInfo && this._breifInfo.ques) {
+      const length = this._breifInfo.ques.length;
+      const curr = this._curr || 0;
+      const num0 = curr + 1;
+      const num1 = num0 > length ? length * 100 : num0 * 100;
+      const num2 = Math.floor(num1 / length);
+      this.progressActive = num2 + '%';
+    }
   }
 
   // 获取EUInfo
@@ -90,12 +102,13 @@ export class TakeExerciseComponent implements OnInit {
       obj.yourAnswer = event.value;
       this._answersMap.set(ind, obj);
     }
-   }
+  }
 
   // 上一题
   prevQues() {
     const num = +this._curr - 1;
     this._curr = num > -1 ? num : 0;
+    this.setActiveProgress();
   }
 
   // 下一题
@@ -103,6 +116,7 @@ export class TakeExerciseComponent implements OnInit {
     const num = +this._curr + 1;
     const length = this._breifInfo.questions.length;
     this._curr = num < length ? num : num - 1;
+    this.setActiveProgress();
   }
 
   // 设置答案

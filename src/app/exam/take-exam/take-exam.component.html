@@ -1,5 +1,5 @@
-<div class="pageBlock pageBgColor pos_r">
-  <div class="pageBlock shadow-bottom fixedTop bgwhite">
+<div class="exampage pageBlock pageBgColor pos_r">
+  <!-- <div class="pageBlock shadow-bottom fixedTop bgwhite">
     <app-subnav [showBack]="_showBack" [padLeft]="65" title="{{pageTitle}}"></app-subnav>
     <div class="countDown">
       <div class="countBox" *ngIf="_endTime">
@@ -7,6 +7,11 @@
       </div>
     </div>
     <div class="submitBtn" (click)="confirmSubit()">提交</div>
+  </div> -->
+
+  <!-- pc logo -->
+  <div class="hd">
+    <img src="http://content.cobocn.net/aspftp/upload/home/201602/T1456387816083.png">
   </div>
 
   <!-- 没有获取任何数据 -->
@@ -20,55 +25,73 @@
 
   <!-- 至少加载过一次数据 -->
   <ng-container *ngIf="_breifInfo">
-    <div class="pad_t_50 pad_b_50" *ngIf="_breifInfo">
-      <ng-container *ngIf="_breifInfo && _breifInfo.ques && _breifInfo.ques.length>0">
-        <ng-container *ngFor="let item of _breifInfo.ques;let index = index;">
-          <div [hidden]="_curr !== index">
-            <ng-container *ngIf=" (item.type === 1 ||  item.type === 2)">
-              <app-question-single-choice [question]="item" [index]="index" [trailType]="'exam'" [showScore]="_breifInfo.show_score" (change)="changeAnswerMap($event)"></app-question-single-choice>
-            </ng-container>
-
-            <ng-container *ngIf="(item.type === 3 ||  item.type === 6) ">
-              <app-question-multiple [question]="item" [index]="index" [trailType]="'exam'" [showScore]="_breifInfo.show_score" (change)="changeAnswerMap($event)"></app-question-multiple>
-            </ng-container>
-
-            <ng-container *ngIf="item.type === 5 ">
-              <app-question-essay [question]="item" [index]="index" [trailType]="'exam'" [showScore]="_breifInfo.show_score" (change)="changeAnswerMap($event)"></app-question-essay>
-            </ng-container>
-
-            <ng-container *ngIf="item.type === 10 ">
-              <app-question-order [question]="item" [index]="index" [trailType]="'exam'" [showScore]="_breifInfo.show_score" (change)="changeAnswerMap($event)"></app-question-order>
-            </ng-container>
-
-            <ng-container *ngIf="item.type === 4 ">
-              <app-question-fill-gap [question]="item" [index]="index" [trailType]="'exam'" [showScore]="_breifInfo.show_score" (change)="changeAnswerMap($event)"></app-question-fill-gap>
-            </ng-container>
-          </div>
-        </ng-container>
-      </ng-container>
-
-
-      <ng-container *ngIf="_breifInfo && _breifInfo.ques">
-        <div class="fiexdBottom shadow-top footer color9 pad13 box-size-b fszie15 bgwhite flex item-c justify-b">
-          <div class="flex-width-33">
-            <div class="flex item-c" *ngIf="_curr>0" (click)="prevQues()">
-              <div class="lineh0 pad_5_r ">
-                <i class="cobo-icon cobo-v3-prev"></i>
-              </div>
-              <div class=" lineh15 ">上一题</div>
+    <div class="main_part">
+      <div class="main_c">
+        <div class="paper_border">
+          <div class="paper_top pos_r">
+            <div class="timeBlock" *ngIf="_endTime">
+              <app-count-down [endTime]="_endTime" (change)="listernCountDown($event)"></app-count-down>
             </div>
-          </div>
-          <div class="flex-width-34 text-c">第{{_curr+1}}/{{_breifInfo.ques.length}}题</div>
-          <div class="flex-width-33">
-            <div class="flex item-c f-right" *ngIf="_curr+1<_breifInfo.ques.length" (click)="nextQues()">
-              <div class="lineh15 ">下一题</div>
-              <div class="lineh0 pad_5_l ">
-                <i class="cobo-icon cobo-v3-next "></i>
+            <div class="mga titleContent">
+              <div>{{pageTitle}} </div>
+              <div class="rat_of_progress">
+                <div class="progress_bar"></div>
+                <div class="progress_per progress_active" [ngStyle]="{width:progressActive}"></div>
               </div>
             </div>
           </div>
+
+          <div class="paper_mid" *ngIf="_breifInfo">
+            <ng-container *ngIf="_breifInfo && _breifInfo.ques && _breifInfo.ques.length>0">
+              <ng-container *ngFor="let item of _breifInfo.ques;let index = index;">
+                <div [hidden]="_curr !== index">
+                  <ng-container *ngIf=" (item.type === 1 ||  item.type === 2)">
+                    <app-question-single-choice [question]="item" [index]="index" [trailType]="'exam'" [showScore]="_breifInfo.show_score" (change)="changeAnswerMap($event)"></app-question-single-choice>
+                  </ng-container>
+
+                  <ng-container *ngIf="(item.type === 3 ||  item.type === 6) ">
+                    <app-question-multiple [question]="item" [index]="index" [trailType]="'exam'" [showScore]="_breifInfo.show_score" (change)="changeAnswerMap($event)"></app-question-multiple>
+                  </ng-container>
+
+                  <ng-container *ngIf="item.type === 5 ">
+                    <app-question-essay [question]="item" [index]="index" [trailType]="'exam'" [showScore]="_breifInfo.show_score" (change)="changeAnswerMap($event)"></app-question-essay>
+                  </ng-container>
+
+                  <ng-container *ngIf="item.type === 10 ">
+                    <app-question-order [question]="item" [index]="index" [trailType]="'exam'" [showScore]="_breifInfo.show_score" (change)="changeAnswerMap($event)"></app-question-order>
+                  </ng-container>
+
+                  <ng-container *ngIf="item.type === 4 ">
+                    <app-question-fill-gap [question]="item" [index]="index" [trailType]="'exam'" [showScore]="_breifInfo.show_score" (change)="changeAnswerMap($event)"></app-question-fill-gap>
+                  </ng-container>
+                </div>
+              </ng-container>
+            </ng-container>
+          </div>
+          <ng-container *ngIf="_breifInfo && _breifInfo.ques">
+            <div class="paper_bottom flex item-c justify-a">
+              <div class="lineh0 curP" (click)="prevQues()">
+                <img src="/assets/images/coboVersion3/skin_paper_previous_zh_CN.png" border="0" alt="上一题 -----">
+              </div>
+              <div class="lineh0 curP" (click)="nextQues()">
+                <img src="/assets/images/coboVersion3/skin_paper_next_zh_CN.png" border="0" alt="下一题">
+              </div>
+              <div class="lineh0 curP" (click)="confirmSubit()">
+                <img src="/assets/images/coboVersion3/skin_paper_submit_zh_CN.png" border="0" alt="交卷">
+              </div>
+              <div>
+                <span>问题： </span>
+                <span>{{_curr+1}}</span>
+                <span> of </span>
+                <span>{{_breifInfo.ques.length}}</span>
+              </div>
+            </div>
+          </ng-container>
+
         </div>
-      </ng-container>
+      </div>
     </div>
+
+
   </ng-container>
 </div>

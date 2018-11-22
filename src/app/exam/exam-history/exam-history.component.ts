@@ -13,6 +13,7 @@ export class ExamHistoryComponent implements OnInit {
   _info;
   pageTitle = '';
   _curr;
+  progressActive = '0%';
   constructor(private dialog: ShowdialogService,
     private route: ActivatedRoute,
     private es: ExamService
@@ -26,6 +27,18 @@ export class ExamHistoryComponent implements OnInit {
   async initPage() {
     await this.handleRouteInfo();
     await this.handleExamHistoryInfo();
+    this.setActiveProgress();
+  }
+
+  setActiveProgress() {
+    if (this._info && this._info.ques) {
+      const length = this._info.ques.length;
+      const curr = this._curr || 0;
+      const num0 = curr + 1;
+      const num1 = num0 > length ? length * 100 : num0 * 100;
+      const num2 = Math.floor(num1 / length);
+      this.progressActive = num2 + '%';
+    }
   }
 
   // 从路由中获取信息后的操作
@@ -71,6 +84,7 @@ export class ExamHistoryComponent implements OnInit {
   prevQues() {
     const num = +this._curr - 1;
     this._curr = num > -1 ? num : 0;
+    this.setActiveProgress();
   }
 
   // 下一题
@@ -78,6 +92,7 @@ export class ExamHistoryComponent implements OnInit {
     const num = +this._curr + 1;
     const length = this._info.ques.length;
     this._curr = num < length ? num : num - 1;
+    this.setActiveProgress();
   }
 
 }

@@ -30,6 +30,8 @@ export class TakeExamComponent implements OnInit {
   _answersMap = new Map();
 
   _endTime = 0;
+  _showCountDown = false;
+  progressActive = '0%';
 
   constructor(
     private dialog: ShowdialogService,
@@ -55,6 +57,18 @@ export class TakeExamComponent implements OnInit {
     this._examAnswerKey = this._eid + '_' + result[1].selfEid;
     this._delayTime = result[1].paperResultDelay ? result[1].paperResultDelay * 1000 : 5000;
     await this.loadingPaper();
+    this.setActiveProgress();
+  }
+
+  setActiveProgress() {
+    if (this._breifInfo && this._breifInfo.ques) {
+      const length = this._breifInfo.ques.length;
+      const curr = this._curr || 0;
+      const num0 = curr + 1;
+      const num1 = num0 > length ? length * 100 : num0 * 100;
+      const num2 = Math.floor(num1 / length);
+      this.progressActive = num2 + '%';
+    }
   }
 
   // 获取EUInfo
@@ -173,6 +187,7 @@ export class TakeExamComponent implements OnInit {
     const num = +this._curr - 1;
     this._curr = num > -1 ? num : 0;
     this.postAnswers();
+    this.setActiveProgress();
   }
 
   // 下一题
@@ -181,6 +196,7 @@ export class TakeExamComponent implements OnInit {
     const length = this._breifInfo.ques.length;
     this._curr = num < length ? num : num - 1;
     this.postAnswers();
+    this.setActiveProgress();
   }
 
   // 设置答案
@@ -357,6 +373,7 @@ export class TakeExamComponent implements OnInit {
   // 监听倒计时
   listernCountDown(event) {
     if (event && event.timeOut && this._endTime > -1) {
+      alert('dddddddd');
       this.postAnswers(true);
     }
   }
