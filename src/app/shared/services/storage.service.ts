@@ -21,6 +21,11 @@ export class StorageService {
   removeLocal(k): void {
     window.localStorage.removeItem(k);
   }
+
+  clearAllLocal() {
+    window.localStorage.clear();
+  }
+
   /**
    *
    *
