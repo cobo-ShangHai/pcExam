@@ -29,11 +29,11 @@
         <div class="pad_13_t pad_13_b">请在下方填写:</div>
         <ng-container *ngFor="let item of question.subs; let index = index;">
           <ng-container *ngIf="item.type === 'blank' ">
-            <div class="flex item-c secondaryInfoColor">
+            <div class="flex item-c secondaryInfoColor curP">
               <div class="text-c blankCircle">{{item.inx+1}}</div>
               <div class="mg_20_l ">
                 <mat-form-field class="example-full-width">
-                  <input matInput placeholder="" [(ngModel)]="item.answer" (blur)="changeAnswer()">
+                  <input matInput placeholder="" class="curP" [(ngModel)]="item.answer" (blur)="changeAnswer()">
                 </mat-form-field>
               </div>
             </div>

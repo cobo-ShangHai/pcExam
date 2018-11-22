@@ -12,7 +12,7 @@
     <div *ngIf="_array && _array.length>0">
       <ng-container *ngFor="let item of _array; let index = index;">
         <ng-container *ngIf="item.noAnswer">
-          <div class="pad_13_t pad_13_b flex item-c separte_line_t" (click)="goTo(index)">
+          <div class="pad_13_t pad_13_b flex item-c separte_line_t curP" (click)="goTo(index)">
             <div>题目编号：</div>
             <div class="pad_12_r pad_12_l">{{index+1}}</div>
             <div *ngIf="item.required" class="colorr">(必答)</div>

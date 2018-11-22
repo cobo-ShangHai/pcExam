@@ -373,7 +373,6 @@ export class TakeExamComponent implements OnInit {
   // 监听倒计时
   listernCountDown(event) {
     if (event && event.timeOut && this._endTime > -1) {
-      alert('dddddddd');
       this.postAnswers(true);
     }
   }

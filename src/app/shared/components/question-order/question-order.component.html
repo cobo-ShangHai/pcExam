@@ -16,7 +16,7 @@
     <ng-container *ngIf=" question.choices &&  question.choices.length>0">
       <div class="list-group" [sortablejs]="question.choices" [sortablejsOptions]="eventOptions">
         <ng-container *ngFor="let item of question.choices; let index = index;">
-          <div class="flex pad_13_b">
+          <div class="flex pad_13_b curP">
             <div class="choice_label text-c flex-shrink-0 label_on">
               <span *ngIf="trailType === 'exam'">{{item.inx | indextochar }}</span>
               <span *ngIf="trailType !== 'exam'">{{item.label}}</span>
