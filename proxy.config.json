@@ -15,4 +15,12 @@
   "secure": false,
   "logLevel": "debug",
   "changeOrigin": true
+},{
+  "context": [
+    "/static/examv4/assets/**"
+  ],
+  "target": "/assets",
+  "secure": false,
+  "logLevel": "debug",
+  "changeOrigin": true
 }]

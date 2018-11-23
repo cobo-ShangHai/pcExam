@@ -1,13 +1,3 @@
-/*
- * @Author: 刘建省
- * @Date: 2018-11-23 09:39:27
- * @Last Modified by: 刘建省
- * @Last Modified time: 2018-11-23 09:40:06
- *
- * 注意： isonline 打包前需要处理
- */
-
-
 import { Injectable } from '@angular/core';
 import {
   CanActivate,
@@ -37,9 +27,9 @@ export class AuthGuardService implements CanActivate {
     console.log('AuthGuard#canActivate called!', route.url[0].path);
 
     const url = this.storageService.getLocal('loginedUrl');
-    const _isOnLine = this.storageService.getLocal('isOnLine') ; // 测试用的'true' , 打包前要取消
-    if (_isOnLine && _isOnLine !== '') {
-      return _isOnLine === 'true' || _isOnLine === true;
+    const _token = this.storageService.getLocal('token') || 'kMy4HqApfME'; // 测试用的token
+    if (_token && _token !== '') {
+      return this.cs.isTokenEffective(_token);
     } else {
       this.cs.getBack();
       return false;
