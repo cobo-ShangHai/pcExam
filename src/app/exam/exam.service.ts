@@ -2,7 +2,7 @@
  * @Author: 刘建省
  * @Date: 2018-10-17 17:37:08
  * @Last Modified by: 刘建省
- * @Last Modified time: 2018-11-23 14:54:05
+ * @Last Modified time: 2018-11-23 18:35:37
  * 测试环境 http://api.cobocn.net:8080
  * 正式环境 https://api.cobo.cn
  */
@@ -16,12 +16,12 @@ export class ExamService {
 
   // 获取独立考试的基本信息
   examBriefInfo(eid) {
-    const url = '/portal/cpaper/CPaper/BO.cobo';
+    const url = '/m/cpaper/CPaper/BO.cobo';
     const obj = {
-      action: 'notice2',
+      action: 'notice',
       eid: eid
     };
-    return this.myhttp.getData(url, obj);
+    return this.myhttp.postData(url, obj);
   }
 
   // 考试试卷信息
@@ -52,6 +52,12 @@ export class ExamService {
     const headerObj = { 'Authorization': tokenstr };
     const dataObj = { answers: obj.answers };
     return this.myhttp.postData(url, dataObj, headerObj);
+  }
+
+   // 补交答案
+   postAnswerLater(obj) {
+    const url = '/m/cpaper/CPaper/BO.cobo';
+    return this.myhttp.postData(url, obj);
   }
 
   submitExam(api_server, token) {

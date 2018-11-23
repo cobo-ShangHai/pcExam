@@ -1,7 +1,6 @@
 import { Component, OnInit, Input, Output, EventEmitter } from '@angular/core';
 import { ShowdialogService } from '../../shared/services/showdialog.service';
 import { CommonService } from '../../shared/services/common.service';
-import { StorageService } from '../../shared/services/storage.service';
 
 @Component({
   selector: 'app-exam-details-abstract',
@@ -16,7 +15,6 @@ export class ExamDetailsAbstractComponent implements OnInit {
   @Output() change: EventEmitter<any> = new EventEmitter();
 
   constructor(
-    private storage: StorageService,
     private dialog: ShowdialogService,
     private cs: CommonService
   ) { }
@@ -41,13 +39,12 @@ export class ExamDetailsAbstractComponent implements OnInit {
     const obj = {
       title: this.info.name,
       eid: this.info.eid,
+      paper_eid: this.info.paper_eid,
       api_server: this.info.api_server,
       token: this.info.token,
     };
-    const objStr = JSON.stringify(obj);
-    this.storage.setLocal('takeExamInfo', objStr);
     const path = '/exam/take';
-    this.cs.goTo(path);
+    this.cs.goTo(path, obj);
   }
 
   // 提交试卷

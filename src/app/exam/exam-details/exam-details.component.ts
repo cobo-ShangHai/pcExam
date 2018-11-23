@@ -37,9 +37,7 @@ export class ExamDetailsComponent implements OnInit {
     this._eid = result[0].eid;
     this._examAnswerKey = this._eid + '_' + result[1].selfEid;
     await this.handleExamInfo();
-    await this.isCleanExamAnswers();
-    await this.autoPostAnswer();
-    await this.handleExamInfo();
+    this.handleLocalAnswers();
     this.setStoredUpData();
   }
 
@@ -59,19 +57,26 @@ export class ExamDetailsComponent implements OnInit {
   }
 
 
-  // 判断是不是有提交失败的答案,如果有自动提交一次
-  async autoPostAnswer() {
+  // 判断是不是有提交失败的答案
+  handleLocalAnswers() {
     const str = this.storage.getLocal(this._examAnswerKey);
+    // alert(this._examAnswerKey + '|' + str);
     if (str) {
+      const paper_eid = this._breifInfo.paper_eid;
       const obj = JSON.parse(str);
-      const flag = obj.isLastChance;
-      if (flag) {
+      const flag1 = obj.isLastChance; // 已经点击交卷
+      const flag2 = (obj.paper_eid === paper_eid); // true 还可以考试
+      if (flag1) {
         this._isSubmitted = true;
         this._isUnderway = false;
-        await this.handleAnswers();
       } else {
-        this._isSubmitted = false;
-        this._isUnderway = true;
+        if (flag2) {
+          this._isSubmitted = false;
+          this._isUnderway = true;
+        } else {
+          this._isSubmitted = true;
+          this._isUnderway = false;
+        }
       }
     }
   }
@@ -80,35 +85,25 @@ export class ExamDetailsComponent implements OnInit {
   async handleAnswers() {
     const str = this.storage.getLocal(this._examAnswerKey) || '{}';
     const obj = JSON.parse(str);
-    const _postInfo: any = await this.postAnswer(obj);
-    if (_postInfo.code === 200) { // 提交答案成功
-      const _submitInfo: any = await this.doSubmit(obj);
-      if (_submitInfo.code === 200) { // 交卷成功
-        this._isSubmitted = false;
-        this._isUnderway = false;
-        this.storage.removeLocal(this._eid);
-      }
-    }
+    const _postInfo: any = await this.postAnswerLater(obj);
+    this._isSubmitted = false;
+    this._isUnderway = false;
+    this.storage.removeLocal(this._examAnswerKey);
   }
 
-  // 提交答案
-  postAnswer(params) {
+  // 补交答案
+  postAnswerLater(params) {
     const obj = {
-      server: params.server,
-      token: params.token,
+      action: 'makeupSubmit',
+      eid: this._breifInfo.paper_eid,
       answers: params.answers
     };
     return new Promise((resovle, reject) => {
-      this.es.postAnswer(obj).subscribe(data => resovle(data));
+      this.es.postAnswerLater(obj).subscribe(data => resovle(data));
     });
   }
 
-  // 交卷
-  doSubmit(params) {
-    return new Promise((resovle, reject) => {
-      this.es.submitExam(params.server, params.token).subscribe(data => resovle(data));
-    });
-  }
+
 
   // 加载考试信息
   loadingExamInfo() {
@@ -155,21 +150,7 @@ export class ExamDetailsComponent implements OnInit {
     this._breifInfo = data;
   }
 
-  // 判断是否需要清除考试数据
-  isCleanExamAnswers() {
-    let flag = true;
-    const records = this._breifInfo.records || [];
-    for (let i = 0; i < records.length; i++) {
-      const status = records[i].paper_status_v4;
-      if (status === 2) {
-        flag = false;
-        break;
-      }
-    }
-    if (!flag) {
-      this.storage.removeLocal(this._examAnswerKey);
-    }
-  }
+
 
   // 设置收藏课程的数据
   setStoredUpData() {

@@ -66,17 +66,7 @@ export class ExamDetailsListComponent implements OnInit {
       this.postAnswer();
     }
     if (this.underway) { // 进行中
-      const time_limit = this.info.time_limit;
-      if (time_limit === 0) { // 无时间限制
-        this.takeTrail();
-      } else if (time_limit > 0) { // 有时间限制
-        const available_time = record.available_time;
-        if (available_time > 0) { // 考试时间没有结束
-          this.takeTrail();
-        } else if (available_time === -1) { // 考试时间结束
-          this.postAnswer();
-        }
-      }
+      this.takeTrail();
     }
   }
 
@@ -90,6 +80,7 @@ export class ExamDetailsListComponent implements OnInit {
     const obj = {
       title: this.info.name,
       eid: this.info.eid,
+      paper_eid: this.info.paper_eid,
       api_server: this.info.api_server,
       token: this.info.token,
     };

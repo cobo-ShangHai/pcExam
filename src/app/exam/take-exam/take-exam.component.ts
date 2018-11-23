@@ -35,6 +35,7 @@ export class TakeExamComponent implements OnInit {
 
   _submitTimes = 0; // 第几次提交答案
   _isLastChance = false; // 是否已经点击了提交按钮
+  _paper_eid; // 当前试卷的eid
 
   constructor(
     private dialog: ShowdialogService,
@@ -53,6 +54,7 @@ export class TakeExamComponent implements OnInit {
   async initPaperInfo() {
     const result: any[] = await Promise.all([this.getRouterInfo(), this.getEuInfo()]);
     const routeInfo: any = result[0];
+    this._paper_eid = routeInfo.paper_eid;
     this._eid = routeInfo.eid;
     this.pageTitle = routeInfo.title;
     this._token = routeInfo.token;

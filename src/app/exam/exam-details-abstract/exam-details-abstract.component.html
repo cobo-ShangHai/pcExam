@@ -53,21 +53,7 @@
     <div class="pad10">
       <ng-container *ngIf="!(!info.available ||  info.remain_times <= 0 ||   info.notStart || info.isEnd) ">
         <ng-container *ngIf="underway && !submitted">
-          <!-- 没有时间限制 -->
-          <ng-container *ngIf="info.time_limit===0">
             <div class="pad13 fsize16 subtn-success colorw text-c rdius" (click)="takeTrail(info.eid)">继续考试</div>
-          </ng-container>
-          <!-- 有时间限制 -->
-          <ng-container *ngIf="info.time_limit>0">
-            <ng-container *ngIf="info.records && info.records.length>0">
-              <ng-container *ngIf="info.records[0].available_time>0">
-                <div class="pad13 fsize16 subtn-success colorw text-c rdius" (click)="takeTrail(info.eid)">继续考试</div>
-              </ng-container>
-              <ng-container *ngIf="info.records[0].available_time===-1">
-                <div class="pad13 fsize16 subtn-success colorw text-c rdius" (click)="postAnswer()">提交试卷</div>
-              </ng-container>
-            </ng-container>
-          </ng-container>
         </ng-container>
         <ng-container *ngIf="!underway && submitted">
           <div class="pad13 fsize16 subtn-success colorw text-c rdius" (click)="postAnswer()">提交试卷</div>
@@ -76,6 +62,7 @@
           <div class="pad13 fsize16 subtn-success colorw text-c rdius" (click)="takeTrail(info.eid)">开始考试</div>
         </ng-container>
       </ng-container>
+
       <ng-container *ngIf="(!info.available ||  info.remain_times <= 0 ||   info.notStart || info.isEnd)  ">
         <div class="pad13 fsize16 subtn-falid colorw text-c rdius">开始考试</div>
       </ng-container>

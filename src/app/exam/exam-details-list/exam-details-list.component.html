@@ -53,19 +53,7 @@
                 <ng-container *ngSwitchCase="'2'">
                   <!-- 进行中的考试 -->
                   <ng-container *ngIf="underway">
-                    <!-- 没有时间限制 -->
-                    <ng-container *ngIf="info.time_limit===0">
                       <div class="normal_btm text-c colorw bgb">进行中</div>
-                    </ng-container>
-                    <!-- 有时间限制 -->
-                    <ng-container *ngIf="info.time_limit>0">
-                      <ng-container *ngIf="record.available_time>0">
-                        <div class="normal_btm text-c colorw bgb">进行中</div>
-                      </ng-container>
-                      <ng-container *ngIf="record.available_time===-1">
-                        <div class="normal_btm text-c colorw bgy">未交卷</div>
-                      </ng-container>
-                    </ng-container>
                   </ng-container>
                   <!-- 提交失败 -->
                   <ng-container *ngIf="submitted">
