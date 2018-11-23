@@ -11,11 +11,11 @@
     <div class="pad_5_r colorr" *ngIf="question.required">(必答)</div>
   </div>
 
-  <div *ngIf="trailType === 'cycleeva' || trailType === 'eva' ">
+  <ng-container *ngIf="showGroup && ((trailType === 'cycleeva' && question.isGroupNameVisible ) || trailType === 'eva' )  ">
     <div class="pad13 fsize12 secondaryInfoColor separte_line_b" *ngIf="showGroup">
       评估项：{{question.group_name}}
     </div>
-  </div>
+  </ng-container>
 
   <div class="pad13 mainTitleColor fsize15" [innerHtml]="question.des | safeHtml"></div>
 
