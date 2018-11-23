@@ -33,6 +33,9 @@ export class TakeExamComponent implements OnInit {
   _showCountDown = false;
   progressActive = '0%';
 
+  _submitTimes = 0; // 第几次提交答案
+  _isLastChance = false; // 是否已经点击了提交按钮
+
   constructor(
     private dialog: ShowdialogService,
     private cs: CommonService,
@@ -229,28 +232,29 @@ export class TakeExamComponent implements OnInit {
    * @param {any} [isLastChance] 用来判断是不是交卷前的最后一次提交答案
    * @memberof TakeExamComponent
    */
-  async postAnswers(isLastChance = false) {
+  async postAnswers() {
     const that = this;
     const answers = this.setAnswers();
     const ans_str = JSON.stringify(answers);
     const data: any = await this.doPostAnswer(ans_str);
-    if (isLastChance) {
+    if (this._isLastChance) {
+      this._submitTimes++;
       if (data.code === 200) {
         that.doSubmit();
       } else {
-        that.postAnswersFalied(data[1].msg);
+        that.postAnswersFalied(data.msg);
       }
     }
   }
 
   // 存储答案
-  storageAnswers(isLastChance = false) {
+  storageAnswers() {
     const answers = this.setAnswers();
     const ans_str = JSON.stringify(answers);
     const storage_obj = {
       server: this._api_server,
       token: this._token,
-      isLastChance: isLastChance,
+      isLastChance: this._isLastChance,
       answers: ans_str
     };
     const storage_obj_str = JSON.stringify(storage_obj);
@@ -277,6 +281,13 @@ export class TakeExamComponent implements OnInit {
       msgs: [{ 'msg': msg }]
     };
     this.dialog.warningDialog(obj);
+
+    if (this._submitTimes === 3) { // 交卷三次失败，返回详情界面
+      setTimeout(() => {
+        this.cs.getBack();
+      }, this._delayTime);
+    }
+
   }
 
 
@@ -301,7 +312,9 @@ export class TakeExamComponent implements OnInit {
     const data = await this.setAnswers();
     this._postData = data;
     if (this._filledAll) {
-      this.postAnswers(true);
+      this._isLastChance = true;
+      this.storageAnswers();
+      this.postAnswers();
     } else {
       this.openCatalog();
     }
@@ -321,7 +334,9 @@ export class TakeExamComponent implements OnInit {
 
     dialogRef.afterClosed().subscribe(result => {
       if (result === 'dosub') {
-        this.postAnswers(true);
+        this._isLastChance = true;
+        this.storageAnswers();
+        this.postAnswers();
       } else {
         if (result && +result > 0) {
           this._curr = result;
@@ -373,7 +388,9 @@ export class TakeExamComponent implements OnInit {
   // 监听倒计时
   listernCountDown(event) {
     if (event && event.timeOut && this._endTime > -1) {
-      this.postAnswers(true);
+      this._isLastChance = true;
+      this.storageAnswers();
+      this.postAnswers();
     }
   }
 
