@@ -96,7 +96,7 @@ export class ExamDetailsComponent implements OnInit {
     const obj = {
       action: 'makeupSubmit',
       eid: this._breifInfo.paper_eid,
-      answers: params.answers
+      param: params.answers
     };
     return new Promise((resovle, reject) => {
       this.es.postAnswerLater(obj).subscribe(data => resovle(data));
