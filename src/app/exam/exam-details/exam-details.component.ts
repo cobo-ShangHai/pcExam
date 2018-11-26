@@ -86,16 +86,16 @@ export class ExamDetailsComponent implements OnInit {
     const str = this.storage.getLocal(this._examAnswerKey) || '{}';
     const obj = JSON.parse(str);
     const _postInfo: any = await this.postAnswerLater(obj);
-    this._isSubmitted = false;
-    this._isUnderway = false;
-    this.storage.removeLocal(this._examAnswerKey);
+      this._isSubmitted = false;
+      this._isUnderway = false;
+      this.storage.removeLocal(this._examAnswerKey);
   }
 
   // 补交答案
   postAnswerLater(params) {
     const obj = {
       action: 'makeupSubmit',
-      eid: this._breifInfo.paper_eid,
+      eid: params.paper_eid,
       param: params.answers
     };
     return new Promise((resovle, reject) => {
