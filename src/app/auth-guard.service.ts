@@ -26,27 +26,16 @@ export class AuthGuardService implements CanActivate {
   canActivate(route: ActivatedRouteSnapshot, state: RouterStateSnapshot): Observable<any> | boolean {
     console.log('AuthGuard#canActivate called!', route.url[0].path);
 
-    const url = this.storageService.getLocal('loginedUrl');
-    const _token = this.storageService.getLocal('token') || 'kMy4HqApfME'; // 测试用的token
-    if (_token && _token !== '') {
-      return this.cs.isTokenEffective(_token);
-    } else {
-      this.cs.getBack();
-      return false;
-    }
+    /* // 开发环境
+    const _token =  'kMy4HqApfME'; // 测试用的token test01
+     return this.cs.isTokenEffective(_token);
+    */
+
+    // 正式环境
+    return true;
+
   }
 
-  // 储存 url
-  storageUrl(url) {
-    if (url) {
-      const flag1 = url.includes('/homepage/');
-      const flag2 = url.includes('/prepare/');
-      // alert('flag1 | flag2:' + flag1 + ' | ' + flag2);
-      if (!flag1 && !flag2) {
-        this.storageService.setLocal('loginedUrl', url);
-      }
-    }
-  }
 
 
 }
