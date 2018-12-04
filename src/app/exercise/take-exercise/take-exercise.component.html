@@ -28,7 +28,7 @@
           </div>
 
           <div class=" paper_mid">
-            <div class="pad_t_50 pad_b_50" *ngIf="_breifInfo">
+            <div class="" *ngIf="_breifInfo">
               <ng-container *ngIf="_breifInfo && _breifInfo.questions && _breifInfo.questions.length>0">
                 <ng-container *ngFor="let item of _breifInfo.questions;let index = index;">
                   <div [hidden]="_curr !== index">
@@ -58,7 +58,7 @@
             </div>
           </div>
 
-          <ng-container *ngIf="_breifInfo && _breifInfo.ques">
+          <ng-container *ngIf="_breifInfo && _breifInfo.questions">
             <div class="paper_bottom flex item-c justify-a">
               <div class="lineh0 curP" (click)="prevQues()">
                 <img src="/static/examv4/assets/images/coboVersion3/skin_paper_previous_zh_CN.png" border="0" alt="上一题 -----">
@@ -73,7 +73,7 @@
                 <span>问题： </span>
                 <span>{{_curr+1}}</span>
                 <span> of </span>
-                <span>{{_breifInfo.ques.length}}</span>
+                <span>{{_breifInfo.questions.length}}</span>
               </div>
             </div>
           </ng-container>

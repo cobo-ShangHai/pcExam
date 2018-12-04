@@ -7,11 +7,13 @@ import { MatDialog, MatDialogRef, MAT_DIALOG_DATA } from '@angular/material';
 import { ExamService } from '../exam.service';
 import { QuestionsCatalogComponent } from '../../shared/components/questions-catalog/questions-catalog.component';
 import { StorageService } from '../../shared/services/storage.service';
+import { WindowRefService } from '../../shared/services/window-ref.service';
 
 @Component({
   selector: 'app-take-exam',
   templateUrl: './take-exam.component.html',
   styleUrls: ['./take-exam.component.scss'],
+  providers: [WindowRefService]
 })
 export class TakeExamComponent implements OnInit {
   _showBack = false;
@@ -37,16 +39,20 @@ export class TakeExamComponent implements OnInit {
   _isLastChance = false; // 是否已经点击了提交按钮
   _paper_eid; // 当前试卷的eid
 
+  _blurTime = 0;
+
   constructor(
     private dialog: ShowdialogService,
     private cs: CommonService,
     private es: ExamService,
     private route: ActivatedRoute,
     public catalog: MatDialog,
-    private storage: StorageService
+    private storage: StorageService,
+    private winref: WindowRefService
   ) { }
 
   ngOnInit() {
+    const that = this;
     this.initPaperInfo();
   }
 
@@ -86,9 +92,9 @@ export class TakeExamComponent implements OnInit {
   // 获取路由信息
   getRouterInfo() {
     return new Promise((resolve, reject) => {
-     const str = this.storage.getLocal('takeExamInfo');
-     const obj = JSON.parse(str) || {};
-     resolve(obj);
+      const str = this.storage.getLocal('takeExamInfo');
+      const obj = JSON.parse(str) || {};
+      resolve(obj);
     });
   }
 

@@ -18,7 +18,7 @@ export class TakeExerciseComponent implements OnInit {
   _answersMap = new Map();
   _breifInfo;
   _curr = 0;
-  progressActive = '0%';
+  progressActive;
   constructor(
     private route: ActivatedRoute,
     private es: ExerciseService,
@@ -43,8 +43,8 @@ export class TakeExerciseComponent implements OnInit {
   }
 
   setActiveProgress() {
-    if (this._breifInfo && this._breifInfo.ques) {
-      const length = this._breifInfo.ques.length;
+    if (this._breifInfo && this._breifInfo.questions) {
+      const length = this._breifInfo.questions.length;
       const curr = this._curr || 0;
       const num0 = curr + 1;
       const num1 = num0 > length ? length * 100 : num0 * 100;

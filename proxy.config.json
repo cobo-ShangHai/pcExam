@@ -11,7 +11,7 @@
     "/weixin_pay/**",
     "/ng/assets/**"
   ],
-  "target": "http://home.cobocn.net",
+  "target": "http://liu.cobocn.net",
   "secure": false,
   "logLevel": "debug",
   "changeOrigin": true
