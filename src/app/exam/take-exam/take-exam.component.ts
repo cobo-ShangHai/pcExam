@@ -29,7 +29,7 @@ export class TakeExamComponent implements OnInit {
   _delayTime = 5000; // 延迟时间
   _answersMap = new Map();
 
-  _endTime = 0;
+  _endTime;
   _showCountDown = false;
   progressActive = '0%';
 

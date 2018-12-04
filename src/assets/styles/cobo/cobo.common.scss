@@ -147,6 +147,10 @@
   clear: both;
 }
 
+.text-l {
+  text-align: left;
+}
+
 .text-c {
   text-align: center;
 }
@@ -960,10 +964,23 @@ $btnDafalut:#f7f7f7;
     left: 20px;
     padding:10px;
     width: 46px;
-    height:13px;
+    height: 18px;
+    box-sizing:content-box;
     font-size: 12px;
     border:3px solid #999;
     background: #ff9900;
+  }
+
+  .backBlock {
+    position: absolute;
+    top:24px;
+    left: 20px;
+    padding:10px;
+    width: 46px;
+    font-size: 12px;
+    border:3px solid #999;
+    background: green;
+    box-sizing:content-box;
   }
 
   .titleContent {

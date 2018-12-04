@@ -1,12 +1,15 @@
 <h3 mat-dialog-title>{{data.title}}</h3>
 <mat-dialog-content>
-<div *ngIf="data">
-  <ng-container *ngIf="data.type === 'image' ">
-    <img [src]="data.content" alt="">
-  </ng-container>
+  <div *ngIf="data">
+    <ng-container *ngIf="data.type === 'image' ">
+      <img [src]="data.content" alt="">
+    </ng-container>
 
-  <ng-container *ngIf="data.type === 'text' ">
-    <div [innerHtml]="data.content | safeHtml"></div>
-  </ng-container>
-</div>
+    <ng-container *ngIf="data.type === 'text' ">
+      <div [innerHtml]="data.content | safeHtml"></div>
+    </ng-container>
+  </div>
 </mat-dialog-content>
+<div mat-dialog-actions>
+  <button type="button" mat-raised-button class="mat-primary" [mat-dialog-close]="true">确认</button>
+</div>

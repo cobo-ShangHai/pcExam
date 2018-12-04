@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { ExamService } from '../exam.service';
 import { ActivatedRoute } from '@angular/router';
 import { ShowdialogService } from '../../shared/services/showdialog.service';
+import { CommonService } from '../../shared/services/common.service';
 
 @Component({
   selector: 'app-exam-history',
@@ -16,7 +17,8 @@ export class ExamHistoryComponent implements OnInit {
   progressActive = '0%';
   constructor(private dialog: ShowdialogService,
     private route: ActivatedRoute,
-    private es: ExamService
+    private es: ExamService,
+    private cs: CommonService
   ) { }
 
   ngOnInit() {
@@ -93,6 +95,10 @@ export class ExamHistoryComponent implements OnInit {
     const length = this._info.ques.length;
     this._curr = num < length ? num : num - 1;
     this.setActiveProgress();
+  }
+
+  getBack() {
+    this.cs.getBack();
   }
 
 }

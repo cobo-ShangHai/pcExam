@@ -29,9 +29,11 @@
       <div class="main_c">
         <div class="paper_border">
           <div class="paper_top pos_r">
-            <div class="timeBlock" *ngIf="_endTime">
-              <app-count-down [endTime]="_endTime" (change)="listernCountDown($event)"></app-count-down>
-            </div>
+            <ng-container *ngIf="_endTime>0">
+              <div class="timeBlock">
+                <app-count-down [endTime]="_endTime" (change)="listernCountDown($event)"></app-count-down>
+              </div>
+            </ng-container>
             <div class="mga titleContent">
               <div>{{pageTitle}} </div>
               <div class="rat_of_progress">
