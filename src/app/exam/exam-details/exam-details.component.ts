@@ -60,7 +60,6 @@ export class ExamDetailsComponent implements OnInit {
   // 判断是不是有提交失败的答案
   handleLocalAnswers() {
     const str = this.storage.getLocal(this._examAnswerKey);
-    // alert(this._examAnswerKey + '|' + str);
     if (str) {
       const paper_eid = this._breifInfo.paper_eid;
       const obj = JSON.parse(str);
