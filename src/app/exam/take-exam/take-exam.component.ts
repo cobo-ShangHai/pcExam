@@ -259,10 +259,11 @@ export class TakeExamComponent implements OnInit {
   storageAnswers() {
     const answers = this.setAnswers();
     const ans_str = JSON.stringify(answers);
-    const storage_obj = {
+     const storage_obj = {
       server: this._api_server,
       token: this._token,
       isLastChance: this._isLastChance,
+      paper_eid: this._paper_eid,
       answers: ans_str
     };
     const storage_obj_str = JSON.stringify(storage_obj);

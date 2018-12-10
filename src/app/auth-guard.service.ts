@@ -27,12 +27,12 @@ export class AuthGuardService implements CanActivate {
     console.log('AuthGuard#canActivate called!', route.url[0].path);
 
     // 开发环境
-    // const _token = 'kMy4HqApfME'; // 测试用的token test01
-    // return this.cs.isTokenEffective(_token);
+    //  const _token = 'kMy4HqApfME'; // 测试用的token test01
+    //  return this.cs.isTokenEffective(_token);
 
 
     // 正式环境
-     return true;
+       return true;
 
   }
 
