@@ -21,7 +21,7 @@ export class TakeExamComponent implements OnInit {
   _examAnswerKey = ''; // 存储答案key值
   _token;
   _api_server;
-  _paperFrom; // 判断考试是独立考试，还是来自课程
+  _paperFrom; // 判断考试是独立考试，还是来自课程 task：独立考试  course:课程
   _canSubmit = false; // 是不是可以直接提交
   _filledAll = false; // 是不是答完了所有的题目
   _postData = {}; // 所有的答案
@@ -60,6 +60,7 @@ export class TakeExamComponent implements OnInit {
   async initPaperInfo() {
     const result: any[] = await Promise.all([this.getRouterInfo(), this.getEuInfo()]);
     const routeInfo: any = result[0];
+    this._paperFrom = routeInfo.paperFrom;
     this._paper_eid = routeInfo.paper_eid;
     this._eid = routeInfo.eid;
     this.pageTitle = routeInfo.title;
@@ -408,8 +409,12 @@ export class TakeExamComponent implements OnInit {
 
   // 正式环境下返回功能
   getBackProduct() {
-    const url = '/portal/cpaper/CPaper/BO.cobo?action=launchfornoti&eid=' + this._eid;
-    window.open(url, '_self');
+    if (this._paperFrom === 'task') {
+      const url = '/portal/cpaper/CPaper/BO.cobo?action=launchfornoti&eid=' + this._eid;
+      window.open(url, '_self');
+    } else {
+      this.cs.getBack();
+    }
   }
 
   // 开发环境下返回功能

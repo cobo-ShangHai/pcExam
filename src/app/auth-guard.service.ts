@@ -27,11 +27,11 @@ export class AuthGuardService implements CanActivate {
 
     // 开发环境 http://192.168.1.161:4321/index.html#/exam/details;eid=VjJKlCa6O8U  ; 考试eid
     // const _token = 'kMy4HqApfME'; // 测试用的token test01
-    // return this.cs.isTokenEffective(_token);
+    //  return this.cs.isTokenEffective(_token);
 
 
     // 正式环境
-     return true;
+    return true;
 
   }
 
