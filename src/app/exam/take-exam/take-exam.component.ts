@@ -259,7 +259,7 @@ export class TakeExamComponent implements OnInit {
   storageAnswers() {
     const answers = this.setAnswers();
     const ans_str = JSON.stringify(answers);
-     const storage_obj = {
+    const storage_obj = {
       server: this._api_server,
       token: this._token,
       isLastChance: this._isLastChance,
@@ -390,7 +390,10 @@ export class TakeExamComponent implements OnInit {
     setTimeout(() => {
       this.storage.removeLocal(this._examAnswerKey);
       this.storage.removeLocal('takeExamInfo');
-      this.cs.getBack();
+
+      this.getBackProduct();
+      // this.getBackDev();
+
     }, this._delayTime);
   }
 
@@ -401,6 +404,17 @@ export class TakeExamComponent implements OnInit {
       this.storageAnswers();
       this.postAnswers();
     }
+  }
+
+  // 正式环境下返回功能
+  getBackProduct() {
+    const url = '/portal/cpaper/CPaper/BO.cobo?action=launchfornoti&eid=' + this._eid;
+    window.open(url, '_self');
+  }
+
+  // 开发环境下返回功能
+  getBackDev() {
+    this.cs.getBack();
   }
 
 }

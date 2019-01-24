@@ -1,14 +1,4 @@
 <div class="exampage pageBlock pageBgColor pos_r">
-  <!-- <div class="pageBlock shadow-bottom fixedTop bgwhite">
-    <app-subnav [showBack]="_showBack" [padLeft]="65" title="{{pageTitle}}"></app-subnav>
-    <div class="countDown">
-      <div class="countBox" *ngIf="_endTime">
-        <app-count-down [endTime]="_endTime" (change)="listernCountDown($event)"></app-count-down>
-      </div>
-    </div>
-    <div class="submitBtn" (click)="confirmSubit()">提交</div>
-  </div> -->
-
   <!-- pc logo -->
   <div class="hd">
     <img src="http://content.cobocn.net/aspftp/upload/home/201602/T1456387816083.png">
@@ -73,13 +63,13 @@
           <ng-container *ngIf="_breifInfo && _breifInfo.ques">
             <div class="paper_bottom flex item-c justify-a">
               <div class="lineh0 curP" (click)="prevQues()">
-                <img src="/static/examv4/assets/images/coboVersion3/skin_paper_previous_zh_CN.png" border="0" alt="上一题 -----">
+                <img src="/images/skin_paper_previous_zh_CN.png" border="0" alt="上一题 -----">
               </div>
               <div class="lineh0 curP" (click)="nextQues()">
-                <img src="/static/examv4/assets/images/coboVersion3/skin_paper_next_zh_CN.png" border="0" alt="下一题">
+                <img src="/images/skin_paper_next_zh_CN.png" border="0" alt="下一题">
               </div>
               <div class="lineh0 curP" (click)="confirmSubit()">
-                <img src="/static/examv4/assets/images/coboVersion3/skin_paper_submit_zh_CN.png" border="0" alt="交卷">
+                <img src="/images/skin_paper_submit_zh_CN.png" border="0" alt="交卷">
               </div>
               <div>
                 <span>问题： </span>
