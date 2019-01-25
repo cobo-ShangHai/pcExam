@@ -4,8 +4,10 @@
     <div class="text-c iconBox">
       <i class=" cobo-icon cobo-warning"></i>
     </div>
-    <div class="fsize14 text-c">
-      <div *ngFor="let item of data.msgs" [innerHTML]="item.msg"></div>
+    <div class="fsize14 text-c overflow-h">
+      <ng-container *ngFor="let item of data.msgs">
+        <div [innerHTML]="item.msg"></div>
+      </ng-container>
     </div>
   </mat-dialog-content>
 </div>
@@ -13,8 +15,10 @@
 <!-- 普通提示信息 -->
 <div class="error" *ngIf="data.status==999">
   <mat-dialog-content>
-    <div class="fsize14 text-c pos_r">
-      <div *ngFor="let item of data.msgs" [innerHTML]="item.msg"></div>
+    <div class="fsize14 text-c pos_r overflow-h">
+      <ng-container *ngFor="let item of data.msgs">
+        <div [innerHTML]="item.msg"></div>
+      </ng-container>
     </div>
   </mat-dialog-content>
 </div>
