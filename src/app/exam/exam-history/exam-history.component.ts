@@ -82,6 +82,16 @@ export class ExamHistoryComponent implements OnInit {
     this.dialog.warningDialog(obj);
   }
 
+  // 显示警告框
+  noMoreQuestiongDialog() {
+    const msgs = [{ msg: '没有下一题了' }];
+    const obj = {
+      status: 999,
+      msgs: msgs
+    };
+    this.dialog.warningDialog(obj);
+  }
+
   // 上一题
   prevQues() {
     const num = +this._curr - 1;
@@ -93,6 +103,10 @@ export class ExamHistoryComponent implements OnInit {
   nextQues() {
     const num = +this._curr + 1;
     const length = this._info.ques.length;
+    if (num === length) {
+      this.noMoreQuestiongDialog();
+    }
+
     this._curr = num < length ? num : num - 1;
     this.setActiveProgress();
   }

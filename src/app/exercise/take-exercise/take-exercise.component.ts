@@ -3,6 +3,7 @@ import { ActivatedRoute } from '@angular/router';
 import { CommonService } from '../../shared/services/common.service';
 import { StorageService } from '../../shared/services/storage.service';
 import { ExerciseService } from '../exercise.service';
+import { ShowdialogService } from '../../shared/services/showdialog.service';
 
 
 
@@ -23,7 +24,8 @@ export class TakeExerciseComponent implements OnInit {
     private route: ActivatedRoute,
     private es: ExerciseService,
     private cs: CommonService,
-    private storage: StorageService
+    private storage: StorageService,
+    private dialog: ShowdialogService
   ) { }
 
   ngOnInit() {
@@ -115,8 +117,21 @@ export class TakeExerciseComponent implements OnInit {
   nextQues() {
     const num = +this._curr + 1;
     const length = this._breifInfo.questions.length;
+    if (num === length) {
+      this.noMoreQuestiongDialog();
+    }
     this._curr = num < length ? num : num - 1;
     this.setActiveProgress();
+  }
+
+   // 显示警告框
+   noMoreQuestiongDialog() {
+    const msgs = [{ msg: '没有下一题了' }];
+    const obj = {
+      status: 999,
+      msgs: msgs
+    };
+    this.dialog.warningDialog(obj);
   }
 
   // 设置答案

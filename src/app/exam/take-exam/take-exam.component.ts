@@ -38,6 +38,7 @@ export class TakeExamComponent implements OnInit {
   _submitTimes = 0; // 第几次提交答案
   _isLastChance = false; // 是否已经点击了提交按钮
   _paper_eid; // 当前试卷的eid
+  _return_url; // 返回地址
 
   _blurTime = 0;
 
@@ -60,6 +61,7 @@ export class TakeExamComponent implements OnInit {
   async initPaperInfo() {
     const result: any[] = await Promise.all([this.getRouterInfo(), this.getEuInfo()]);
     const routeInfo: any = result[0];
+    this._return_url = routeInfo.return_url;
     this._paperFrom = routeInfo.paperFrom;
     this._paper_eid = routeInfo.paper_eid;
     this._eid = routeInfo.eid;
@@ -206,23 +208,24 @@ export class TakeExamComponent implements OnInit {
   nextQues() {
     const num = +this._curr + 1;
     const length = this._breifInfo.ques.length;
+    if (num === length) {
+      this.noMoreQuestiongDialog();
+    }
     this._curr = num < length ? num : num - 1;
     this.postAnswers();
     this.setActiveProgress();
-
-    if (num === length) {
-      this.noMOreQuestionDialog();
-    }
   }
 
-  noMOreQuestionDialog() {
-    const msg = '没有下一题了！';
+  // 显示警告框
+  noMoreQuestiongDialog() {
+    const msgs = [{ msg: '没有下一题了' }];
     const obj = {
       status: 999,
-      msgs: [{ msg: msg }]
+      msgs: msgs
     };
     this.dialog.warningDialog(obj);
   }
+
 
   // 设置答案
   setAnswers() {
@@ -422,7 +425,9 @@ export class TakeExamComponent implements OnInit {
 
   // 正式环境下返回功能
   getBackProduct() {
-    if (this._paperFrom === 'task') {
+    if (this._return_url) {
+      window.open(this._return_url, '_self');
+    } else if (this._paperFrom === 'task') {
       const url = '/portal/cpaper/CPaper/BO.cobo?action=launchfornoti&eid=' + this._eid;
       window.open(url, '_self');
     } else {
