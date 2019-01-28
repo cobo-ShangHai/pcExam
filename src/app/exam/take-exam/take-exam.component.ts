@@ -209,6 +209,19 @@ export class TakeExamComponent implements OnInit {
     this._curr = num < length ? num : num - 1;
     this.postAnswers();
     this.setActiveProgress();
+
+    if (num === length) {
+      this.noMOreQuestionDialog();
+    }
+  }
+
+  noMOreQuestionDialog() {
+    const msg = '没有下一题了！';
+    const obj = {
+      status: 999,
+      msgs: [{ msg: msg }]
+    };
+    this.dialog.warningDialog(obj);
   }
 
   // 设置答案
