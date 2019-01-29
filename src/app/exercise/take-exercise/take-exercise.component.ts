@@ -105,9 +105,21 @@ export class TakeExerciseComponent implements OnInit {
       this._answersMap.set(ind, obj);
     }
   }
+  // 显示警告框
+  noPrevQuestiongDialog() {
+    const msgs = [{ msg: '已经是第一题了' }];
+    const obj = {
+      status: 999,
+      msgs: msgs
+    };
+    this.dialog.warningDialog(obj);
+  }
 
   // 上一题
   prevQues() {
+    if (this._curr === 0) {
+      this.noPrevQuestiongDialog();
+    }
     const num = +this._curr - 1;
     this._curr = num > -1 ? num : 0;
     this.setActiveProgress();

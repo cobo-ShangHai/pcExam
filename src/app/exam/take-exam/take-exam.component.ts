@@ -196,12 +196,26 @@ export class TakeExamComponent implements OnInit {
     }
   }
 
+  // 显示警告框
+  noPrevQuestiongDialog() {
+    const msgs = [{ msg: '已经是第一题了' }];
+    const obj = {
+      status: 999,
+      msgs: msgs
+    };
+    this.dialog.warningDialog(obj);
+  }
+
   // 上一题
   prevQues() {
     const num = +this._curr - 1;
     this._curr = num > -1 ? num : 0;
-    this.postAnswers();
-    this.setActiveProgress();
+    if (this._curr === 0) {
+      this.noPrevQuestiongDialog();
+    } else {
+      this.postAnswers();
+      this.setActiveProgress();
+    }
   }
 
   // 下一题
