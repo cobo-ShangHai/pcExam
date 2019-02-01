@@ -29,7 +29,8 @@ export class TakeExamComponent implements OnInit {
   _curr = 0;
   _eid;
   _delayTime = 5000; // 延迟时间
-  _answersMap = new Map();
+  _answersMap = new Map(); // 存储了试卷所有的答案
+  _needSubmitAnswersMap = new Map(); // 存储了需要提交的答案
 
   _endTime;
   _showCountDown = false;

@@ -3,6 +3,7 @@ import { ExamService } from '../exam.service';
 import { ActivatedRoute } from '@angular/router';
 import { ShowdialogService } from '../../shared/services/showdialog.service';
 import { CommonService } from '../../shared/services/common.service';
+import { StorageService } from '../../shared/services/storage.service';
 
 @Component({
   selector: 'app-exam-history',
@@ -18,7 +19,8 @@ export class ExamHistoryComponent implements OnInit {
   constructor(private dialog: ShowdialogService,
     private route: ActivatedRoute,
     private es: ExamService,
-    private cs: CommonService
+    private cs: CommonService,
+    private storage: StorageService
   ) { }
 
   ngOnInit() {
@@ -53,7 +55,9 @@ export class ExamHistoryComponent implements OnInit {
   // 获取路由信息
   getRouterInfo() {
     return new Promise((resolve, reject) => {
-      this.route.paramMap.subscribe((info: any) => resolve(info.params));
+      const str = this.storage.getLocal('seePaperHistoryInfo');
+      const obj = JSON.parse(str) || {};
+      resolve(obj);
     });
   }
 
@@ -125,6 +129,7 @@ export class ExamHistoryComponent implements OnInit {
   }
 
   getBack() {
+    this.storage.removeLocal('seePaperHistoryInfo');
     this.cs.getBack();
   }
 
