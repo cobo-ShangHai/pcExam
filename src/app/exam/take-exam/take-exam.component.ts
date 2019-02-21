@@ -164,11 +164,16 @@ export class TakeExamComponent implements OnInit {
       for (let i = 0; i < length; i++) {
         const ques = questions[i];
         const value = ques.initValue || '';
+        let flag = false;
+        if (value && value.length > 0) {
+          flag = true;
+        }
         const obj = {
           type: ques.type,
           id: ques.id,
           required: ques.required,
-          value: value
+          value: value,
+          isNeedSubmit: flag // 初始化答案,如果有答案 需要提交一次
         };
         this._answersMap.set(i, obj);
       }
@@ -192,6 +197,7 @@ export class TakeExamComponent implements OnInit {
     if (ind > -1) {
       const obj = this._answersMap.get(ind) || {};
       obj.value = event.value;
+      obj.isNeedSubmit = true; // 更改答案后重新提交
       this._answersMap.set(ind, obj);
       this.storageAnswers();
     }
@@ -243,7 +249,33 @@ export class TakeExamComponent implements OnInit {
 
 
   // 设置答案
-  setAnswers() {
+  // setAnswers() {
+  //   const postData = {};
+  //   this._canSubmit = true;
+  //   this._filledAll = true;
+  //   this._answersMap.forEach((obj, key) => {
+  //     if (obj) {
+  //       const array: any[] = obj.value || [];
+  //       const length = array.length;
+  //       if (length > 0) {
+  //         obj.noAnswer = false;
+  //         const postKey = '' + obj.id;
+  //         postData[postKey] = array;
+  //       } else {
+  //         this._filledAll = false;
+  //         obj.noAnswer = true;
+  //         if (obj.required) {
+  //           this._canSubmit = false;
+  //         }
+  //       }
+  //       this._answersMap.set(key, obj);
+  //     }
+  //   });
+  //   return postData;
+  // }
+
+  // 设置需要提交的答案
+  setPostAnswer() {
     const postData = {};
     this._canSubmit = true;
     this._filledAll = true;
@@ -253,8 +285,10 @@ export class TakeExamComponent implements OnInit {
         const length = array.length;
         if (length > 0) {
           obj.noAnswer = false;
-          const postKey = '' + obj.id;
-          postData[postKey] = array;
+          if (obj.isNeedSubmit) { // 需要提交答案
+            const postKey = '' + obj.id;
+            postData[postKey] = array;
+          }
         } else {
           this._filledAll = false;
           obj.noAnswer = true;
@@ -274,22 +308,56 @@ export class TakeExamComponent implements OnInit {
    */
   async postAnswers() {
     const that = this;
-    const answers = this.setAnswers();
-    const ans_str = JSON.stringify(answers);
-    const data: any = await this.doPostAnswer(ans_str);
-    if (this._isLastChance) {
-      this._submitTimes++;
-      if (data.code === 200) {
-        that.doSubmit();
-      } else {
-        that.postAnswersFalied(data.msg);
+    const answers = await this.setPostAnswer();
+    if (answers && Object.keys(answers).length !== 0) {
+      const ans_str = JSON.stringify(answers);
+      const data: any = await this.doPostAnswer(ans_str);
+      if (data && data.code === 200) { // 提交答案成功
+        this.changeAnsSubmitSataus(answers);
+      }
+      if (this._isLastChance) {
+        this._submitTimes++;
+        if (data.code === 200) {
+          that.doSubmit();
+        } else {
+          that.postAnswersFalied(data.msg);
+        }
       }
     }
   }
 
+  // 提交答案成功后，将所有的答案改成不需要提交的状态
+  changeAnsSubmitSataus(answers) {
+    this._answersMap.forEach((obj, key) => {
+      if (obj) {
+        const id = obj.id;
+        if (id && answers[id]) {
+          obj.isNeedSubmit = false;
+          this._answersMap.set(key, obj);
+        }
+      }
+    });
+  }
+
+  // 设置本地存储答案
+  setStorageAnswers() {
+    const return_data = {};
+    this._answersMap.forEach((obj, key) => {
+      if (obj) {
+        const array: any[] = obj.value || [];
+        const length = array.length;
+        if (length > 0) {
+          const tempkey = '' + obj.id;
+          return_data[tempkey] = array;
+        }
+      }
+    });
+    return return_data;
+  }
+
   // 存储答案
-  storageAnswers() {
-    const answers = this.setAnswers();
+  async storageAnswers() {
+    const answers = await this.setStorageAnswers();
     const ans_str = JSON.stringify(answers);
     const storage_obj = {
       server: this._api_server,
@@ -350,7 +418,7 @@ export class TakeExamComponent implements OnInit {
 
   // 交卷前的准备工作
   async prepareSubmit() {
-    const data = await this.setAnswers();
+    const data = await this.setPostAnswer();
     this._postData = data;
     if (this._filledAll) {
       this._isLastChance = true;
