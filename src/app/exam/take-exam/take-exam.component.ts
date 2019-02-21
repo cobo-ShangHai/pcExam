@@ -248,31 +248,6 @@ export class TakeExamComponent implements OnInit {
   }
 
 
-  // 设置答案
-  // setAnswers() {
-  //   const postData = {};
-  //   this._canSubmit = true;
-  //   this._filledAll = true;
-  //   this._answersMap.forEach((obj, key) => {
-  //     if (obj) {
-  //       const array: any[] = obj.value || [];
-  //       const length = array.length;
-  //       if (length > 0) {
-  //         obj.noAnswer = false;
-  //         const postKey = '' + obj.id;
-  //         postData[postKey] = array;
-  //       } else {
-  //         this._filledAll = false;
-  //         obj.noAnswer = true;
-  //         if (obj.required) {
-  //           this._canSubmit = false;
-  //         }
-  //       }
-  //       this._answersMap.set(key, obj);
-  //     }
-  //   });
-  //   return postData;
-  // }
 
   // 设置需要提交的答案
   setPostAnswer() {
