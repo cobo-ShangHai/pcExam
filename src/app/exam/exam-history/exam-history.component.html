@@ -55,6 +55,9 @@
                       [showAnswer]="_info.showAnswer" [showScore]="_info.showValue">
                     </app-question-fill-gap-statistics>
                   </ng-container>
+                  <div class="bgf pad_13_l pad_13_b">
+                    <div class="methink reportText curP" (click)="reportAnswerWrong(item.id)">我认为这题不正确</div>
+                  </div>
                 </div>
               </ng-container>
             </ng-container>

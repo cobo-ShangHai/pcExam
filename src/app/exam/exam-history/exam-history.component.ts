@@ -133,4 +133,10 @@ export class ExamHistoryComponent implements OnInit {
     this.cs.getBack();
   }
 
+  // 我认为这个答案不正确
+  reportAnswerWrong(id) {
+    const url = '/portal/test/exam/Quiz/BO.cobo?action=toreportitem&id=' + id;
+    window.open(url);
+  }
+
 }
