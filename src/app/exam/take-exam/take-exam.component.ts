@@ -284,7 +284,7 @@ export class TakeExamComponent implements OnInit {
   async postAnswers() {
     const that = this;
     const answers = await this.setPostAnswer();
-    if (answers && Object.keys(answers).length !== 0) {
+    if (this._isLastChance || (answers && Object.keys(answers).length !== 0) ) {
       const ans_str = JSON.stringify(answers);
       const data: any = await this.doPostAnswer(ans_str);
       if (data && data.code === 200) { // 提交答案成功

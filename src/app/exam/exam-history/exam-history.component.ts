@@ -96,8 +96,8 @@ export class ExamHistoryComponent implements OnInit {
     this.dialog.warningDialog(obj);
   }
 
-   // 显示警告框
-   noPrevQuestiongDialog() {
+  // 显示警告框
+  noPrevQuestiongDialog() {
     const msgs = [{ msg: '已经是第一题了' }];
     const obj = {
       status: 999,
@@ -135,7 +135,7 @@ export class ExamHistoryComponent implements OnInit {
 
   // 我认为这个答案不正确
   reportAnswerWrong(id) {
-    const url = '/portal/test/exam/Quiz/BO.cobo?action=toreportitem&id=' + id;
+    const url = '/portal/test/exam/Quiz/BO.cobo?action=toreportitem&id=' + id + '&pid=' + this._eid;
     window.open(url);
   }
 
