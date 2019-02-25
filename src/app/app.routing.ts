@@ -15,6 +15,10 @@ export const AppRoutes: Routes = [
     canActivate: [AuthGuardService],
     loadChildren: './eva/eva.module#EvaModule'
   }, {
+    path: 'cycleeva',
+    canActivate: [AuthGuardService],
+    loadChildren: './cycleeva/cycleeva.module#CycleevaModule'
+  }, {
     path: '',
     redirectTo: '/exam',
     pathMatch: 'full'

@@ -1,0 +1,44 @@
+<div class="pageBlock pageBgColor pos_r">
+  <div class="pageBlock shadow-bottom fixedTop bgwhite">
+    <app-subnav showBack="true" [title]="'360度评估'"></app-subnav>
+    <div class="enshrine" *ngIf="_sotredUp">
+      <div class="flex item-c">
+        <app-store-up [collected]="_sotredUp"></app-store-up>
+      </div>
+    </div>
+  </div>
+
+  <!-- 没有获取任何数据 -->
+  <ng-container *ngIf="!_breifInfo">
+    <app-loading-animation-page></app-loading-animation-page>
+  </ng-container>
+
+  <!-- 至少加载过一次数据 -->
+  <ng-container *ngIf="_breifInfo">
+    <div class="pad_t_50 pad_b_50">
+
+      <!-- 没有权限 -->
+      <ng-container *ngIf="_breifInfo && _breifInfo.status==-20">
+        <app-permission-denied [deniedInfo]="_breifInfo"></app-permission-denied>
+      </ng-container>
+
+      <!-- 正常查看 -->
+      <ng-container *ngIf="_breifInfo && _breifInfo.status === 0">
+        <!-- 提示信息 -->
+        <app-cycleeva-details-warning [info]="_breifInfo"></app-cycleeva-details-warning>
+        <!-- 简介 -->
+        <app-cycleeva-details-brief [info]="_breifInfo"> </app-cycleeva-details-brief>
+        <!-- 被评估人区域 -->
+        <app-cycleeva-details-sheet [info]="_breifInfo"></app-cycleeva-details-sheet>
+      </ng-container>
+    </div>
+    <ng-container *ngIf="_breifInfo && _breifInfo.status === 0">
+      <div class="fiexdBottom footer-bg-1 shadow-top pad13 h_44 fsize14 flex item-c box-size-b">
+        <span>起止日期：</span>
+        <span>{{_breifInfo.begin | timeStandard: 'standard'}}</span>
+        <span>~</span>
+        <span>{{_breifInfo.end | timeStandard: 'standard'}}</span>
+      </div>
+    </ng-container>
+  </ng-container>
+</div>
