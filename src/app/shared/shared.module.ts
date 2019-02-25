@@ -48,6 +48,7 @@ import { TextareaDialogComponent } from './components/dialog-textarea/textarea-d
 import { SubnavComponent } from './components/subnav/subnav.component';
 import { StoreUpComponent } from './components/store-up/store-up.component';
 import { PermissionDeniedComponent } from './components/permission-denied/permission-denied.component';
+import { ScoreItemComponent } from './components/score-item/score-item.component';
 
 
 @NgModule({
@@ -101,7 +102,8 @@ import { PermissionDeniedComponent } from './components/permission-denied/permis
     SubnavComponent,
     StoreUpComponent,
     PermissionDeniedComponent,
-    QuestionsCatalogComponent
+    QuestionsCatalogComponent,
+    ScoreItemComponent
   ],
   exports: [
     IndextocharPipe,
@@ -129,7 +131,8 @@ import { PermissionDeniedComponent } from './components/permission-denied/permis
     SubnavComponent,
     StoreUpComponent,
     PermissionDeniedComponent,
-    QuestionsCatalogComponent
+    QuestionsCatalogComponent,
+    ScoreItemComponent
   ],
   providers: [
     IndextocharPipe,

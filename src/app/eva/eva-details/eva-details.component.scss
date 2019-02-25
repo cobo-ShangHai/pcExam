@@ -1,0 +1,65 @@
+
+.eva {
+  background: #b77fff;
+}
+
+.briefBox{
+  padding:20px 13px 10px;
+}
+
+.box {
+  width: 75px;
+  height: 75px;
+  color: white;
+  flex-shrink: 0;
+}
+
+.textBox {
+  position: absolute;
+  left: 0;
+  bottom: 0;
+  width: 100%;
+  padding-top:6px;
+  padding-bottom: 10px;
+}
+
+.iconBox {
+  position: absolute;
+  left: 0;
+  bottom: 30px;
+  width: 100%;
+}
+
+.btnArea {
+  padding-left: 20px;
+  padding-right: 20px;
+  padding-bottom:20px;
+}
+.comonBtn {
+  height:45px;
+  line-height: 45px;
+}
+
+.listBox {
+  margin-top: 30px;
+} 
+
+.photo {
+  width: 60px;
+  height:60px;
+}
+
+.cyBtn{
+  height:30px;
+  width:70px;
+  line-height: 30px;
+}
+
+.cycleevaStatus img {
+  width:60px;
+}
+
+.footer{
+  height:44px;
+  background: #c8c7cc;
+}

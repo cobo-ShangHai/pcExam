@@ -1,0 +1,17 @@
+<ng-container *ngIf="!show2x">
+  <div class="flex item-c box" *ngIf="score>=0">
+    <div class="lineh0" *ngFor="let number of [0,1,2,3,4]">
+      <i *ngIf=" number < score " class="cobo-icon cobo-start-light"></i>
+      <i *ngIf=" !(number < score) " class="cobo-icon cobo-start-dark"></i>
+    </div>
+  </div>
+</ng-container>
+
+<ng-container *ngIf="show2x">
+  <div class="flex item-c box" *ngIf="score>=0">
+    <div class="lineh0" *ngFor="let number of [0,1,2,3,4]">
+      <i *ngIf=" number < score " class="cobo-icon-2x cobo-start-light-2x"></i>
+      <i *ngIf=" !(number < score) " class="cobo-icon-2x cobo-start-dark-2x"></i>
+    </div>
+  </div>
+</ng-container>

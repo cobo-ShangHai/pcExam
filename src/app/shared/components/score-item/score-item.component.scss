@@ -1,0 +1,7 @@
+.box>div{
+  padding-right: 3px;
+}
+
+.box>div:last-child {
+  padding: none;
+}
