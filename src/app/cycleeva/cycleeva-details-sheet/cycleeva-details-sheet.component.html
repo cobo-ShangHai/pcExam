@@ -1,0 +1,31 @@
+<ng-container *ngIf="info">
+    <div class="listBox bgwhite">
+        <div class="pad13 fsize15">被评估人</div>
+        <ng-container *ngIf="info.papers && info.papers.length>0">
+          <div class="flex item-c pad13 box-size-b separte_line_t" *ngFor="let item of info.papers; let last = last;">
+            <div class="flex-shrink-0 lineh0 pad_13_r">
+              <img [src]="item.avatar" class="circleImage photo" alt="">
+            </div>
+            <div class="flex-grow-1">
+              <div class="fsize15 mainTitleColor pad_9_b">{{item.name}}</div>
+              <div class="fsize12 secondaryInfoColor pad_9_t">{{item.way}}</div>
+            </div>
+            <div class="flex-shrink-0 ">
+              <ng-container *ngIf="!(info.notStart || info.isEnd) && (item.status===0 || item.status===4)">
+                <div class="subtn-success cyBtn text-c colorw rdius" (click)="takeTrail(item.eid)">评估</div>
+              </ng-container>
+              <ng-container *ngIf="item.status===30">
+                <div class="lineh0 cycleevaStatus">
+                  <img src="/static/ng/assets/images/coboVersion3/cycleeva_done.png" alt="">
+                </div>
+              </ng-container>
+              <ng-container *ngIf=" info.isEnd && (item.status===0 || item.status===4)">
+                <div class="lineh0 cycleevaStatus">
+                  <img src="/static/ng/assets/images/coboVersion3/cycleeva_done_false.png" alt="">
+                </div>
+              </ng-container>
+            </div>
+          </div>
+        </ng-container>
+      </div>
+</ng-container>

@@ -9,6 +9,9 @@ import 'rxjs/add/operator/map';
 
 @Injectable()
 export class CommonService {
+  public newParams = {
+    version: 'v4.0'
+  };
 
   constructor(
     private myhttp: MyhttpService,
@@ -46,7 +49,7 @@ export class CommonService {
     this.location.back();
   }
 
-
+  // http://home.cobocn.net/m/logon.cobo?token=kMy4HqApfME&version=v4.0
   // 判断token 是否有效
   isTokenEffective(token): Observable<any> {
     const _url = '/m/logon.cobo';

@@ -1,0 +1,17 @@
+<ng-container *ngIf="info">
+  <div class="waringBox colory">
+    <div class="flex item-c justify-c">
+      <div class="lineh0 flex-grow-0">
+        <img src="/static/ng/assets/images/coboVersion3/no_info.png" alt="">
+      </div>
+      <div class="pad_5_l fsize12 lineh12 flex-grow-0">
+        <ng-container *ngIf="!info.done">
+          <ng-container *ngIf="info.notStart">在线调查与评估还没有开始,您不能参加</ng-container>
+          <ng-container *ngIf="info.isEnd">在线调查与评估已经结束,您未参加</ng-container>
+          <ng-container *ngIf="!(info.notStart || info.isEnd)">在线调查与评估已经开始,请参加</ng-container>
+        </ng-container>
+        <ng-container *ngIf="info.done">您已经参加过在线调查与评估了</ng-container>
+      </div>
+    </div>
+  </div>
+</ng-container>

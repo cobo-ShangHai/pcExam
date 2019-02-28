@@ -1,0 +1,28 @@
+<ng-container *ngIf="info">
+  <div class=" briefBox bgwhite">
+    <div class="pos_r mga box rdius eva">
+      <div class="iconBox text-c lineh0">
+        <i class="cobo-icon cobo-onelineEva"></i>
+      </div>
+      <div class="textBox text-c fsize12 lineh12">在线评估</div>
+    </div>
+    <div class="pad_13_t pad_13_b  fsize15 width100 text-c mainTitleColor">{{info.name}}</div>
+    <div class="desBox   fsize15 secondaryInfoColor line5Over" (click)="showAllBriefText(info.notice1)" [innerHtml]="info.notice1 | safeHtml "></div>
+    <div class="pad_13_t">
+      <ng-container *ngIf="!(info.notStart || info.isEnd || info.done)">
+        <div class="pad13 fsize16 subtn-success colorw text-c rdius" (click)="takeTrail(info.eid)">参加</div>
+      </ng-container>
+      <ng-container *ngIf="(info.notStart || info.isEnd || info.done)">
+        <div class="pad13 fsize16 subtn-falid colorw text-c rdius">参加</div>
+      </ng-container>
+    </div>
+    <div class="pad_13_t" *ngIf="info.done">
+      <ng-container *ngIf="!(info.notStart || info.isEnd || !info.open)">
+        <div class="pad13 fsize16 subtn-success colorw text-c rdius" (click)="viewStatistics(info.eid)">查看评估汇总信息</div>
+      </ng-container>
+      <ng-container *ngIf="(info.notStart || info.isEnd || !info.open) ">
+        <div class="pad13 fsize16 subtn-falid colorw text-c rdius">查看评估汇总信息</div>
+      </ng-container>
+    </div>
+  </div>
+</ng-container>

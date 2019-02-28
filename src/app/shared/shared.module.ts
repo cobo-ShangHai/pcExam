@@ -53,7 +53,7 @@ import { VoteQuestionItemComponent } from '../vote/vote-question-item/vote-quest
 import { VoteQuestionMultipleComponent } from '../vote/vote-question-multiple/vote-question-multiple.component';
 import { VoteQuestionSingleComponent } from '../vote/vote-question-single/vote-question-single.component';
 import { VotingComponent } from '../vote/voting/voting.component';
-
+import { ScoreItemComponent } from './components/score-item/score-item.component';
 
 @NgModule({
   imports: [
@@ -110,7 +110,8 @@ import { VotingComponent } from '../vote/voting/voting.component';
     VoteQuestionItemComponent,
     VoteQuestionMultipleComponent,
     VoteQuestionSingleComponent,
-    VotingComponent
+    VotingComponent,
+    ScoreItemComponent
   ],
   exports: [
     IndextocharPipe,
@@ -142,7 +143,8 @@ import { VotingComponent } from '../vote/voting/voting.component';
     VoteQuestionItemComponent,
     VoteQuestionMultipleComponent,
     VoteQuestionSingleComponent,
-    VotingComponent
+    VotingComponent,
+    ScoreItemComponent
   ],
   providers: [
     IndextocharPipe,

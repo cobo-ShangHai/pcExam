@@ -1,0 +1,57 @@
+<div class="pageBlock pageBgColor pos_r">
+  <div class="pageBlock shadow-bottom fixedTop bgwhite">
+    <app-subnav showBack="true" title="{{pageTitle}}"></app-subnav>
+  </div>
+
+  <!-- 没有获取任何数据 -->
+  <ng-container *ngIf="!_info">
+    <div class="box_padding box-size-b height_100_vh">
+      <ng-container>
+        <app-loading-animation-page></app-loading-animation-page>
+      </ng-container>
+    </div>
+  </ng-container>
+
+  <!-- 至少加载过一次数据 -->
+  <ng-container *ngIf="_info">
+    <div class="pad_t_44">
+
+      <!-- 简略信息 -->
+      <div class="pad_13_t pad_13_b mainTitleColor">
+        <div class="bgwhite pad_13_l">
+          <div class=" pad_13_t pad_13_b separte_line_b">评估文件信息：</div>
+          <div class="pad_13_t pad_13_b pad_13_r ">
+            <div class="fsize13 pad_5_b">答卷份数：{{_info.size}}份</div>
+            <div class="flex item-c">
+              <div class=" fsize13 lineh13">综合评分：</div>
+              <div class=" text-c pad_3_b">
+                <app-score-item [score]="_info.score"></app-score-item>
+              </div>
+              <div class=" pad_13_l colory fsize13 lineh13">{{_info.score | number:'1.0-1'}}</div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- 目录 -->
+      <div class="pad13 fsize15">评估问题汇总</div>
+      <ng-container *ngIf="_info.questions && _info.questions.length">
+        <ng-container *ngFor="let question of _info.questions;let ind = index; let last =last;">
+          <div class="pad13 separte_line_b bgwhite " [ngClass]="{'border-none':last}" (click)="seeDetails(ind)">
+            <div class="flex item-c">
+              <div class="">题目编号：</div>
+              <div class="flex-grow-1 flex item-c">
+                <div class="reportText pad_13_l">{{ind+1}}</div>
+                <div class="colorr pad_13_l" *ngIf="question.required">(必答)</div>
+              </div>
+              <div class="lineh0">
+                <i class="cobo-icon cobo-go "></i>
+              </div>
+            </div>
+          </div>
+        </ng-container>
+      </ng-container>
+
+    </div>
+  </ng-container>
+</div>

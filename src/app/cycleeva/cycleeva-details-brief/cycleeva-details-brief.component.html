@@ -1,0 +1,13 @@
+<ng-container *ngIf="info">
+   <!-- 简介 -->
+   <div class=" briefBox bgwhite">
+      <div class="pos_r mga box rdius cycleeva">
+        <div class="iconBox text-c lineh0">
+          <i class="cobo-icon cobo-onelineCycleeva"></i>
+        </div>
+        <div class="textBox text-c fsize12 lineh12">360度评估</div>
+      </div>
+      <div class="pad_13_t pad_13_b fsize15 width100 text-c mainTitleColor">{{info.name}}</div>
+      <div class="desBox pad_1_b fsize15 secondaryInfoColor line5Over" (click)="showAllBriefText(info.des1)" [innerHtml]="info.des1 | safeHtml "></div>
+    </div>
+</ng-container>
