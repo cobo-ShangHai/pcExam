@@ -34,6 +34,7 @@ import { QuestionEssayStatisticsComponent } from './components/question-essay-st
 import { QuestionOrderStatisticsComponent } from './components/question-order-statistics/question-order-statistics.component';
 import { QuestionScoringStatisticsComponent } from './components/question-scoring-statistics/question-scoring-statistics.component';
 import { QuestionChoiceStatisticsComponent } from './components/question-choice-statistics/question-choice-statistics.component';
+
 import {
   QuestionScoringItemStatisticsComponent
 } from './components/question-scoring-item-statistics/question-scoring-item-statistics.component';
@@ -48,6 +49,10 @@ import { TextareaDialogComponent } from './components/dialog-textarea/textarea-d
 import { SubnavComponent } from './components/subnav/subnav.component';
 import { StoreUpComponent } from './components/store-up/store-up.component';
 import { PermissionDeniedComponent } from './components/permission-denied/permission-denied.component';
+import { VoteQuestionItemComponent } from '../vote/vote-question-item/vote-question-item.component';
+import { VoteQuestionMultipleComponent } from '../vote/vote-question-multiple/vote-question-multiple.component';
+import { VoteQuestionSingleComponent } from '../vote/vote-question-single/vote-question-single.component';
+import { VotingComponent } from '../vote/voting/voting.component';
 
 
 @NgModule({
@@ -101,7 +106,11 @@ import { PermissionDeniedComponent } from './components/permission-denied/permis
     SubnavComponent,
     StoreUpComponent,
     PermissionDeniedComponent,
-    QuestionsCatalogComponent
+    QuestionsCatalogComponent,
+    VoteQuestionItemComponent,
+    VoteQuestionMultipleComponent,
+    VoteQuestionSingleComponent,
+    VotingComponent
   ],
   exports: [
     IndextocharPipe,
@@ -129,7 +138,11 @@ import { PermissionDeniedComponent } from './components/permission-denied/permis
     SubnavComponent,
     StoreUpComponent,
     PermissionDeniedComponent,
-    QuestionsCatalogComponent
+    QuestionsCatalogComponent,
+    VoteQuestionItemComponent,
+    VoteQuestionMultipleComponent,
+    VoteQuestionSingleComponent,
+    VotingComponent
   ],
   providers: [
     IndextocharPipe,

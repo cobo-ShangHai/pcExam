@@ -1,0 +1,42 @@
+.height_78 {
+  height: 78px;
+}
+
+.voteContent img {
+  width: 120px;
+  height: 78px;
+}
+
+.choice_des {
+  position: relative;
+  line-height: 16px;
+}
+
+.voteIconBox {
+  padding-left: 23px;
+}
+
+.wrapper {
+  display: table;
+}
+
+.cell {
+  display: table-cell;
+  vertical-align: middle;
+}
+
+.progreeBar {
+  width: 170px;
+}
+
+.vote_box_1 {
+  width: 60px;
+}
+
+.vote_box_2 {
+  width: 30px;
+} 
+
+::ng-deep .mat-progress-bar-buffer {
+  background: rgba(216,216,216,1);
+}

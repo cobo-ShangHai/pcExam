@@ -14,4 +14,9 @@ export const AppRoutes: Routes = [
     path: '',
     redirectTo: '/exam',
     pathMatch: 'full'
-  }];
+  },{
+    path:'vote',
+    canActivate:[AuthGuardService],
+    loadChildren:'./vote/vote.module#VoteModule'
+  }
+];
