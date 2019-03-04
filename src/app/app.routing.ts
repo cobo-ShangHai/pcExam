@@ -19,12 +19,12 @@ export const AppRoutes: Routes = [
     canActivate: [AuthGuardService],
     loadChildren: './cycleeva/cycleeva.module#CycleevaModule'
   }, {
+    path: 'vote',
+    canActivate: [AuthGuardService],
+    loadChildren: './vote/vote.module#VoteModule'
+  }, {
     path: '',
-    redirectTo: '/exam',
+    redirectTo: '',
     pathMatch: 'full'
-  },{
-    path:'vote',
-    canActivate:[AuthGuardService],
-    loadChildren:'./vote/vote.module#VoteModule'
   }
 ];
