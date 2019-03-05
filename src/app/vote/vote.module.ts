@@ -16,7 +16,7 @@ import { VotingComponent } from './voting/voting.component';
 import { SharedModule } from '../shared/shared.module';
 import { VoteService } from './vote.service';
 import { ShowdialogService } from '../shared/services/showdialog.service';
-
+import { VoteQuestionNopicItemComponent } from './vote-question-nopic-item/vote-question-nopic-item.component';
 
 
 
@@ -35,8 +35,7 @@ import { ShowdialogService } from '../shared/services/showdialog.service';
     VoteRoutingModule
   ],
   declarations: [
-   
-  ],
+   VoteQuestionNopicItemComponent],
   providers: [
     VoteService,
     ShowdialogService

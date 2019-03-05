@@ -1,7 +1,10 @@
 <ng-container *ngIf="data && data.choices && data.choices.length>0">
     <ng-container *ngFor="let item of  data.choices;let ind = index;let last = last">
-      <div class="separte_line_b pad_10_t pad_10_b ques_box" [ngClass]="{'border-none':last}">
+      <div class="pad_10_t pad_10_b ques_box col-lg-3 col-md-4 col-sm-6" [ngClass]="{'border-none':last}" *ngIf="data.voteType == 1">
         <app-vote-question-item [choice]="item" [index]="ind"  [showProgress]="showProgress" (change)="listernQuestionItem($event)"></app-vote-question-item>
+      </div>
+      <div class="pad_10_t pad_10_b ques_box col-12" [ngClass]="{'border-none':last}" *ngIf="data.voteType == 0">
+          <app-vote-question-nopic-item [choice]="item" [index]="ind"  [showProgress]="showProgress" (change)="listernQuestionItem($event)"></app-vote-question-nopic-item>
       </div>
     </ng-container>
 </ng-container>

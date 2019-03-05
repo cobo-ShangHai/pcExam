@@ -1,47 +1,46 @@
 <ng-container *ngIf="choice">
-    <div class="flex item-stretch  mainTitleColor">
-      <div class="flex-grow-1 ">
-        <!-- 选项描述区域 -->
-        <ng-container>
-          <div class="voteContent flex flex-grow-1">
-            <!-- 有图片 -->
-            <ng-container *ngIf="choice.imgUrl">
-              <div class="lineh0 pad_10_r">
-                <img [src]="choice.imgUrl" class="rdius" (click)="amplifyerImage()" alt="">
-              </div>
-              <div class="fsize12 line5Over height_78 choice_des" (click)="amplifyerText()">
-                <div [innerHtml]="choice.des | safeHtml"></div>
-              </div>
-            </ng-container>
-  
-            <!-- 没有图片 -->
-            <ng-container *ngIf="!choice.imgUrl">
-              <div class="fsize12 line2Over choice_des" (click)="amplifyerText()">
-                <div [innerHtml]="choice.des | safeHtml"></div>
-              </div>
-            </ng-container>
-          </div>
-        </ng-container>
-  
-        <!-- 进度条 -->
-        <ng-container *ngIf="showProgress">
-          <div class="flex item-c justify-b secondaryInfoColor progressBox box-size-b pad_13_t pad_13_b">
-            <div class="progreeBar pad_5_r">
-              <mat-progress-bar mode="determinate" value="{{choice.rate || 0}}"></mat-progress-bar>
+  <div class="flex item-stretch  mainTitleColor">
+    <div>
+      <!-- 选项描述区域 -->
+      <ng-container>
+        <div class="voteContent flex">
+          <!-- 有图片 -->
+          <ng-container *ngIf="choice.imgUrl">
+            <div class="lineh0">
+              <img [src]="choice.imgUrl" class="rdius img-responsive" (click)="amplifyerImage()" alt="">
             </div>
-            <div class=" pad_13_r vote_box_1 ">{{choice.count || 0}}票</div>
-            <div class=" vote_box_2 ">{{choice.rate || 0 }}%</div>
-          </div>
-        </ng-container>
-      </div>
-  
-      <!-- 投票区域 -->
-      <div class="voteIconBox  flex-shrink-0 flex item-c" (click)="changeVote()">
-        <div class="wrapper">
-          <i class="cell cobo-icon cobo cobo-vote-up" *ngIf="choice.checked"></i>
-          <i class="cell cobo-icon cobo cobo-vote-off" *ngIf="!choice.checked"></i>
+            <div class="choice-content">
+              <span class="wrapper" (click)="changeVote()">
+                <i class="material-icons checked-icon" *ngIf="choice.checked">check_box</i>
+                <i class="material-icons unchecked-icon" *ngIf="!choice.checked">check_box</i>
+              </span>
+              <div class="fsize12 line5Over height_78 choice_des choice-text" (click)="amplifyerText()">
+                <span title="{{choice.des}}" [innerHtml]="choice.des | safeHtml"></span>
+              </div>
+            </div>
+          </ng-container>
         </div>
-      </div>
+      </ng-container>
+
+      <!-- 没有图片 -->
+      <ng-container *ngIf="!choice.imgUrl">
+        <div class="no-pic-content">
+          <div class="fsize12 line2Over choice_des no-pic-item" (click)="amplifyerText()">
+            <div [innerHtml]="choice.des | safeHtml"></div>
+          </div>
+          <!-- 进度条 -->
+          <ng-container *ngIf="showProgress">
+            <div class="flex item-c justify-b secondaryInfoColor progressBox box-size-b pad_13_t pad_13_b">
+              <div class="progreeBar pad_5_r">
+                <mat-progress-bar mode="determinate" value="{{choice.rate || 0}}"></mat-progress-bar>
+              </div>
+              <div class=" pad_13_r vote_box_1 ">{{choice.count || 0}}票</div>
+              <div class=" vote_box_2 ">{{choice.rate || 0 }}%</div>
+            </div>
+          </ng-container>
+        </div>
+      </ng-container>
+
     </div>
-  </ng-container>
-  
+  </div>
+</ng-container>

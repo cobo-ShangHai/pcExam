@@ -1,77 +1,94 @@
-<div class="pageBlock pageBgColor pos_r">
-  <div class="pageBlock shadow-bottom fixedTop bgwhite">
-    <app-subnav showBack="true" [title]="'投票'"></app-subnav>
+<div class="pageBgColor pos_r">
+  <div class="shadow-bottom fixedTop bgwhite">
     <div class="enshrine" *ngIf="_sotredUp">
-      <div class="flex item-c">
-        <app-store-up [collected]="_sotredUp"></app-store-up>
-      </div>
     </div>
   </div>
 
-<!-- 没有获取任何数据 -->
-<ng-container *ngIf="!_voteDetails">
-  <app-loading-animation-page></app-loading-animation-page>
-</ng-container>
+  <!-- 没有获取任何数据 -->
+  <ng-container *ngIf="!_voteDetails">
+    <app-loading-animation-page></app-loading-animation-page>
+  </ng-container>
 
-<!-- 至少加载过一次数据 -->
+  <!-- 至少加载过一次数据 -->
   <ng-container *ngIf="_voteDetails">
-  <div class="coreContent">
-    <!-- 没有权限 -->
-    <ng-container *ngIf="_voteDetails && _voteDetails.status==-20">
-      <app-permission-denied [deniedInfo]="_voteDetails"></app-permission-denied>
-    </ng-container>
-
-    <!-- 有权限查看详情 -->
-    <ng-container *ngIf="_voteDetails && _voteDetails.data  && (_voteDetails.status>-20) ">
-      <div class="timeOutBlock text-c fsize15 secondaryInfoColor" *ngIf="_warningText"> {{_warningText}}</div>
-      <!-- 标题 -->
-      <div class="headerBlock">
-        <div class="flex questionDes mainTitleColor fsize15">
-          <div class=" break-all" [innerHtml]="_voteDetails.data.des1 | safeHtml"></div>
-        </div>
-        <div class="text-c headerImage lineh0 " *ngIf="_voteDetails.data.imgUrl">
-          <img [src]="_voteDetails.data.imgUrl" (click)="amplifyerImage(_voteDetails.data.imgUrl)" alt="">
-        </div>
-      </div>
-      <!-- 选项题 -->
-      <div class=" mg10 bgwhite  shadow-all rdius">
-        <ng-container *ngIf="_voteDetails.data.quesType === 0">
-          <app-vote-question-single [data]="_voteDetails.data" [isActive]="_candoVote" [showProgress]="_showProgress" (change)="listernSelectChange($event)"></app-vote-question-single>
-        </ng-container>
-        <ng-container *ngIf="_voteDetails.data.quesType === 1">
-          <app-vote-question-multiple [data]="_voteDetails.data" [isActive]="_candoVote" [showProgress]="_showProgress" (change)="listernSelectChange($event)"></app-vote-question-multiple>
-        </ng-container>
-      </div>
-
-      <!-- 补充问答题 -->
-      <ng-container *ngIf="_voteDetails.data.enableOther">
-        <div class=" ohter_des fsize14 mainTitleColor">
-          <div *ngIf="_voteDetails.data.otherDesc" [innerHtml]="_voteDetails.data.otherDesc | safeHtml"></div>
-          <div *ngIf="!_voteDetails.data.otherDesc">备注：</div>
-        </div>
-        <div class="mg10 otherQues bgwhite rdius shadow-all pad_5_l pad_5_r">
-          <div *ngIf="_candoVote">
-            <mat-form-field class="width100">
-              <textarea rows="3" matInput [(ngModel)]="_voteResult.other"></textarea>
-            </mat-form-field>
-          </div>
-          <ng-container *ngIf="!_candoVote">
-            <div class="pad_13_t pad_13_b break-all  fsize12" [innerHtml]="_voteDetails.data.other"></div>
-          </ng-container>
-        </div>
+    <div class="coreContent">
+      <!-- 没有权限 -->
+      <ng-container *ngIf="_voteDetails && _voteDetails.status==-20">
+        <app-permission-denied [deniedInfo]="_voteDetails"></app-permission-denied>
       </ng-container>
-    </ng-container>
 
-  </div>
+      <!-- 有权限查看详情 -->
+      <ng-container *ngIf="_voteDetails && _voteDetails.data  && (_voteDetails.status>-20) ">
+        <div class="timeOutBlock text-c fsize15 secondaryInfoColor" *ngIf="_warningText"> {{_warningText}}</div>
+        <!-- 标题 -->
+        <div class="headerBlock">
+          <div class="head-title text-center" [innerHtml]="_voteDetails.data.name" title="{{_voteDetails.data.name}}"></div>
+          <div class="container">
+              <div class="row">
+                  <div class="card-header col-12">说明：</div>
+                <div class="flex questionDes mainTitleColor fsize15 card-body col-12">
+                  <div class=" break-all card-body-text" [innerHtml]="_voteDetails.data.des1 | safeHtml"></div>
+                </div>
+              </div>
+        </div>
+        </div>
+        <!-- 选项题 -->
+        <div class="container">
+          <div class="row">
+              <div class="card-header col-12">选项：</div>
+              <div class="card-body col-12">
+                至少需选{{_voteDetails.data.minQuesLimit}}个选项
+              </div>
+              <div class=" rdius vote-area">
+                <ng-container *ngIf="_voteDetails.data.quesType === 0">
+                  <div class="container">
+                    <app-vote-question-single [data]="_voteDetails.data" [isActive]="_candoVote"
+                      [showProgress]="_showProgress" (change)="listernSelectChange($event)" class="flex question-content row">
+                    </app-vote-question-single>
+                  </div>
+                </ng-container>
+                <ng-container *ngIf="_voteDetails.data.quesType === 1">
+                  <div class="container">
+                    <app-vote-question-multiple [data]="_voteDetails.data" [isActive]="_candoVote"
+                      [showProgress]="_showProgress" (change)="listernSelectChange($event)" class="flex question-content row">
+                    </app-vote-question-multiple>
+                  </div>
+                </ng-container>
+              </div>
+          </div>
+        </div>
 
-  <div class="footer fiexdBottom" *ngIf="_candoVote">
-    <ng-container *ngIf="_voteResult.canSubmit">
-      <div class="fsise16 subBtn subtn-success width100 text-c border-none ng-star-inserted" (click)="doSubmit()">提交</div>
-    </ng-container>
-    <ng-container *ngIf="!_voteResult.canSubmit">
-      <div class="fsise16 subBtn subtn-falid width100 text-c border-none ng-star-inserted">提交</div>
-    </ng-container>
-  </div>
-</ng-container>
+        <!-- 补充问答题 -->
+        <ng-container *ngIf="_voteDetails.data.enableOther">
+          <div class="container">
+            <div class="row">
+                <div class=" ohter_des fsize14 mainTitleColor card-header col-12">
+                    <div *ngIf="_voteDetails.data.otherDesc" [innerHtml]="_voteDetails.data.otherDesc | safeHtml"></div>
+                    <div *ngIf="!_voteDetails.data.otherDesc">请补充：</div>
+                  </div>
+                  <div class="mg10 otherQues bgwhite rdius pad_5_l pad_5_r card-body col-12 textarea-body">
+                    <div *ngIf="_candoVote" class="textarea-box">
+                      <textarea class="textarea" [(ngModel)]="_voteResult.other"></textarea>
+                    </div>
+                    <ng-container *ngIf="!_candoVote">
+                      <div class="pad_13_t pad_13_b break-all  fsize12" [innerHtml]="_voteDetails.data.other"></div>
+                    </ng-container>
+                  </div>
+            </div>
+          </div>
+        </ng-container>
+      </ng-container>
+
+    </div>
+
+    <div class="footer text-center" *ngIf="_candoVote">
+      <ng-container *ngIf="_voteResult.canSubmit">
+        <button class="fsise16 btn btn-primary text-c border-none ng-star-inserted " (click)="doSubmit()">提交</button>
+      </ng-container>
+      <ng-container *ngIf="!_voteResult.canSubmit">
+        <button class="fsise16 btn btn-primary text-c border-none ng-star-inserted" disabled>提交</button>
+      </ng-container>
+    </div>
+  </ng-container>
 
 </div>

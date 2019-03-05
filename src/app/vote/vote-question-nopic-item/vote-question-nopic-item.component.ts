@@ -3,11 +3,11 @@ import { ShowdialogService } from '../../shared/services/showdialog.service';
 
 
 @Component({
-  selector: 'app-vote-question-item',
-  templateUrl: './vote-question-item.component.html',
-  styleUrls: ['./vote-question-item.component.scss']
+  selector: 'app-vote-question-nopic-item',
+  templateUrl: './vote-question-nopic-item.component.html',
+  styleUrls: ['./vote-question-nopic-item.component.css']
 })
-export class VoteQuestionItemComponent implements OnInit {
+export class VoteQuestionNopicItemComponent implements OnInit {
 
   @Input() choice;
   @Input() data;
