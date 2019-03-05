@@ -20,7 +20,6 @@ import { ShowdialogService } from '../shared/services/showdialog.service';
 
 
 
-
 @NgModule({
   imports: [
     FormsModule,
@@ -35,8 +34,7 @@ import { ShowdialogService } from '../shared/services/showdialog.service';
     VoteRoutingModule
   ],
   declarations: [
-   
-  ],
+   ],
   providers: [
     VoteService,
     ShowdialogService

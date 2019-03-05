@@ -1,25 +1,39 @@
 .height_78 {
   height: 78px;
 }
-
-.voteContent img {
-  width: 120px;
-  height: 78px;
+.voteContent{
+  border-radius:10px; 
+  display: flex;
+  flex-direction: column;
+  background: #fff;
 }
-
+.voteContent img {
+  width: 100%;
+  height: 164px;
+}
+.choice-text{
+  display: inline;
+  margin-right: 27px;
+  font-size:16px;
+  font-family:MicrosoftYaHei;
+  font-weight:400;
+  color:rgba(51,51,51,1);
+  line-height:32px;
+}
 .choice_des {
   position: relative;
   line-height: 16px;
 }
 
-.voteIconBox {
-  padding-left: 23px;
+.choice-content{
+  margin-left: 27px;
+  margin-top: 16px;
+  width: 217px;
+  height: 41px;
+  overflow: hidden;
+  white-space: nowrap;
+  text-overflow: ellipsis;
 }
-
-.wrapper {
-  display: table;
-}
-
 .cell {
   display: table-cell;
   vertical-align: middle;
@@ -39,4 +53,21 @@
 
 ::ng-deep .mat-progress-bar-buffer {
   background: rgba(216,216,216,1);
+}
+.checked-icon{
+  color: #007bff;
+  cursor: pointer;
+  vertical-align: bottom;
+}
+.unchecked-icon{
+  color: #000;
+  cursor: pointer;
+  vertical-align: bottom;
+}
+.no-pic-item{
+  width: 100%;
+}
+.no-pic-content{
+  background:rgba(255,255,255,1);
+  border-radius:10px;
 }
