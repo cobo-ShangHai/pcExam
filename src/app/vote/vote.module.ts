@@ -20,8 +20,6 @@ import { VoteQuestionItemComponent } from './vote-question-item/vote-question-it
 import { VoteQuestionMultipleComponent } from './vote-question-multiple/vote-question-multiple.component';
 import { VoteQuestionSingleComponent } from './vote-question-single/vote-question-single.component';
 
-
-
 @NgModule({
   imports: [
     FormsModule,
