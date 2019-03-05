@@ -49,10 +49,6 @@ import { TextareaDialogComponent } from './components/dialog-textarea/textarea-d
 import { SubnavComponent } from './components/subnav/subnav.component';
 import { StoreUpComponent } from './components/store-up/store-up.component';
 import { PermissionDeniedComponent } from './components/permission-denied/permission-denied.component';
-import { VoteQuestionItemComponent } from '../vote/vote-question-item/vote-question-item.component';
-import { VoteQuestionMultipleComponent } from '../vote/vote-question-multiple/vote-question-multiple.component';
-import { VoteQuestionSingleComponent } from '../vote/vote-question-single/vote-question-single.component';
-import { VotingComponent } from '../vote/voting/voting.component';
 import { ScoreItemComponent } from './components/score-item/score-item.component';
 
 @NgModule({
@@ -107,10 +103,6 @@ import { ScoreItemComponent } from './components/score-item/score-item.component
     StoreUpComponent,
     PermissionDeniedComponent,
     QuestionsCatalogComponent,
-    VoteQuestionItemComponent,
-    VoteQuestionMultipleComponent,
-    VoteQuestionSingleComponent,
-    VotingComponent,
     ScoreItemComponent
   ],
   exports: [
@@ -140,10 +132,6 @@ import { ScoreItemComponent } from './components/score-item/score-item.component
     StoreUpComponent,
     PermissionDeniedComponent,
     QuestionsCatalogComponent,
-    VoteQuestionItemComponent,
-    VoteQuestionMultipleComponent,
-    VoteQuestionSingleComponent,
-    VotingComponent,
     ScoreItemComponent
   ],
   providers: [
