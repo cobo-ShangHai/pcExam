@@ -21,7 +21,6 @@ import { VoteQuestionMultipleComponent } from './vote-question-multiple/vote-que
 import { VoteQuestionSingleComponent } from './vote-question-single/vote-question-single.component';
 
 
-
 @NgModule({
   imports: [
     FormsModule,
