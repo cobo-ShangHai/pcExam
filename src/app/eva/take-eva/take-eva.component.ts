@@ -21,6 +21,8 @@ export class TakeEvaComponent implements OnInit {
   _breifInfo;
   _curr = 0;
   _answersMap = new Map();
+  progressActive;
+  _progressText;
 
   constructor(
     private dialog: ShowdialogService,
@@ -44,7 +46,9 @@ export class TakeEvaComponent implements OnInit {
         that.pageTitle = obj0.title;
       }
     ).then(
-      () => that.paperInfo()
+      () => {
+        that.paperInfo();
+      }
     );
   }
 
@@ -61,6 +65,7 @@ export class TakeEvaComponent implements OnInit {
     );
   }
 
+
   // 获取评估试卷信息
   paperInfo() {
     this.es.getEvaPaper(this._eid).subscribe(
@@ -68,11 +73,25 @@ export class TakeEvaComponent implements OnInit {
     );
   }
 
+
   // 获取试卷信息后的操作
   afterGetPaperInfo(data) {
     this._breifInfo = data;
+    this.setActiveProgress();
     if (data.status === 0) {
       this.initAnswersMap(data.questions);
+    }
+  }
+
+  setActiveProgress() {
+    if (this._breifInfo && this._breifInfo.questions) {
+      const length = this._breifInfo.questions.length;
+      const curr = this._curr || 0;
+      const num0 = curr + 1;
+      const num1 = num0 > length ? length * 100 : num0 * 100;
+      const num2 = Math.floor(num1 / length);
+      this.progressActive = num2 + '%';
+      this._progressText = `${this._curr + 1}/${length}`;
     }
   }
 
@@ -103,18 +122,47 @@ export class TakeEvaComponent implements OnInit {
     }
   }
 
+   // 显示警告框
+   noPrevQuestiongDialog() {
+    const msgs = [{ msg: '已经是第一题了' }];
+    const obj = {
+      status: 999,
+      msgs: msgs
+    };
+    this.dialog.warningDialog(obj);
+  }
+
+
   // 上一题
   prevQues() {
+    if (this._curr === 0) {
+      this.noPrevQuestiongDialog();
+    }
     const num = +this._curr - 1;
     this._curr = num > -1 ? num : 0;
+    this.setActiveProgress();
   }
 
   // 下一题
   nextQues() {
     const num = +this._curr + 1;
     const length = this._breifInfo.questions.length;
+    if (num === length) {
+      this.noMoreQuestiongDialog();
+    }
     this._curr = num < length ? num : num - 1;
+    this.setActiveProgress();
   }
+
+    // 显示警告框
+    noMoreQuestiongDialog() {
+      const msgs = [{ msg: '没有下一题了' }];
+      const obj = {
+        status: 999,
+        msgs: msgs
+      };
+      this.dialog.warningDialog(obj);
+    }
 
   // 设置答案
   setAnswers() {

@@ -9,6 +9,7 @@ import {
   MatSelectModule,
   MatSidenavModule,
   MatProgressBarModule,
+  MatTooltipModule,
 } from '@angular/material';
 
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
@@ -62,6 +63,7 @@ import { ScoreItemComponent } from './components/score-item/score-item.component
     MatSelectModule,
     MatSidenavModule,
     MatProgressBarModule,
+    MatTooltipModule,
     ReactiveFormsModule,
     FormsModule,
   ],

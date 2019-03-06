@@ -5,7 +5,7 @@
   },
   "apps": [{
     "root": "src",
-    "outDir": "../../project/web/static/examv4",
+    "outDir": "../../java/workspace/asp/web/static/examv4",
     "assets": [
       "assets"
     ],

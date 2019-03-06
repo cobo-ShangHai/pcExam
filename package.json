@@ -4,12 +4,12 @@
   "license": "MIT",
   "scripts": {
     "ng": "ng",
-    "start": "ng serve --host 192.168.1.173 --port 4321 --proxy-config proxy.config.json -open",
+    "start": "ng serve --host 192.168.1.161 --port 4321 --proxy-config proxy.config.json -open",
     "build": "ng build --prod  --no-aot",
     "test": "ng test",
     "lint": "ng lint",
     "e2e": "ng e2e"
-  },
+},
   "private": true,
   "dependencies": {
     "@angular/animations": "^5.2.0",
