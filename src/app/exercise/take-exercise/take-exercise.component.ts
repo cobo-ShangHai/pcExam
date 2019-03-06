@@ -20,6 +20,7 @@ export class TakeExerciseComponent implements OnInit {
   _breifInfo;
   _curr = 0;
   progressActive;
+  _progressText;
   constructor(
     private route: ActivatedRoute,
     private es: ExerciseService,
@@ -52,6 +53,7 @@ export class TakeExerciseComponent implements OnInit {
       const num1 = num0 > length ? length * 100 : num0 * 100;
       const num2 = Math.floor(num1 / length);
       this.progressActive = num2 + '%';
+      this._progressText = `${this._curr + 1}/${length}`;
     }
   }
 
@@ -136,8 +138,8 @@ export class TakeExerciseComponent implements OnInit {
     this.setActiveProgress();
   }
 
-   // 显示警告框
-   noMoreQuestiongDialog() {
+  // 显示警告框
+  noMoreQuestiongDialog() {
     const msgs = [{ msg: '没有下一题了' }];
     const obj = {
       status: 999,

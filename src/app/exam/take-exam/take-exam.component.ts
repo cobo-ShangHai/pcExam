@@ -84,7 +84,6 @@ export class TakeExamComponent implements OnInit {
       const num1 = num0 > length ? length * 100 : num0 * 100;
       const num2 = Math.floor(num1 / length);
       this.progressActive = num2 + '%';
-      this.progressActive = num2 + '%';
       this._progressText = `${this._curr + 1}/${this._breifInfo.ques.length}`;
     }
   }

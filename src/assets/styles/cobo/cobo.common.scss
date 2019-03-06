@@ -1000,6 +1000,12 @@ $btnDafalut:#f7f7f7;
   border-radius: 10px 10px 0px 0px;
 }
 
+.exam-header .progress {
+  width: 752px;
+}
+
+
+
 .exam_content {
   padding-top: 175px;
   padding-bottom: 65px;
@@ -1012,4 +1018,10 @@ $btnDafalut:#f7f7f7;
   left: 50%;
   margin-left: -480px;
   bottom: 0;
+}
+
+.exam-footer .footerRow {
+  padding-top: 15px;
+  width: 300px;
+  padding-bottom: 15px;
 }
