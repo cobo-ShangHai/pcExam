@@ -3,7 +3,9 @@
     <ng-container *ngIf="choices && choices.length>0">
       <div class="scoreBox pad_13_t pad_13_b flex item-c">
         <ng-container *ngFor="let item of choices;let index = index;">
-          <div [matTooltip]="item.des" [matTooltipPosition]="'above'" class="stars_bg curP" [ngClass]="{'stars_bg_on':flags[index].flag , 'stars_bg_off':!flags[index].flag}" (click)="changeValue(index)"></div>
+          <div [matTooltip]="item.des" [matTooltipPosition]="'above'" class="stars_bg curP" [ngClass]="{'stars_bg_on':flags[index].flag , 'stars_bg_off':!flags[index].flag}" (click)="changeValue(index)">
+              <div class="stars_bg" [ngClass]="{'stars_bg_on':flags[index].flag , 'stars_bg_off':!flags[index].flag}" (click)="changeValue(index)"></div>
+          </div>
         </ng-container>
       </div>
     </ng-container>
