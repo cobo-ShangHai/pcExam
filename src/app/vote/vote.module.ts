@@ -19,6 +19,9 @@ import { ShowdialogService } from '../shared/services/showdialog.service';
 import { VoteQuestionItemComponent } from './vote-question-item/vote-question-item.component';
 import { VoteQuestionMultipleComponent } from './vote-question-multiple/vote-question-multiple.component';
 import { VoteQuestionSingleComponent } from './vote-question-single/vote-question-single.component';
+import { VoteQuestionNopicItemComponent } from './vote-question-nopic-item/vote-question-nopic-item.component';
+import { VoteQuestionNopicMultipleComponent } from './vote-question-nopic-multiple/vote-question-nopic-multiple.component';
+import { VoteQuestionNopicSingleComponent } from './vote-question-nopic-single/vote-question-nopic-single.component';
 
 @NgModule({
   imports: [
@@ -38,6 +41,9 @@ import { VoteQuestionSingleComponent } from './vote-question-single/vote-questio
     VoteQuestionItemComponent,
     VoteQuestionMultipleComponent,
     VoteQuestionSingleComponent,
+    VoteQuestionNopicItemComponent,
+    VoteQuestionNopicMultipleComponent,
+    VoteQuestionNopicSingleComponent
   ],
   providers: [
     VoteService,

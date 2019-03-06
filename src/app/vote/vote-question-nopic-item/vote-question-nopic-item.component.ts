@@ -3,12 +3,13 @@ import { ShowdialogService } from '../../shared/services/showdialog.service';
 
 
 @Component({
-  selector: 'app-vote-question-item',
-  templateUrl: './vote-question-item.component.html',
-  styleUrls: ['./vote-question-item.component.scss']
+  selector: 'app-vote-question-nopic-item',
+  templateUrl: './vote-question-nopic-item.component.html',
+  styleUrls: ['./vote-question-nopic-item.component.css']
 })
-export class VoteQuestionItemComponent implements OnInit {
+export class VoteQuestionNopicItemComponent implements OnInit {
   progressActive;
+  @Input() demo;
   @Input() choice;
   @Input() data;
   @Input() index;
@@ -19,9 +20,9 @@ export class VoteQuestionItemComponent implements OnInit {
   ) { }
 
   ngOnInit() {
-    this.progressActive = this.choice.rate + "%";
+    this.progressActive = this.choice.rate +'%'; 
   }
-
+  
   // 放大图片
   amplifyerImage() {
     const obj = {

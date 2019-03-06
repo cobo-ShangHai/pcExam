@@ -1,31 +1,108 @@
 .coreContent {
-  padding-top: 44px;
-  padding-bottom: 200px;
+    padding-top: 19px;
+    padding-bottom: 29px;
 }
 
 .questionDes {
-  margin:  10px;
+    margin: 10px;
 }
 
-.ques-type{
-  padding-left: 15px;
+.question-content {
+    // margin-left: -30px;
+    // margin-right: -30px;
+    background: rgba(255, 255, 255, 1);
+    border-radius: 10px;
+}
+.question-pic-content{
+   margin-left: -30px;
+    margin-right: -30px; 
+    margin-top: 20px;
+}
+.question-nopic-content{
+    background: #fff;
+    margin-top: 20px;
+    border-radius: 10px;
+}
+.ques-type {
+    padding-left: 15px;
 }
 
 .headerImage {
-  margin:20px auto;
+    margin: 20px auto;
 }
 
 .headerImage img {
-  width:160px;
-  height:110px;
+    width: 160px;
+    height: 110px;
 }
 
 .timeOutBlock {
-  padding-top: 23px;
-  padding-bottom: 23px;
-  background: #E6E6E6;
+    padding-top: 23px;
+    padding-bottom: 23px;
+    background: #E6E6E6;
 }
 
-.ohter_des {
-  margin:12px 20px;
+.head-title {
+    height: 30px;
+    font-size: 28px;
+    font-family: SourceHanSansCN-Bold;
+    font-weight: bold;
+    color: rgba(51, 51, 51, 1);
+    line-height: 32px;
+    overflow: hidden;
+    white-space: nowrap;
+    text-overflow: ellipsis;
+}
+
+.card-header {
+    background: rgba(229, 229, 229, 1);
+    border-radius: 10px 10px 0px 0px;
+    font-size: 22px;
+    font-family: SourceHanSansCN-Medium;
+    font-weight: 500;
+    color: rgba(51, 51, 51, 1);
+    padding-left: 20px;
+    margin-top: 30px;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+.card-body {
+    background: rgba(255, 255, 255, 1);
+    border-radius: 0 0 10px 10px;
+    margin: 0 auto;
+    padding: 21px 16px 20px;
+    font-size: 16px;
+}
+
+.card-body-text {
+    font-size: 16px;
+}
+
+.vote-area {
+    padding-left: 0;
+    padding-right: 0;
+    margin-top: 20px;
+}
+
+.fixclear:after {
+    visibility: hidden;
+    display: block;
+    font-style: 0;
+    content: "";
+    clear: both;
+    height: 0;
+}
+
+.textarea {
+    width: 100%;
+    height: 100px;
+    background: rgba(255, 255, 255, 1);
+    border: 1px solid rgba(229, 229, 229, 1);
+    border-radius: 10px;
+    resize: none;
+}
+
+.footer {
+    margin-bottom: 29px;
 }
