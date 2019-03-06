@@ -35,6 +35,7 @@ export class TakeExamComponent implements OnInit {
   _endTime;
   _showCountDown = false;
   progressActive = '0%';
+  _progressText;
 
   _submitTimes = 0; // 第几次提交答案
   _isLastChance = false; // 是否已经点击了提交按钮
@@ -83,6 +84,7 @@ export class TakeExamComponent implements OnInit {
       const num1 = num0 > length ? length * 100 : num0 * 100;
       const num2 = Math.floor(num1 / length);
       this.progressActive = num2 + '%';
+      this._progressText = `${this._curr + 1}/${this._breifInfo.ques.length}`;
     }
   }
 
@@ -284,7 +286,7 @@ export class TakeExamComponent implements OnInit {
   async postAnswers() {
     const that = this;
     const answers = await this.setPostAnswer();
-    if (this._isLastChance || (answers && Object.keys(answers).length !== 0) ) {
+    if (this._isLastChance || (answers && Object.keys(answers).length !== 0)) {
       const ans_str = JSON.stringify(answers);
       const data: any = await this.doPostAnswer(ans_str);
       if (data && data.code === 200) { // 提交答案成功
