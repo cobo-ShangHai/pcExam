@@ -21,5 +21,11 @@
         <div class="choiceContent" [innerHtml]="item.des | safeHtml"></div>
       </div>
     </ng-container>
+    <ng-container *ngIf="question.enableOther">
+      <div class="pad_15_t pad_13_b">{{question.otherDes}}</div>
+      <div class="">
+        <textarea name="" class="width100 borderc" [(ngModel)]="_fibvalue"  (blur)="changeOtherAnswer()" id="" rows="5"></textarea>
+      </div>
+    </ng-container>
   </div>
 </div>

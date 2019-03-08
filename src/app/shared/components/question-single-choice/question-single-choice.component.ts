@@ -13,7 +13,8 @@ export class QuestionSingleChoiceComponent implements OnInit {
   @Input() showScore;
   @Input() showGroup; // 评估，360度评估显示分组
   @Output() change: EventEmitter<any> = new EventEmitter();
-
+  _fibvalue = '';
+  _tempValue ;
   flags = [];
   constructor() { }
 
@@ -62,15 +63,26 @@ export class QuestionSingleChoiceComponent implements OnInit {
 
   // 选择答案
   changeAnswer(ind) {
-    let tempValue;
     if (this.trailType === 'exam') {
-      tempValue = this.setExamAnswer(ind);
+      this._tempValue = this.setExamAnswer(ind);
     } else {
-      tempValue = this.setOhterTypeAnswer(ind);
+      this._tempValue = this.setOhterTypeAnswer(ind);
     }
+    this.pushAnswer();
+  }
+
+  // 更新其它答案
+  changeOtherAnswer() {
+   this.pushAnswer();
+  }
+
+  // 推送答案
+  pushAnswer() {
     const obj = {
       index: this.index,
-      value: tempValue
+      value: this._tempValue,
+      enableOther: this.question.enableOther,
+      otherAnswer: this._fibvalue
     };
     this.change.emit(obj);
   }

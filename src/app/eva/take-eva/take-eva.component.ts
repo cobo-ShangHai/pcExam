@@ -118,12 +118,16 @@ export class TakeEvaComponent implements OnInit {
     if (ind > -1) {
       const obj = this._answersMap.get(ind) || {};
       obj.value = event.value;
+      if (event.enableOther) { // 补充答案
+        obj.enableOther = event.enableOther;
+        obj.otherAnswer = event.otherAnswer;
+      }
       this._answersMap.set(ind, obj);
     }
   }
 
-   // 显示警告框
-   noPrevQuestiongDialog() {
+  // 显示警告框
+  noPrevQuestiongDialog() {
     const msgs = [{ msg: '已经是第一题了' }];
     const obj = {
       status: 999,
@@ -154,15 +158,15 @@ export class TakeEvaComponent implements OnInit {
     this.setActiveProgress();
   }
 
-    // 显示警告框
-    noMoreQuestiongDialog() {
-      const msgs = [{ msg: '没有下一题了' }];
-      const obj = {
-        status: 999,
-        msgs: msgs
-      };
-      this.dialog.warningDialog(obj);
-    }
+  // 显示警告框
+  noMoreQuestiongDialog() {
+    const msgs = [{ msg: '没有下一题了' }];
+    const obj = {
+      status: 999,
+      msgs: msgs
+    };
+    this.dialog.warningDialog(obj);
+  }
 
   // 设置答案
   setAnswers() {
@@ -185,8 +189,10 @@ export class TakeEvaComponent implements OnInit {
       const type = obj.type;
       if (type === 'SINGLE_CHOICE' || type === 'MULTI_CHOICE' || type === 'FIB' || type === 'RE_ORDER' || type === 'SCORE') {
         postData['data(' + obj.eid + ')'] = obj.value || '';
-      } else {
-        postData['data(' + obj.eid + '_other)'] = obj.value || '';
+      }
+      // 补充答案
+      if (obj.enableOther) {
+        postData['data(' + obj.eid + '_other)'] = obj.otherAnswer || '';
       }
     });
     return postData;
