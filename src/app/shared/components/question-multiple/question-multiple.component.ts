@@ -60,7 +60,7 @@ export class QuestionMultipleComponent implements OnInit {
   changeFlags(ind) {
     const temp = !this.flags[ind].flag;
     const maxnum = this.question.maxAnswerCount; // 最多有几个选项
-    if (maxnum) {
+    if (maxnum && temp) {
       const num1 = this._quesAnswer.length;
       if (maxnum > num1) {
         this.flags[ind].flag = temp;
@@ -132,6 +132,7 @@ export class QuestionMultipleComponent implements OnInit {
         value += label;
       }
     }
+    this._quesAnswer = value;
     return value;
   }
 
