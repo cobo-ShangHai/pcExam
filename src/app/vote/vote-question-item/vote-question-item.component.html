@@ -11,8 +11,8 @@
             </div>
             <div class="choice-content">
               <span class="wrapper" (click)="changeVote()">
-                <i class="material-icons checked-icon" *ngIf="choice.checked">check_box</i>
-                <i class="material-icons unchecked-icon" *ngIf="!choice.checked">check_box</i>
+                <img style="width: 16px;height: 16px;" src="/images/check_box/check_box_black.png" alt="" *ngIf="!choice.checked">
+                <img style="width: 16px;height: 16px;" src="/images/check_box/check_box_blue.png" alt="" *ngIf="choice.checked">
               </span>
               <div class="fsize12 line5Over height_78 choice_des choice-text" (click)="amplifyerText()">
                 <span title="{{choice.des}}" [innerHtml]="choice.des | safeHtml"></span>

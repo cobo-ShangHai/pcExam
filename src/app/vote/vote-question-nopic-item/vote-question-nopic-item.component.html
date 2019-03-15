@@ -6,8 +6,8 @@
         <div class="no-pic-content">
           <span class="fsize16 line2Over choice_des no-pic-item flex" >
             <span class="wrapper" (click)="changeVote()">
-                  <i class="material-icons checked-icon" *ngIf="choice.checked">check_box</i>
-                  <i class="material-icons unchecked-icon" *ngIf="!choice.checked">check_box</i>
+                <img style="width: 16px;height: 16px;" src="/images/check_box/check_box_black.png" alt="" *ngIf="!choice.checked">
+                <img style="width: 16px;height: 16px;" src="/assets/images/check_box/check_box_blue.png" alt="" *ngIf="choice.checked">
             </span>
             <div [innerHtml]="choice.des | safeHtml" (click)="amplifyerText()" class="choice-des"></div>
             <div class="choice-count">
