@@ -9,6 +9,7 @@
                 <img style="width: 16px;height: 16px;" src="/images/check_box/check_box_black.png" alt="" *ngIf="!choice.checked">
                 <img style="width: 16px;height: 16px;" src="/assets/images/check_box/check_box_blue.png" alt="" *ngIf="choice.checked">
             </span>
+            
             <div [innerHtml]="choice.des | safeHtml" (click)="amplifyerText()" class="choice-des"></div>
             <div class="choice-count">
                 <div class=" pad_13_r vote_box_1 ">{{choice.count || 0}}票</div>
