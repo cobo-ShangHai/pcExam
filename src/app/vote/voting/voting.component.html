@@ -86,7 +86,7 @@
 
     <!-- 补充问答题 -->
     <ng-container *ngIf="_voteDetails.data.enableOther" >
-      <div class="container" *ngIf="_candoVote">
+      <div class="container">
         <div class="row">
           <div class=" ohter_des fsize14 mainTitleColor card-header col-12">
             <div *ngIf="_voteDetails.data.otherDesc" [innerHtml]="_voteDetails.data.otherDesc | safeHtml"></div>

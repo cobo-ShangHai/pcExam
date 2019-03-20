@@ -163,7 +163,6 @@ export class VotingComponent implements OnInit {
       data => {
         if (data.status === 0) {
           this.subSuccess();
-          
         } else {
           this.subFaild(data);
         }
@@ -179,7 +178,7 @@ export class VotingComponent implements OnInit {
     };
     this.dialog.warningDialog(obj);
     setTimeout(() => {
-      this.cs.getBack();
+      this.getInfo();
     }, 4000);
   }
 
