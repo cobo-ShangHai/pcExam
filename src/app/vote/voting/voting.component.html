@@ -38,7 +38,14 @@
           <div class="row">
             <div class="card-header col-12">选项：</div>
             <div class="card-body col-12">
-              至少需选{{_voteDetails.data.minQuesLimit}}个选项
+              <ng-container *ngIf="_voteDetails.data.quesType == 1">
+                  至少需选{{_voteDetails.data.minQuesLimit}}个选项
+              </ng-container>
+              <ng-container *ngIf="_voteDetails.data.quesType == 0">
+                  请选择一个选项
+              </ng-container>
+              
+              
             </div>
             <ng-container *ngIf="_voteDetails.data.quesType === 1">
               <div class="container" *ngIf="_voteDetails.data.voteType === 1">

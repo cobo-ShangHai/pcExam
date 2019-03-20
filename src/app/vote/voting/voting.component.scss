@@ -1,5 +1,7 @@
+html{
+    background: #F8F8F8;
+}
 .coreContent {
-    padding-top: 19px;
     padding-bottom: 29px;
 }
 
@@ -52,6 +54,7 @@
     overflow: hidden;
     white-space: nowrap;
     text-overflow: ellipsis;
+    margin-top: 20px;
 }
 
 .card-header {

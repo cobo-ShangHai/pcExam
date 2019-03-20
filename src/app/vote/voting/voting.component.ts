@@ -163,6 +163,7 @@ export class VotingComponent implements OnInit {
       data => {
         if (data.status === 0) {
           this.subSuccess();
+          
         } else {
           this.subFaild(data);
         }
