@@ -27,35 +27,9 @@
                 <div class=" pad_13_r  vote_box_1 ">{{choice.count || 0}}票</div>
                 <div class=" vote_box_2 choice-rate">{{choice.rate || 0 }}%</div>
               </div>
-              <!-- <div class="flex item-c justify-b secondaryInfoColor progressBox box-size-b pad_13_t pad_13_b">
-                  <div class="progreeBar pad_5_r">
-                    <mat-progress-bar mode="determinate" value="{{choice.rate || 0}}"></mat-progress-bar>
-                  </div>
-                </div> -->
             </ng-container>
           </ng-container>
         </div>
       </ng-container>
-
-      <!-- 没有图片 -->
-      <!-- <ng-container *ngIf="!choice.imgUrl">
-        <div class="no-pic-content">
-          <div class="fsize12 line2Over choice_des no-pic-item" (click)="amplifyerText()">
-            <div [innerHtml]="choice.des | safeHtml"></div>
-          </div> -->
-      <!-- 进度条 -->
-      <!-- <ng-container *ngIf="showProgress">
-            <div class="flex item-c justify-b secondaryInfoColor progressBox box-size-b pad_13_t pad_13_b">
-              <div class="progreeBar pad_5_r">
-                <mat-progress-bar mode="determinate" value="{{choice.rate || 0}}"></mat-progress-bar>
-              </div>
-              <div class=" pad_13_r vote_box_1 ">{{choice.count || 0}}票</div>
-              <div class=" vote_box_2 ">{{choice.rate || 0 }}%</div>
-            </div>
-          </ng-container>
-        </div>
-      </ng-container> -->
-
-    
   </div>
 </ng-container>
