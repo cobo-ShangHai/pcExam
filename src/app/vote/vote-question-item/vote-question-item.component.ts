@@ -25,13 +25,12 @@ export class VoteQuestionItemComponent implements OnInit {
   // 放大图片
   amplifyerImage() {
     const obj = {
-      'title': '',
+      'title': this.choice.des,
       'type': 'image',
       'content': this.choice.imgUrl
     };
     this.dialog.AmplifyInfo(obj);
   }
-
   // 显示所有的描述文字
 
   amplifyerText() {

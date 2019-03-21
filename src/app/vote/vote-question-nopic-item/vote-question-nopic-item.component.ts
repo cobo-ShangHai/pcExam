@@ -26,7 +26,7 @@ export class VoteQuestionNopicItemComponent implements OnInit {
   // 放大图片
   amplifyerImage() {
     const obj = {
-      'title': '',
+      'title': this.choice.des,
       'type': 'image',
       'content': this.choice.imgUrl
     };
