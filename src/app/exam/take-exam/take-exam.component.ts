@@ -413,7 +413,7 @@ export class TakeExamComponent implements OnInit {
       width: '80%',
       data: {
         canSubmit: this._canSubmit,
-        text: '如果有必答题，只有完成必答题才可以提交。您可以点击列表跳转到对应的题目进行答题。',
+        text: '',
         map: this._answersMap
       }
     });

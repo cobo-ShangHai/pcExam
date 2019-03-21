@@ -1,4 +1,6 @@
 <div mat-dialog-content>
+
+  <ng-container *ngIf="data.text">
     <div class="waringBox colory">
       <div class="flex item-c justify-c">
         <div class="lineh0 flex-grow-0">
@@ -9,10 +11,12 @@
         </div>
       </div>
     </div>
+  </ng-container>
+
     <div *ngIf="_array && _array.length>0">
       <ng-container *ngFor="let item of _array; let index = index;">
         <ng-container *ngIf="item.noAnswer">
-          <div class="pad_13_t pad_13_b flex item-c separte_line_t curP" (click)="goTo(index)">
+          <div class="pad_13_t pad_13_b flex item-c separte_line_b curP" (click)="goTo(index)">
             <div>题目编号：</div>
             <div class="pad_12_r pad_12_l">{{index+1}}</div>
             <div *ngIf="item.required" class="colorr">(必答)</div>
