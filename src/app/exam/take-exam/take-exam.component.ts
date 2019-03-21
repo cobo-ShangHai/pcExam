@@ -218,8 +218,8 @@ export class TakeExamComponent implements OnInit {
   // 上一题
   prevQues() {
     const num = +this._curr - 1;
-    this._curr = num > -1 ? num : 0;
-    if (this._curr === 0) {
+    this._curr = num === -1 ? 0 : num;
+    if (num === -1) {
       this.noPrevQuestiongDialog();
     } else {
       this.postAnswers();
@@ -413,7 +413,7 @@ export class TakeExamComponent implements OnInit {
       width: '80%',
       data: {
         canSubmit: this._canSubmit,
-        text: '只有完成必答题才可以提交，您可以点击列表跳转到对应的题目进行答题',
+        text: '如果有必答题，只有完成必答题才可以提交。您可以点击列表跳转到对应的题目进行答题。',
         map: this._answersMap
       }
     });
