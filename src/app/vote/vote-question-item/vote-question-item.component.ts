@@ -31,16 +31,6 @@ export class VoteQuestionItemComponent implements OnInit {
     };
     this.dialog.AmplifyInfo(obj);
   }
-  // 显示所有的描述文字
-
-  amplifyerText() {
-    const obj = {
-      'title': '',
-      'type': 'text',
-      'content': this.choice.des
-    };
-    this.dialog.AmplifyInfo(obj);
-  }
 
 
   changeVote() {
