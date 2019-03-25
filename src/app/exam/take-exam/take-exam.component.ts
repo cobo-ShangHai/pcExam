@@ -413,7 +413,7 @@ export class TakeExamComponent implements OnInit {
       width: '80%',
       data: {
         canSubmit: this._canSubmit,
-        text: '',
+        text: '您可以点击列表跳转到对应的题目进行答题。',
         map: this._answersMap
       }
     });
