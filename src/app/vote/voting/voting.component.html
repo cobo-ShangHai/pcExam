@@ -63,14 +63,14 @@
             </ng-container>
 
             <ng-container *ngIf="_voteDetails.data.quesType === 0">
-              <div class=" rdius vote-area" *ngIf="_voteDetails.data.voteType === 1">
-                <div class="container">
+              
+                <div class="container" *ngIf="_voteDetails.data.voteType === 1">
                   <app-vote-question-single [data]="_voteDetails.data" [isActive]="_candoVote"
                     [showProgress]="_showProgress" (change)="listernSelectChange($event)"
                     class="flex question-pic-content row">
                   </app-vote-question-single>
                 </div>
-              </div>
+              
               <div class=" rdius vote-area col-12" *ngIf="_voteDetails.data.voteType === 0">
                   <div class="container">
                     <app-vote-question-nopic-single [data]="_voteDetails.data" [isActive]="_candoVote"
