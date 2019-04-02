@@ -32,3 +32,9 @@ width: 20px;
 .textBox {
   width:30px;
 }
+
+
+::ng-deep a {
+  color: #007bff;
+  text-decoration: underline;
+}

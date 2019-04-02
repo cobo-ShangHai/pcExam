@@ -3,3 +3,9 @@ textarea {
   border: 1px solid #e1e1e1;
   border-radius: 5px;
 }
+
+
+::ng-deep a {
+  color: #007bff;
+  text-decoration: underline;
+}

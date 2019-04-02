@@ -10,3 +10,9 @@
 .mg_20_l {
   margin-left: 20px;
 }
+
+
+::ng-deep a {
+  color: #007bff;
+  text-decoration: underline;
+}

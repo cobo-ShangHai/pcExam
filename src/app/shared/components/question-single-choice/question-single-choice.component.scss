@@ -27,3 +27,9 @@
 img {
   max-width: 100% !important;
 }
+
+
+::ng-deep a {
+  color: #007bff;
+  text-decoration: underline;
+}

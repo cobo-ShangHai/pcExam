@@ -48,3 +48,9 @@
   border-left: 1px solid white;
   border-right: 1px solid white;
 }
+
+
+::ng-deep a {
+  color: #007bff;
+  text-decoration: underline;
+}

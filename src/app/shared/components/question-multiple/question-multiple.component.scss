@@ -23,3 +23,9 @@
  border:none;
  background: #2B6DB7;
 }
+
+
+::ng-deep a {
+  color: #007bff;
+  text-decoration: underline;
+}

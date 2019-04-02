@@ -23,3 +23,9 @@
 .scoreBox {
   box-sizing: border-box;
 }
+
+
+::ng-deep a {
+  color: #007bff;
+  text-decoration: underline;
+}
