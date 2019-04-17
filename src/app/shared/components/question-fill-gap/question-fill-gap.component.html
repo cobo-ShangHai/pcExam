@@ -15,7 +15,7 @@
       <div class="flex flex-wrap">
         <ng-container *ngFor="let item of question.subs">
           <ng-container *ngIf="item.type === 'text' ">
-            <div [innerHtml]="item.text | safeHtml"></div>
+            <div class="text-l" [innerHtml]="item.text | safeHtml"></div>
           </ng-container>
           <ng-container *ngIf="item.type === 'blank' ">
             <div class="flex secondaryInfoColor">

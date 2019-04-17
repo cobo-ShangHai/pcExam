@@ -458,6 +458,9 @@ export class TakeExamComponent implements OnInit {
 
   // 交卷成功
   sumitSucceeText() {
+    this.storage.removeLocal(this._examAnswerKey); // 交卷成功 删除纪录答案
+    this.storage.removeLocal('takeExamInfo');
+
     const obj = {
       timeLimit: this._delayTime,
       status: 999,
@@ -465,9 +468,6 @@ export class TakeExamComponent implements OnInit {
     };
     this.dialog.warningDialog(obj);
     setTimeout(() => {
-      this.storage.removeLocal(this._examAnswerKey);
-      this.storage.removeLocal('takeExamInfo');
-
       this.getBackProduct();
       // this.getBackDev();
 
