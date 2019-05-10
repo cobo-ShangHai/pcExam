@@ -33,7 +33,7 @@
       <!-- content area -->
       <div class="exam_content">
         <ng-container *ngFor="let item of _breifInfo.ques;let index = index;">
-          <div [hidden]="_curr !== index">
+          <div *ngIf="_curr === index">
             <ng-container *ngIf=" (item.type === 1 ||  item.type === 2)">
               <app-question-single-choice [question]="item" [index]="index" [trailType]="'exam'" [showScore]="_breifInfo.show_score" (change)="changeAnswerMap($event)"></app-question-single-choice>
             </ng-container>

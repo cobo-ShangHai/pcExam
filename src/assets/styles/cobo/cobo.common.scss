@@ -1035,3 +1035,8 @@ $btnDafalut:#f7f7f7;
 .exam-footer .footerRow .btn {
   width: 90px
 }
+
+::ng-deep .cdk-global-overlay-wrapper {
+  justify-content: center;
+  align-items: center;
+}
