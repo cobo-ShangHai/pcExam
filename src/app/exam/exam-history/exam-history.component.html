@@ -29,7 +29,7 @@
       <div class="exam_content">
         <ng-container *ngIf="_info && _info.ques && _info.ques.length>0">
           <ng-container *ngFor="let item of _info.ques;let index = index;">
-            <div [hidden]="_curr !== index">
+            <div *ngIf="_curr === index">
               <div *ngIf=" (item.type === 1 ||  item.type === 2)">
                 <app-question-choice-statistics [question]="item" [index]="index" [trailType]="'exam'" [showRightOrWrong]="_info.showRightOrWrong"
                   [showAnswer]="_info.showAnswer" [showScore]="_info.showValue">

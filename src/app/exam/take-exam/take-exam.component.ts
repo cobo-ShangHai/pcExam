@@ -424,7 +424,7 @@ export class TakeExamComponent implements OnInit {
         this.storageAnswers();
         this.postAnswers();
       } else {
-        if (result && +result > 0) {
+        if ((result + 1) > -1) {
           this._curr = result;
         }
       }
