@@ -8,9 +8,9 @@
   <ng-container *ngIf="showGroup && ((trailType === 'cycleeva' && question.isGroupNameVisible ) || trailType === 'eva' )  ">
     <div class="pad13 fsize12 secondaryInfoColor separte_line_b" *ngIf="showGroup">
       <div>评估项：{{question.group_name}}</div>
-      <div>注意事项：直接拖动条目可以上下移动</div>
     </div>
   </ng-container>
+  <div class="pad13 fsize12 separte_line_b">注意事项：直接拖动条目可以上下移动</div>
   <div class="pad13 mainTitleColor fsize15" >
     <ng-container *ngIf="question.des1">
       <div [innerHtml]="question.des1 | safeHtml"></div>

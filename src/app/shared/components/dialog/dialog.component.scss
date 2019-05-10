@@ -5,3 +5,8 @@
 .overflow-h{
 overflow: hidden;
 }
+
+::ng-deep .cdk-global-overlay-wrapper {
+  justify-content: center;
+  align-items: center;
+}
