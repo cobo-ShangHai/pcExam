@@ -426,6 +426,7 @@ export class TakeExamComponent implements OnInit {
       } else {
         if ((result + 1) > -1) {
           this._curr = result;
+          this.setActiveProgress();
         }
       }
     });

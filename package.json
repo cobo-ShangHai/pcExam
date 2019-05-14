@@ -5,11 +5,16 @@
   "scripts": {
     "ng": "ng",
     "start": "ng serve --host 192.168.1.161 --port 4321 --proxy-config proxy.config.json -open",
-    "build": "ng build --prod  --no-aot",
+    "build": "ng build --prod --buildOptimizer ",
+    "build3": "ng build --prod --buildOptimizer --base-href /static/examv4 --deploy-url http://home.cobocn.net  ",
+    "build4": "ng build --prod --buildOptimizer --deploy-url //home.cobocn.net/static/examv4  ",
+    "build2": "ng build --prod  --no-aot --stats-json",
+    "analyze":"npx webpack-bundle-analyzer dist/stats.json",
+    "lintForce":"ng lint -force -fix -format",
     "test": "ng test",
     "lint": "ng lint",
     "e2e": "ng e2e"
-},
+  },
   "private": true,
   "dependencies": {
     "@angular/animations": "^5.2.0",
@@ -55,8 +60,10 @@
     "karma-jasmine": "~1.1.0",
     "karma-jasmine-html-reporter": "^0.2.2",
     "protractor": "~5.1.2",
+    "source-map-explorer": "^1.8.0",
     "ts-node": "~4.1.0",
     "tslint": "~5.9.1",
-    "typescript": "~2.5.3"
+    "typescript": "~2.5.3",
+    "webpack-bundle-analyzer": "^3.3.2"
   }
 }

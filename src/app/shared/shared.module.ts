@@ -51,6 +51,7 @@ import { SubnavComponent } from './components/subnav/subnav.component';
 import { StoreUpComponent } from './components/store-up/store-up.component';
 import { PermissionDeniedComponent } from './components/permission-denied/permission-denied.component';
 import { ScoreItemComponent } from './components/score-item/score-item.component';
+import { TextfilterPipe } from './custom-pipe/textfilter.pipe';
 
 @NgModule({
   imports: [
@@ -81,6 +82,7 @@ import { ScoreItemComponent } from './components/score-item/score-item.component
     TimeStandard,
     PostPipe,
     GetMapValuesPipe,
+    TextfilterPipe,
     QuestionEssayComponent,
     QuestionFillGapComponent,
     QuestionMultipleComponent,
@@ -113,6 +115,7 @@ import { ScoreItemComponent } from './components/score-item/score-item.component
     SafeHtmlPipe,
     TimeStandard,
     PostPipe,
+    TextfilterPipe,
     GetMapValuesPipe,
     QuestionEssayComponent,
     QuestionFillGapComponent,
@@ -139,6 +142,7 @@ import { ScoreItemComponent } from './components/score-item/score-item.component
   providers: [
     IndextocharPipe,
     SafeUrlPipe,
+    TextfilterPipe,
     SafeHtmlPipe,
     TimeStandard,
     PostPipe,

@@ -20,9 +20,9 @@ export class VoteQuestionNopicItemComponent implements OnInit {
   ) { }
 
   ngOnInit() {
-    this.progressActive = this.choice.rate +'%'; 
+    this.progressActive = this.choice.rate + '%';
   }
-  
+
   // 放大图片
   amplifyerImage() {
     const obj = {
