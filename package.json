@@ -5,12 +5,11 @@
   "scripts": {
     "ng": "ng",
     "start": "ng serve --host 192.168.1.161 --port 4321 --proxy-config proxy.config.json -open",
-    "build": "ng build --prod --buildOptimizer ",
-    "build3": "ng build --prod --buildOptimizer --base-href /static/examv4 --deploy-url http://home.cobocn.net  ",
-    "build4": "ng build --prod --buildOptimizer --deploy-url //home.cobocn.net/static/examv4  ",
+    "build": "ng build --prod --buildOptimizer  --deploy-url http://content.cobocn.net/static/examv4/  ",
+    "build3": "ng build --prod",
     "build2": "ng build --prod  --no-aot --stats-json",
-    "analyze":"npx webpack-bundle-analyzer dist/stats.json",
-    "lintForce":"ng lint -force -fix -format",
+    "analyze": "npx webpack-bundle-analyzer dist/stats.json",
+    "lintForce": "ng lint -force -fix -format",
     "test": "ng test",
     "lint": "ng lint",
     "e2e": "ng e2e"

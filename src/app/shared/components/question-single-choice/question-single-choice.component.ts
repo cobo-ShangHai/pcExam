@@ -14,11 +14,12 @@ export class QuestionSingleChoiceComponent implements OnInit {
   @Input() showGroup; // 评估，360度评估显示分组
   @Output() change: EventEmitter<any> = new EventEmitter();
   _fibvalue = '';
-  _tempValue ;
+  _tempValue;
   flags = [];
   constructor() { }
 
   ngOnInit() {
+    console.log('question:', this.question);
     if (this.question) {
       if (this.trailType === 'exam') {
         this.initExamFlags();
@@ -73,7 +74,7 @@ export class QuestionSingleChoiceComponent implements OnInit {
 
   // 更新其它答案
   changeOtherAnswer() {
-   this.pushAnswer();
+    this.pushAnswer();
   }
 
   // 推送答案

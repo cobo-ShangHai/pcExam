@@ -201,6 +201,7 @@ export class TakeExamComponent implements OnInit {
       obj.value = event.value;
       obj.isNeedSubmit = true; // 更改答案后重新提交
       this._answersMap.set(ind, obj);
+       this._breifInfo.ques[ind].initValue = event.value;
       this.storageAnswers();
     }
   }

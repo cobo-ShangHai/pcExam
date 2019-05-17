@@ -18,6 +18,7 @@
     "prefix": "app",
     "styles": [
       "styles.css",
+      "assets/styles/global.css",
       "assets/styles/app.scss",
       "assets/fonts/pe/css/pe-icon-set-weather.css",
       "assets/fonts/data-table/icons.css",
