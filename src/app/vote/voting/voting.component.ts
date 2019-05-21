@@ -132,7 +132,7 @@ export class VotingComponent implements OnInit {
     const type = data.viewType;
     const flag1 = (type === 0); // 投票前可见
     const flag2 = ((data.voted) && (type === 1)); // 投票后可见
-    const flag3 = data.isLeader; // 是不是管理员
+    const flag3 = (type === 2) && data.isLeader; // 是不是管理员
     if (flag1 || flag2 || flag3) {
       this._showProgress = true;
     } else {

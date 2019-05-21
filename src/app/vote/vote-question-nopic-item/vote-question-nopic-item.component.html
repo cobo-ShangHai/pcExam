@@ -11,23 +11,22 @@
             </span>
 
             <div [innerHtml]="choice.des | safeHtml" (click)="amplifyerText()" class="choice-des"></div>
-            <div class="choice-count">
+            <ng-container *ngIf="showProgress">
+              <div class="choice-count">
                 <div class=" pad_13_r vote_box_1 ">{{choice.count || 0}}票</div>
                 <div class=" vote_box_2 mr-2">{{choice.rate || 0 }}%</div>
             </div>
+            </ng-container>
+   
           </span>
           <!-- 进度条 -->
           <ng-container *ngIf="showProgress">
               <div class="progress" style="width:90%">
                   <div class="progress-bar  progress-bar-striped" role="progressbar" [style.width]="progressActive" aria-valuemin="0"
-                    aria-valuemax="100"></div>
+                    aria-valuemax="100">
+                  </div>
                 </div>
-            <div class="flex item-c justify-b secondaryInfoColor progressBox box-size-b pad_13_t pad_13_b">
-              
-              <!-- <div class="progreeBar pad_5_r"> -->
-              <!-- <mat-progress-bar mode="determinate" value="{{choice.rate || 0}}"></mat-progress-bar> -->
-              <!-- </div> -->
-              
+              <div class="flex item-c justify-b secondaryInfoColor progressBox box-size-b pad_13_t pad_13_b"> 
             </div>
           </ng-container>
         </div>
