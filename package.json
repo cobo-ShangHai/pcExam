@@ -5,7 +5,7 @@
   "scripts": {
     "ng": "ng",
     "start": "ng serve --host 192.168.1.161 --port 4321 --proxy-config proxy.config.json -open",
-    "build": "ng build --prod --buildOptimizer  --deploy-url http://content.cobocn.net/static/examv4/  ",
+    "build": "ng build --prod --buildOptimizer  --deploy-url //content.cobocn.net/static/examv4/  ",
     "build4": "ng build --prod --buildOptimizer",
     "build3": "ng build --prod",
     "build2": "ng build --prod  --no-aot --stats-json",

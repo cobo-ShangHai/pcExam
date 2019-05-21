@@ -19,7 +19,6 @@ export class QuestionSingleChoiceComponent implements OnInit {
   constructor() { }
 
   ngOnInit() {
-    console.log('question:', this.question);
     if (this.question) {
       if (this.trailType === 'exam') {
         this.initExamFlags();
