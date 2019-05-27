@@ -259,7 +259,8 @@ export class TakeExamComponent implements OnInit {
     this._filledAll = true;
     this._answersMap.forEach((obj, key) => {
       if (obj) {
-        const array: any[] = obj.value || [];
+        const arr: any[] = obj.value || [];
+        const array = arr.filter(d => d); // 过滤掉空字符串
         const length = array.length;
         if (length > 0) {
           obj.noAnswer = false;
