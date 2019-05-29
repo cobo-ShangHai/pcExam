@@ -201,7 +201,7 @@ export class TakeExamComponent implements OnInit {
       obj.value = event.value;
       obj.isNeedSubmit = true; // 更改答案后重新提交
       this._answersMap.set(ind, obj);
-       this._breifInfo.ques[ind].initValue = event.value;
+      this._breifInfo.ques[ind].initValue = event.value;
       this.storageAnswers();
     }
   }
@@ -260,7 +260,7 @@ export class TakeExamComponent implements OnInit {
     this._answersMap.forEach((obj, key) => {
       if (obj) {
         const arr: any[] = obj.value || [];
-        const array = arr.filter(d => d); // 过滤掉空字符串
+        const array = this.cs.filterNullArray(arr); // 过滤掉空字符串
         const length = array.length;
         if (length > 0) {
           obj.noAnswer = false;

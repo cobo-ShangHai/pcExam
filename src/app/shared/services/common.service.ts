@@ -158,6 +158,11 @@ export class CommonService {
     return rstr;
   }
 
+  // 过滤数组钟的空字符串
+  filterNullArray(arr) {
+    return arr.filter(d => !(d === undefined || d === null || d === ''));
+  }
+
   basedRN(str) {
     let rstr = '';
     if (str) {
