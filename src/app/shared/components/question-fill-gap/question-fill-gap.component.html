@@ -12,20 +12,9 @@
   </ng-container>
   <div class="pad13 mainTitleColor fsize15">
     <ng-container *ngIf="question.subs && question.subs.length>0">
-      <div class="flex flex-wrap">
-        <ng-container *ngFor="let item of question.subs">
-          <ng-container *ngIf="item.type === 'text' ">
-            <div class="text-l" [innerHtml]="item.text | safeHtml"></div>
-          </ng-container>
-          <ng-container *ngIf="item.type === 'blank' ">
-            <div class="flex secondaryInfoColor">
-              <div>___</div>
-              <div class="text-c blankCircle">{{item.inx+1}}</div>
-              <div>___</div>
-            </div>
-          </ng-container>
-        </ng-container>
-      </div>
+      <ng-container *ngIf="question.quesStr">
+          <div class="text-l" [innerHtml]="question.quesStr | safeHtml"></div>
+      </ng-container>
       <div class="pad_13_t pad_13_b">请在下方填写:</div>
       <ng-container *ngFor="let item of question.subs; let index = index;">
         <ng-container *ngIf="item.type === 'blank' ">

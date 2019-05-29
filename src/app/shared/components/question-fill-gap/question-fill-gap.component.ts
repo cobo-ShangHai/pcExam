@@ -15,6 +15,9 @@ export class QuestionFillGapComponent implements OnInit {
   constructor() { }
 
   ngOnInit() {
+    if (this.question) {
+      this.initQuesStr();
+    }
     this.initAnswer();
   }
 
@@ -33,9 +36,20 @@ export class QuestionFillGapComponent implements OnInit {
     }
   }
 
-
-  setFIBAnswer(obj, id) {
-    console.log(obj, id);
+  // 初始化题干字符串
+  initQuesStr() {
+    const subs = this.question.subs;
+    let quesStr = '';
+    for (let i = 0, num = subs.length; i < num; i++) {
+      const sub = subs[i];
+      if (sub.type === 'text') {
+        quesStr += sub.text;
+      }
+      if (sub.type === 'blank') {
+        quesStr += `___<span class="secondaryInfoColor blankCircle"> ${(i + 1) / 2}</span> ___`;
+      }
+    }
+    this.question.quesStr = quesStr;
   }
 
   // 更改答案
