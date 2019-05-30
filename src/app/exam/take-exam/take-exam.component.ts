@@ -57,8 +57,9 @@ export class TakeExamComponent implements OnInit {
   ngOnInit() {
     const that = this;
     this.initPaperInfo();
-    // 禁止考试页面的右键功能
+    // 禁止考试页面的右键功能，禁止复制
     this.winref.getNativeWindow().document.oncontextmenu = (event) => event.preventDefault();
+    this.winref.getNativeWindow().document.onselectstart = (event) => event.preventDefault();
   }
 
   // 初始化试卷信息
