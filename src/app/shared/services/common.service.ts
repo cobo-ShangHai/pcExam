@@ -113,7 +113,13 @@ export class CommonService {
     let rstr = '';
     if (str) {
       const str1 = str.toString().replace(/\[image\]/g, '<img src="');
-      rstr = str1.replace(/\[\/image\]/g, '" alt="" class="maxwidth100" />');
+      const str2 = str1.replace(/\[\/image\]/g, '" alt="" class="maxwidth100" />');
+       // 去除所有图片的内置的宽和高
+       rstr = str2.replace(/<img[^>]*>/gi, (match,  capture)  => {
+        const temp1 = match.replace(/width\s*?=\s*?([‘"])[\s\S]*?\1/ig,  '');
+        const temp2 = temp1.replace(/height\s*?=\s*?([‘"])[\s\S]*?\1/ig,  '');
+        return  temp2;
+      });
     }
     return rstr;
   }
