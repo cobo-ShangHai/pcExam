@@ -114,11 +114,15 @@ export class CommonService {
     if (str) {
       const str1 = str.toString().replace(/\[image\]/g, '<img src="');
       const str2 = str1.replace(/\[\/image\]/g, '" alt="" class="maxwidth100" />');
-       // 去除所有图片的内置的宽和高
-       rstr = str2.replace(/<img[^>]*>/gi, (match,  capture)  => {
-        const temp1 = match.replace(/width\s*?=\s*?([‘"])[\s\S]*?\1/ig,  '');
-        const temp2 = temp1.replace(/height\s*?=\s*?([‘"])[\s\S]*?\1/ig,  '');
-        return  temp2;
+      // 去除所有图片的内置的宽和高
+      rstr = str2.replace(/<img[^>]*>/gi, (match, capture) => {
+        const temp1 = match.replace(/width\s*?=\s*?([‘"])[\s\S]*?\1/ig, '');
+        const temp2 = temp1.replace(/height\s*?=\s*?([‘"])[\s\S]*?\1/ig, '');
+        // 正则匹配不含style="" 或 style='' 的img标签, 给不含style="" 或 style='' 的img标签加上style=""
+        const temp3 = temp2.replace(/(i?)(\<img)(?!(.*?style=['\"](.*)['\"])[^\>]+\>)/g, '$2 style=\"\"$3');
+        // 在img标签的style里面增加css样式
+        const temp4 = temp3.replace(/(i?)(\<img.*?style=['\"])([^\>]+\>)/g, '$2max-width:100%;;$3');
+        return temp4;
       });
     }
     return rstr;
