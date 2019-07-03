@@ -23,7 +23,7 @@
             <div class="mg_20_l flex-grow-1 ">
               <div class="">
                 <mat-form-field class="example-full-width flex-width-90">
-                  <input matInput placeholder="" class="curP width100 borderR" [(ngModel)]="item.answer" (blur)="changeAnswer()">
+                  <input onpaste="return false" matInput placeholder="" class="curP width100 borderR" [(ngModel)]="item.answer" (blur)="changeAnswer()">
                 </mat-form-field>
               </div>
             </div>
