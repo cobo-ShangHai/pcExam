@@ -196,8 +196,15 @@ export class CommonService {
 
   // 获取当前时间
   getCurrentTime() {
-    const date = new Date();
-    const str = this.getTimeStr(date);
+    // 东8区，东时区记做正数
+    const zoneOffset = 8;
+    // 算出时差,并转换为毫秒：
+    const offset2 = new Date().getTimezoneOffset() * 60 * 1000;
+    // 算出现在的时间：
+    const nowDate2 = new Date().getTime();
+    // 此时东2区的时间
+    const currentZoneDate = new Date(nowDate2 + offset2 + zoneOffset * 60 * 60 * 1000);
+    const str = this.getTimeStr(currentZoneDate);
     return str;
   }
 
@@ -299,6 +306,8 @@ export class CommonService {
       rstr = M + '-' + D;
     } else if (type === 'HM') {
       rstr = h + ':' + m;
+    } else if (type === 'HMS') {
+      rstr = h + ':' + m + ':' + s;
     }
     return rstr;
   }
@@ -317,6 +326,29 @@ export class CommonService {
     const rstr = this.customTimeFormate(str, 'HM');
     return rstr;
   }
+
+  getHMS(str) {
+    const rstr = this.customTimeFormate(str, 'HMS');
+    return rstr;
+  }
+
+  // 通过毫秒数转换成时分秒
+  gethms(millSeconds: number) {
+    const num1 = 1000;
+    const num2 = 60 * num1;
+    const num3 = 60 * num2;
+    const h = Math.floor(millSeconds / num3);
+    const temp1 = millSeconds - h * num3;
+    const m = Math.floor(temp1 / num2);
+    const temp2 = temp1 - m * num2;
+    const s = Math.floor(temp2 / num1);
+
+    const h1 = h > 0 ? (h < 10 ? `0${h}` : h) : '00';
+    const m1 = m > 0 ? (m < 10 ? `0${m}` : m) : '00';
+    const s1 = s > 0 ? (s < 10 ? `0${s}` : s) : '00';
+    return `${h1}:${m1}:${s1}`;
+  }
+
 
   isSameDay(time1, time2) {
     let flag;

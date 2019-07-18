@@ -12,7 +12,7 @@ export class CountDownComponent implements OnInit, AfterViewInit, OnDestroy {
 
   private _timer; // 计时器
   private _initTime; // 初始及时时间
-  public _countValue = 0;
+  public _countValue ;
   constructor(
     private cs: CommonService
   ) { }
@@ -32,14 +32,14 @@ export class CountDownComponent implements OnInit, AfterViewInit, OnDestroy {
   getDiff() {
     this._initTime = this.cs.getCurrentTime();
     this._timer = setInterval(() => {
-      const num1 = this.endTime  * 1000;
+      const num1 = this.endTime * 1000;
       const curr = this.cs.getCurrentTime();
       const num2 = this.cs.subtractTime(this._initTime, curr);
       const num3 = num1 - num2;
       if (num3 > 0) {
-        this._countValue = num3;
+        this._countValue = this.cs.gethms(num3);
       } else {
-        this._countValue = 0;
+        this._countValue = this.cs.gethms(0);
         this.timeOut();
       }
     }, 1000);

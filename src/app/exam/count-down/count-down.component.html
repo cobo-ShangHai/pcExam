@@ -1,8 +1,8 @@
-<ng-container *ngIf="_countValue > 0 ">
+<ng-container *ngIf="_countValue">
   <div class="flex item-c">
     <div class="lineh0">
       <i class="cobo-icon cobo-clock2"></i>
     </div>
-    <div class="lineh16 pad_5_l reportText"> {{_countValue -8 * 60 * 60 * 1000 | date:'HH:mm:ss'}}</div>
+    <div class="lineh16 pad_5_l reportText"> {{_countValue}}</div>
   </div>
 </ng-container>
