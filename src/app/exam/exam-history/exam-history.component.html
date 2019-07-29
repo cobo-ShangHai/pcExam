@@ -53,9 +53,11 @@
                   [showAnswer]="_info.showAnswer" [showScore]="_info.showValue">
                 </app-question-fill-gap-statistics>
               </ng-container>
-              <div class="bgf pad_13_l pad_13_b">
-                <div class="methink reportText curP" (click)="reportAnswerWrong(item.id)">我认为这题不正确</div>
-              </div>
+              <ng-container *ngIf="_info.showAnswer">
+                <div class="bgf pad_13_l pad_13_b">
+                  <div class="methink reportText curP" (click)="reportAnswerWrong(item.id)">我认为这题不正确</div>
+                </div>
+              </ng-container>
             </div>
           </ng-container>
         </ng-container>
@@ -69,7 +71,7 @@
               <button type="button" class="btn btn-primary btn-sm" (click)="getBack()">返回</button>
             </div>
             <div class="col">
-              <button type="button" class="btn btn-primary btn-sm"  (click)="prevQues()">上一题</button>
+              <button type="button" class="btn btn-primary btn-sm" (click)="prevQues()">上一题</button>
             </div>
             <div class="col">
               <button type="button" class="btn btn-primary btn-sm" (click)="nextQues()">下一题</button>
