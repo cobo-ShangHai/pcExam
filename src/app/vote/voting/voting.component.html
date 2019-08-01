@@ -39,82 +39,80 @@
             <div class="card-header col-12">选项：</div>
             <div class="card-body col-12">
               <ng-container *ngIf="_voteDetails.data.quesType == 1">
-                  至少需选{{_voteDetails.data.minQuesLimit}}个选项
+                至少需选{{_voteDetails.data.minQuesLimit}}个选项
               </ng-container>
               <ng-container *ngIf="_voteDetails.data.quesType == 0">
-                  请选择一个选项
+                请选择一个选项
               </ng-container>
-              
-              
+
+
             </div>
             <ng-container *ngIf="_voteDetails.data.quesType === 1">
               <div class="container" *ngIf="_voteDetails.data.voteType === 1">
-                <app-vote-question-multiple [data]="_voteDetails.data" [isActive]="_candoVote"
-                  [showProgress]="_showProgress" (change)="listernSelectChange($event)"
+                <app-vote-question-multiple [data]="_voteDetails.data" [isActive]="_candoVote" [showProgress]="_showProgress" (change)="listernSelectChange($event)"
                   class="flex question-pic-content row">
                 </app-vote-question-multiple>
               </div>
               <div class="container" *ngIf="_voteDetails.data.voteType === 0">
-                  <app-vote-question-nopic-multiple [data]="_voteDetails.data" [isActive]="_candoVote"
-                    [showProgress]="_showProgress" (change)="listernSelectChange($event)"
-                    class="flex question-nopic-content row">
-                  </app-vote-question-nopic-multiple>
-                </div>
+                <app-vote-question-nopic-multiple [data]="_voteDetails.data" [isActive]="_candoVote" [showProgress]="_showProgress" (change)="listernSelectChange($event)"
+                  class="flex question-nopic-content row">
+                </app-vote-question-nopic-multiple>
+              </div>
             </ng-container>
 
             <ng-container *ngIf="_voteDetails.data.quesType === 0">
-              
-                <div class="container" *ngIf="_voteDetails.data.voteType === 1">
-                  <app-vote-question-single [data]="_voteDetails.data" [isActive]="_candoVote"
-                    [showProgress]="_showProgress" (change)="listernSelectChange($event)"
-                    class="flex question-pic-content row">
-                  </app-vote-question-single>
-                </div>
-              
+
+              <div class="container" *ngIf="_voteDetails.data.voteType === 1">
+                <app-vote-question-single [data]="_voteDetails.data" [isActive]="_candoVote" [showProgress]="_showProgress" (change)="listernSelectChange($event)"
+                  class="flex question-pic-content row">
+                </app-vote-question-single>
+              </div>
+
               <div class=" rdius vote-area col-12" *ngIf="_voteDetails.data.voteType === 0">
-                  <div class="container">
-                    <app-vote-question-nopic-single [data]="_voteDetails.data" [isActive]="_candoVote"
-                      [showProgress]="_showProgress" (change)="listernSelectChange($event)"
-                      class="flex question-nopic-content row">
-                    </app-vote-question-nopic-single>
-                  </div>
+                <div class="container">
+                  <app-vote-question-nopic-single [data]="_voteDetails.data" [isActive]="_candoVote" [showProgress]="_showProgress" (change)="listernSelectChange($event)"
+                    class="flex question-nopic-content row">
+                  </app-vote-question-nopic-single>
                 </div>
+              </div>
             </ng-container>
-          
+
+          </div>
         </div>
+
+        <!-- 补充问答题 -->
+        <ng-container *ngIf="_voteDetails.data.enableOther">
+          <div class="container">
+            <div class="row">
+              <div class=" ohter_des fsize14 mainTitleColor card-header col-12">
+                <div *ngIf="_voteDetails.data.otherDesc" [innerHtml]="_voteDetails.data.otherDesc | safeHtml"></div>
+                <div *ngIf="!_voteDetails.data.otherDesc">请补充：</div>
+              </div>
+              <div class="mg10 otherQues bgwhite rdius pad_5_l pad_5_r card-body col-12 textarea-body">
+                <div *ngIf="_candoVote" class="textarea-box">
+                  <textarea class="textarea" [(ngModel)]="_voteResult.other"></textarea>
+                </div>
+                <ng-container *ngIf="!_candoVote">
+                  <div class="pad_13_t pad_13_b break-all  fsize12" [innerHtml]="_voteDetails.data.other"></div>
+                </ng-container>
+              </div>
+            </div>
+          </div>
+        </ng-container>
+      </ng-container>
+
     </div>
 
-    <!-- 补充问答题 -->
-    <ng-container *ngIf="_voteDetails.data.enableOther" >
-      <div class="container">
-        <div class="row">
-          <div class=" ohter_des fsize14 mainTitleColor card-header col-12">
-            <div *ngIf="_voteDetails.data.otherDesc" [innerHtml]="_voteDetails.data.otherDesc | safeHtml"></div>
-            <div *ngIf="!_voteDetails.data.otherDesc">请补充：</div>
-          </div>
-          <div class="mg10 otherQues bgwhite rdius pad_5_l pad_5_r card-body col-12 textarea-body">
-            <div *ngIf="_candoVote" class="textarea-box">
-              <textarea class="textarea" [(ngModel)]="_voteResult.other"></textarea>
-            </div>
-            <ng-container *ngIf="!_candoVote">
-              <div class="pad_13_t pad_13_b break-all  fsize12" [innerHtml]="_voteDetails.data.other"></div>
-            </ng-container>
-          </div>
-        </div>
-      </div>
-    </ng-container>
+    <div class="footer text-center" *ngIf="_candoVote">
+      <ng-container *ngIf="_voteDetails && _voteDetails.data  && (_voteDetails.status>-20) ">
+        <ng-container *ngIf="_voteResult.canSubmit">
+          <button class="fsise16 btn btn-primary text-c border-none ng-star-inserted " (click)="doSubmit()">提交</button>
+        </ng-container>
+        <ng-container *ngIf="!_voteResult.canSubmit">
+          <button class="fsise16 btn btn-primary text-c border-none ng-star-inserted" disabled>提交</button>
+        </ng-container>
+      </ng-container>
+    </div>
   </ng-container>
-
-</div>
-
-<div class="footer text-center" *ngIf="_candoVote">
-  <ng-container *ngIf="_voteResult.canSubmit">
-    <button class="fsise16 btn btn-primary text-c border-none ng-star-inserted " (click)="doSubmit()">提交</button>
-  </ng-container>
-  <ng-container *ngIf="!_voteResult.canSubmit">
-    <button class="fsise16 btn btn-primary text-c border-none ng-star-inserted" disabled>提交</button>
-  </ng-container>
-</div>
-</ng-container>
 
 </div>
