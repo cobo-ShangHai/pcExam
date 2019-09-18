@@ -6,6 +6,7 @@ import { MatDialog, MatDialogRef, MAT_DIALOG_DATA } from '@angular/material';
 
 import { EvaService } from '../eva.service';
 import { QuestionsCatalogComponent } from '../../shared/components/questions-catalog/questions-catalog.component';
+import { StorageService } from '../../shared/services/storage.service';
 
 @Component({
   selector: 'app-take-eva',
@@ -29,7 +30,8 @@ export class TakeEvaComponent implements OnInit {
     private cs: CommonService,
     private es: EvaService,
     private route: ActivatedRoute,
-    public catalog: MatDialog
+    public catalog: MatDialog,
+    private storage: StorageService
   ) { }
 
   ngOnInit() {
@@ -284,7 +286,12 @@ export class TakeEvaComponent implements OnInit {
     };
     this.dialog.warningDialog(obj);
     setTimeout(() => {
-      this.cs.getBack();
+      const return_url = this.storage.getSession('return_url', null);
+      if (return_url) {
+        window.open(return_url, '_self');
+      } else {
+        this.cs.getBack();
+      }
     }, 4000);
   }
 
