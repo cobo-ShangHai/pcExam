@@ -74,12 +74,14 @@ export class TakeCycleevaComponent implements OnInit {
     this._breifInfo = data;
     this.setActiveProgress();
     if (data.status === 0) {
-      const obj = {
-        title: '评估人须知',
-        text: data.message
-      };
       this.initAnswersMap(data.questions);
-      this.dialog.confrimDialog(obj);
+      if (data.message && data.message.length > 0) {
+        const obj = {
+          title: '评估人须知',
+          text: data.message
+        };
+        this.dialog.confrimDialog(obj);
+      }
     }
   }
 
@@ -122,8 +124,8 @@ export class TakeCycleevaComponent implements OnInit {
     }
   }
 
-   // 显示警告框
-   noPrevQuestiongDialog() {
+  // 显示警告框
+  noPrevQuestiongDialog() {
     const msgs = [{ msg: '已经是第一题了' }];
     const obj = {
       status: 999,
@@ -153,15 +155,15 @@ export class TakeCycleevaComponent implements OnInit {
     this.setActiveProgress();
   }
 
-    // 显示警告框
-    noMoreQuestiongDialog() {
-      const msgs = [{ msg: '没有下一题了' }];
-      const obj = {
-        status: 999,
-        msgs: msgs
-      };
-      this.dialog.warningDialog(obj);
-    }
+  // 显示警告框
+  noMoreQuestiongDialog() {
+    const msgs = [{ msg: '没有下一题了' }];
+    const obj = {
+      status: 999,
+      msgs: msgs
+    };
+    this.dialog.warningDialog(obj);
+  }
 
   // 设置答案
   setAnswers() {

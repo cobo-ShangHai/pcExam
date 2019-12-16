@@ -19,9 +19,11 @@
     </ng-container>
   </div>
   <div class="choiceBox color6 pad_13_l  pad_13_r pad_13_b">
-    <textarea name="" onpaste="return false" class="curP" [(ngModel)]="_fibvalue" #inputArea maxlength="1300" (blur)="changeAnswer()" id="" rows="10"></textarea>
+    <textarea rows="10"  onpaste="return false" class="curP" #inputArea maxlength="1300"
+     [(ngModel)]="_fibvalue"  (blur)="changeAnswer()" ></textarea>
     <div class="text-r color9 fsize12">
-      {{inputArea.value.length}}/1300
+      <span [innerHTML]="inputArea.value.length"></span>
+    <span>/1300</span>
     </div>
   </div>
 </div>
