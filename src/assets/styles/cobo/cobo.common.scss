@@ -791,6 +791,10 @@ $btnDafalut:#f7f7f7;
 
 .break-all {
   word-break: break-all;
+  -ms-word-break: break-word;
+  word-wrap: break-word;
+  overflow-wrap: break-word;
+  white-space: nowrap;
 }
 
 .maxwidth100 {
