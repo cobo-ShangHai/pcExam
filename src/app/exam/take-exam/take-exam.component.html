@@ -68,9 +68,11 @@
             <div class="col">
               <button type="button" class="btn btn-primary btn-sm" (click)="nextQues()">下一题</button>
             </div>
-            <div class="col">
-              <button type="button" class="btn btn-primary btn-sm" (click)="confirmSubit()">交卷</button>
-            </div>
+            <ng-container *ngIf="!_preview">
+              <div class="col">
+                <button type="button" class="btn btn-primary btn-sm" (click)="confirmSubit()">交卷</button>
+              </div>
+            </ng-container>
           </div>
         </div>
       </div>

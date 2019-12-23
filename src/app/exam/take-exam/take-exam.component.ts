@@ -44,6 +44,8 @@ export class TakeExamComponent implements OnInit {
 
   _blurTime = 0;
 
+  _preview = false; // 是不是预览页面
+
   constructor(
     private dialog: ShowdialogService,
     private cs: CommonService,
@@ -72,6 +74,11 @@ export class TakeExamComponent implements OnInit {
     this._eid = routeInfo.eid;
     this.pageTitle = routeInfo.title;
     this._token = routeInfo.token;
+    if (routeInfo.preview) {
+      this._preview = true;
+    } else {
+      this._preview = false;
+    }
     this._api_server = routeInfo.api_server;
     this._examAnswerKey = this._eid + '_' + result[1].selfEid;
     this._delayTime = result[1].paperResultDelay ? result[1].paperResultDelay * 1000 : 5000;
