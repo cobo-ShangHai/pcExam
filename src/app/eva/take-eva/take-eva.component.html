@@ -17,7 +17,7 @@
           <div class=" lineh22 text-c color333 fsize22 singleOver fontB">{{_breifInfo.title}}</div>
         </div>
         <div class="mg_30_t mg_30_b text-c pos_r">
-         <div class="progress mga">
+          <div class="progress mga">
             <div class="progress-bar" role="progressbar" [style.width]="progressActive" aria-valuemin="0" aria-valuemax="100">
               {{_progressText}}
             </div>
@@ -29,21 +29,21 @@
       <div class="exam_content">
         <ng-container *ngIf="_breifInfo && _breifInfo.questions && _breifInfo.questions.length>0">
           <div *ngFor="let item of _breifInfo.questions;let index = index;">
-            <div  [ngClass]="{'disnone':_curr !== index ,'disBlock':_curr === index}">
+            <div [ngClass]="{'disnone':_curr !== index ,'disBlock':_curr === index}">
               <div *ngIf="item.type === 'SINGLE_CHOICE' || item.type==='SINGLE_CHOICE_STD' ">
                 <app-question-single-choice [question]="item" [index]="index" [trailType]="'eva'" [showGroup]="_breifInfo.showGroup" (change)="changeAnswerMap($event)"></app-question-single-choice>
               </div>
               <div *ngIf="item.type === 'MULTI_CHOICE' ">
-                <app-question-multiple [question]="item" [index]="index" [trailType]="'eva'" [showGroup]="_breifInfo.showGroup"  (change)="changeAnswerMap($event)"></app-question-multiple>
+                <app-question-multiple [question]="item" [index]="index" [trailType]="'eva'" [showGroup]="_breifInfo.showGroup" (change)="changeAnswerMap($event)"></app-question-multiple>
               </div>
               <div *ngIf="item.type === 'FIB' ">
-                <app-question-essay [question]="item" [index]="index" [trailType]="'eva'" [showGroup]="_breifInfo.showGroup"  (change)="changeAnswerMap($event)"></app-question-essay>
+                <app-question-essay [question]="item" [index]="index" [trailType]="'eva'" [showGroup]="_breifInfo.showGroup" (change)="changeAnswerMap($event)"></app-question-essay>
               </div>
               <div *ngIf="item.type === 'RE_ORDER' ">
-                <app-question-order [question]="item" [index]="index" [trailType]="'eva'" [showGroup]="_breifInfo.showGroup"  (change)="changeAnswerMap($event)"></app-question-order>
+                <app-question-order [question]="item" [index]="index" [trailType]="'eva'" [showGroup]="_breifInfo.showGroup" (change)="changeAnswerMap($event)"></app-question-order>
               </div>
               <div *ngIf="item.type === 'SCORE' ">
-                <app-question-scoring [question]="item" [index]="index" [trailType]="'eva'" [showGroup]="_breifInfo.showGroup"  (change)="changeAnswerMap($event)"></app-question-scoring>
+                <app-question-scoring [question]="item" [index]="index" [trailType]="'eva'" [showGroup]="_breifInfo.showGroup" (change)="changeAnswerMap($event)"></app-question-scoring>
               </div>
             </div>
           </div>
@@ -60,9 +60,11 @@
             <div class="col">
               <button type="button" class="btn btn-primary btn-sm" (click)="nextQues()">下一题</button>
             </div>
-            <div class="col">
-              <button type="button" class="btn btn-primary btn-sm" (click)="confirmSubit()">交卷</button>
-            </div>
+            <ng-container *ngIf="!_preview">
+              <div class="col">
+                <button type="button" class="btn btn-primary btn-sm" (click)="confirmSubit()">交卷</button>
+              </div>
+            </ng-container>
           </div>
         </div>
       </div>

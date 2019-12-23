@@ -23,6 +23,9 @@ export class VotingComponent implements OnInit {
     other: '',
     canSubmit: false
   };
+
+  _preview = false; // 是不是预览页面
+
   constructor(
     private cs: CommonService,
     private dialog: ShowdialogService,
@@ -42,6 +45,11 @@ export class VotingComponent implements OnInit {
       const obj0: any = results[0];
       if (obj0) {
         this._eid = obj0.eid;
+      }
+      if (obj0.preview) {
+        this._preview = true;
+      } else {
+        this._preview = false;
       }
     } catch (error) {
       console.log('error:', error);

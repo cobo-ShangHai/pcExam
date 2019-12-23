@@ -1,72 +1,74 @@
 <div class="pc-page">
-    <!-- 没有获取任何数据 -->
-    <ng-container *ngIf="!_breifInfo">
-      <div class="box_padding box-size-b height_100_vh">
-        <ng-container>
-          <app-loading-animation-page></app-loading-animation-page>
-        </ng-container>
-      </div>
-    </ng-container>
-  
-    <!-- 至少加载过一次数据 -->
-    <ng-container *ngIf="_breifInfo">
-      <div class="pc-page-content">
-        <!-- header area -->
-        <div class="exam-header bgwhite shadow-bottom ">
-          <div class=" mg_30_t  mg_30_b">
-            <div class=" lineh22 text-c color333 fsize22 singleOver fontB">{{_breifInfo.title}}</div>
-          </div>
-          <div class="mg_30_t mg_30_b text-c pos_r">
-           <div class="progress mga">
-              <div class="progress-bar" role="progressbar" [style.width]="progressActive" aria-valuemin="0" aria-valuemax="100">
-                {{_progressText}}
-              </div>
+  <!-- 没有获取任何数据 -->
+  <ng-container *ngIf="!_breifInfo">
+    <div class="box_padding box-size-b height_100_vh">
+      <ng-container>
+        <app-loading-animation-page></app-loading-animation-page>
+      </ng-container>
+    </div>
+  </ng-container>
+
+  <!-- 至少加载过一次数据 -->
+  <ng-container *ngIf="_breifInfo">
+    <div class="pc-page-content">
+      <!-- header area -->
+      <div class="exam-header bgwhite shadow-bottom ">
+        <div class=" mg_30_t  mg_30_b">
+          <div class=" lineh22 text-c color333 fsize22 singleOver fontB">{{_breifInfo.title}}</div>
+        </div>
+        <div class="mg_30_t mg_30_b text-c pos_r">
+          <div class="progress mga">
+            <div class="progress-bar" role="progressbar" [style.width]="progressActive" aria-valuemin="0" aria-valuemax="100">
+              {{_progressText}}
             </div>
           </div>
         </div>
-  
-        <!-- content area -->
-        <div class="exam_content">
-          <ng-container *ngIf="_breifInfo && _breifInfo.questions && _breifInfo.questions.length>0">
-              <div *ngFor="let item of _breifInfo.questions;let index = index;">
-                  <div [hidden]="_curr !== index">
-                    <div *ngIf="item.type === 'SINGLE_CHOICE' || item.type==='SINGLE_CHOICE_STD'">
-                      <app-question-single-choice [question]="item" [index]="index" [trailType]="'cycleeva'"  [showGroup]="_breifInfo.showGroup"  (change)="changeAnswerMap($event)"></app-question-single-choice>
-                    </div>
-                    <div *ngIf="item.type === 'MULTI_CHOICE' ">
-                      <app-question-multiple [question]="item" [index]="index" [trailType]="'cycleeva'" [showGroup]="_breifInfo.showGroup"  (change)="changeAnswerMap($event)"></app-question-multiple>
-                    </div>
-                    <div *ngIf="item.type === 'FIB' ">
-                      <app-question-essay [question]="item" [index]="index" [trailType]="'cycleeva'" [showGroup]="_breifInfo.showGroup"  (change)="changeAnswerMap($event)"></app-question-essay>
-                    </div>
-                    <div *ngIf="item.type === 'RE_ORDER' ">
-                      <app-question-order [question]="item" [index]="index" [trailType]="'cycleeva'" [showGroup]="_breifInfo.showGroup"  (change)="changeAnswerMap($event)"></app-question-order>
-                    </div>
-                    <div *ngIf="item.type === 'SCORE' ">
-                      <app-question-scoring [question]="item" [index]="index" [trailType]="'cycleeva'" [showGroup]="_breifInfo.showGroup"  (change)="changeAnswerMap($event)"></app-question-scoring>
-                    </div>
-                  </div>
-                </div>
-          </ng-container>
-        </div>
-  
-        <!-- footer area -->
-        <div class="exam-footer bgwhite shadow-top">
-          <div class="footerRow mga">
-            <div class="row">
-              <div class="col">
-                <button type="button" class="btn btn-primary btn-sm" (click)="prevQues()">上一题</button>
+      </div>
+
+      <!-- content area -->
+      <div class="exam_content">
+        <ng-container *ngIf="_breifInfo && _breifInfo.questions && _breifInfo.questions.length>0">
+          <div *ngFor="let item of _breifInfo.questions;let index = index;">
+            <div [hidden]="_curr !== index">
+              <div *ngIf="item.type === 'SINGLE_CHOICE' || item.type==='SINGLE_CHOICE_STD'">
+                <app-question-single-choice [question]="item" [index]="index" [trailType]="'cycleeva'" [showGroup]="_breifInfo.showGroup"
+                  (change)="changeAnswerMap($event)"></app-question-single-choice>
               </div>
-              <div class="col">
-                <button type="button" class="btn btn-primary btn-sm" (click)="nextQues()">下一题</button>
+              <div *ngIf="item.type === 'MULTI_CHOICE' ">
+                <app-question-multiple [question]="item" [index]="index" [trailType]="'cycleeva'" [showGroup]="_breifInfo.showGroup" (change)="changeAnswerMap($event)"></app-question-multiple>
               </div>
+              <div *ngIf="item.type === 'FIB' ">
+                <app-question-essay [question]="item" [index]="index" [trailType]="'cycleeva'" [showGroup]="_breifInfo.showGroup" (change)="changeAnswerMap($event)"></app-question-essay>
+              </div>
+              <div *ngIf="item.type === 'RE_ORDER' ">
+                <app-question-order [question]="item" [index]="index" [trailType]="'cycleeva'" [showGroup]="_breifInfo.showGroup" (change)="changeAnswerMap($event)"></app-question-order>
+              </div>
+              <div *ngIf="item.type === 'SCORE' ">
+                <app-question-scoring [question]="item" [index]="index" [trailType]="'cycleeva'" [showGroup]="_breifInfo.showGroup" (change)="changeAnswerMap($event)"></app-question-scoring>
+              </div>
+            </div>
+          </div>
+        </ng-container>
+      </div>
+
+      <!-- footer area -->
+      <div class="exam-footer bgwhite shadow-top">
+        <div class="footerRow mga">
+          <div class="row">
+            <div class="col">
+              <button type="button" class="btn btn-primary btn-sm" (click)="prevQues()">上一题</button>
+            </div>
+            <div class="col">
+              <button type="button" class="btn btn-primary btn-sm" (click)="nextQues()">下一题</button>
+            </div>
+            <ng-container *ngIf="_preview">
               <div class="col">
                 <button type="button" class="btn btn-primary btn-sm" (click)="confirmSubit()">交卷</button>
               </div>
-            </div>
+            </ng-container>
           </div>
         </div>
       </div>
-    </ng-container>
-  </div>
-  
+    </div>
+  </ng-container>
+</div>

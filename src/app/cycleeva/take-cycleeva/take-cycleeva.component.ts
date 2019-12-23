@@ -22,6 +22,7 @@ export class TakeCycleevaComponent implements OnInit {
   _answersMap = new Map();
   progressActive;
   _progressText;
+  _preview = false; // 是不是预览页面
 
   constructor(
     private dialog: ShowdialogService,
@@ -43,6 +44,11 @@ export class TakeCycleevaComponent implements OnInit {
         const obj0 = result[0];
         that._eid = obj0.eid;
         that.pageTitle = obj0.title;
+        if (obj0.preview) {
+          that._preview = true;
+        } else {
+          that._preview = false;
+        }
       }
     ).then(
       () => that.paperInfo()

@@ -105,7 +105,7 @@
 
     </div>
 
-    <div class="footer text-center" *ngIf="_candoVote">
+    <div class="footer text-center" *ngIf="_candoVote && !_preview">
       <ng-container *ngIf="_voteDetails && _voteDetails.data  && (_voteDetails.status>-20) ">
         <ng-container *ngIf="_voteResult.canSubmit">
           <button class="fsise16 btn btn-primary text-c border-none ng-star-inserted " (click)="doSubmit()">提交</button>

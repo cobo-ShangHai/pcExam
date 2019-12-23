@@ -24,6 +24,7 @@ export class TakeEvaComponent implements OnInit {
   _answersMap = new Map();
   progressActive;
   _progressText;
+  _preview = false; // 是否正在预览
 
   constructor(
     private dialog: ShowdialogService,
@@ -46,6 +47,11 @@ export class TakeEvaComponent implements OnInit {
         const obj0 = result[0];
         that._eid = obj0.eid;
         that.pageTitle = obj0.title;
+        if (obj0.preview) {
+          that._preview = true;
+        } else {
+          that._preview = false;
+        }
       }
     ).then(
       () => {
