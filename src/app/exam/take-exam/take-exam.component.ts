@@ -233,7 +233,9 @@ export class TakeExamComponent implements OnInit {
     if (num === -1) {
       this.noPrevQuestiongDialog();
     } else {
-      this.postAnswers();
+      if (!this._preview) {
+        this.postAnswers();
+      }
       this.setActiveProgress();
     }
   }
@@ -246,7 +248,9 @@ export class TakeExamComponent implements OnInit {
       this.noMoreQuestiongDialog();
     }
     this._curr = num < length ? num : num - 1;
-    this.postAnswers();
+    if (!this._preview) {
+      this.postAnswers();
+    }
     this.setActiveProgress();
   }
 
