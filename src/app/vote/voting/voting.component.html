@@ -12,7 +12,7 @@
   <!-- 至少加载过一次数据 -->
   <ng-container *ngIf="_voteDetails">
     <div class="coreContent">
-      <!-- 没有权限 -->div
+      <!-- 没有权限 -->
       <ng-container *ngIf="_voteDetails && _voteDetails.status==-20">
         <app-permission-denied [deniedInfo]="_voteDetails"></app-permission-denied>
       </ng-container>
