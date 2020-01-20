@@ -17,13 +17,13 @@ export class EvaService {
   }
 
   // 获取评估试卷信息
-  getEvaPaper(eid) {
+  getEvaPaper(params) {
     const url = '/m/evaluation/Paper/BO.cobo';
     const obj = {
       action: 'answerEva',
-      param: 'fromNotice',
-      eid: eid
+      param: 'fromNotice'
     };
+    Object.assign(obj, params);
     return this.myhttp.getData(url, obj);
   }
 

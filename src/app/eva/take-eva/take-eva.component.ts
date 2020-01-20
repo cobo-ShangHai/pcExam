@@ -25,6 +25,7 @@ export class TakeEvaComponent implements OnInit {
   progressActive;
   _progressText;
   _preview = false; // 是否正在预览
+  _serial;
 
   constructor(
     private dialog: ShowdialogService,
@@ -49,6 +50,9 @@ export class TakeEvaComponent implements OnInit {
         that.pageTitle = obj0.title;
         if (obj0.preview) {
           that._preview = true;
+          if (obj0.serial) {
+            that._serial = obj0.serial;
+          }
         } else {
           that._preview = false;
         }
@@ -76,7 +80,13 @@ export class TakeEvaComponent implements OnInit {
 
   // 获取评估试卷信息
   paperInfo() {
-    this.es.getEvaPaper(this._eid).subscribe(
+    const obj = {
+      eid: this._eid
+    };
+    if (this._serial) {
+      obj[`serial`] = this._serial;
+    }
+    this.es.getEvaPaper(obj).subscribe(
       data => this.afterGetPaperInfo(data)
     );
   }
