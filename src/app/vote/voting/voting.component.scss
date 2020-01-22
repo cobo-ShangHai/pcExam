@@ -105,3 +105,8 @@
 .footer {
     margin-bottom: 29px;
 }
+
+::ng-deep #voteDes p  a {
+    color:blue ;
+    text-decoration: underline ;
+  }

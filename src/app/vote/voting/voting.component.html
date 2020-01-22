@@ -21,7 +21,7 @@
       <ng-container *ngIf="_voteDetails && _voteDetails.data  && (_voteDetails.status>-20) ">
         <div class="timeOutBlock text-c fsize15 secondaryInfoColor" *ngIf="_warningText"> {{_warningText}}</div>
         <!-- 标题 -->
-        <div class="headerBlock">
+        <div class="headerBlock" id="questionDes">
           <div class="head-title text-center" [innerHtml]="_voteDetails.data.name" title="{{_voteDetails.data.name}}">
           </div>
           <div class="container">
@@ -29,7 +29,7 @@
               <div class="card-header col-12">说明：</div>
               <div class="card-body col-12">
                 <div class="questionDes mainTitleColor fsize15">
-                  <div class=" break-all card-body-text" [innerHtml]="_voteDetails.data.des1 | safeHtml"></div>
+                  <div class=" break-all card-body-text" id="voteDes" [innerHtml]="_voteDetails.data.des | safeHtml"></div>
                 </div>
               </div>
             </div>
