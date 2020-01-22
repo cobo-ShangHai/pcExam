@@ -11,42 +11,31 @@ export class QuestionScoringItemComponent implements OnInit {
   @Input() des;
   @Input() showScore;
   @Output() changed: EventEmitter<any> = new EventEmitter();
-  flags = [];
+  labelArray = [];
+  maxScore = 0;
+  _selectRate = 0;
   _selectValue;
+  rate = 4.44;
   constructor() { }
 
   ngOnInit() {
     const length = this.choices.length;
     if (length > 0) {
-      this.initFlags();
       this.choices = this.choices.sort(
         (a, b) => a.score - b.score
       );
+      this.labelArray.length = 0;
+      this.choices.forEach((item) => {
+        this.labelArray.push(item.des);
+      });
+      this.maxScore = this.labelArray.length;
     }
   }
 
-  initFlags() {
-    this.flags.length = 0;
-    const length = this.choices.length;
-    for (let i = 0; i < length; i++) {
-      this.flags.push({ flag: false });
-    }
-  }
-
-  changeFlags(ind) {
-    const length = this.choices.length;
-    for (let i = 0; i < length; i++) {
-      if (i > ind) {
-        this.flags[i].flag = false;
-      } else {
-        this.flags[i].flag = true;
-      }
-    }
-  }
 
   changeValue(ind) {
-    this.changeFlags(ind);
-    const choice = this.choices[ind];
+    const num = +ind - 1;
+    const choice = this.choices[num];
     this._selectValue = choice.des;
     const value = choice.label;
     const obj = {

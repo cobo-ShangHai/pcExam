@@ -21,6 +21,7 @@ import { SafeHtmlPipe } from './custom-pipe/safe-html.pipe';
 import { TimeStandard } from './custom-pipe/time-standard';
 import { PostPipe } from './custom-pipe/post.pipe';
 import { GetMapValuesPipe } from './custom-pipe/get-map-values.pipe';
+import { BarRatingModule } from 'ngx-bar-rating';
 
 
 import { QuestionEssayComponent } from './components/question-essay/question-essay.component';
@@ -67,6 +68,7 @@ import { TextfilterPipe } from './custom-pipe/textfilter.pipe';
     MatTooltipModule,
     ReactiveFormsModule,
     FormsModule,
+    BarRatingModule
   ],
   entryComponents: [
     QuestionsCatalogComponent,

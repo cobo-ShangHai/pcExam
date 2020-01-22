@@ -17,6 +17,8 @@
     "testTsconfig": "tsconfig.spec.json",
     "prefix": "app",
     "styles": [
+      "assets/styles/bootstrap-pick.css",
+      "../node_modules/ngx-bar-rating/themes/br-default-theme.css",
       "styles.css",
       "assets/styles/global.css",
       "assets/styles/app.scss",
@@ -24,8 +26,7 @@
       "assets/fonts/data-table/icons.css",
       "assets/styles/cobo/cobo.common.scss",
       "assets/styles/cobo/coboSpirite/100_100/cobo.spirite.css",
-      "assets/styles/cobo/coboSpirite/200_200/cobo.spirite.css",
-      "assets/styles/bootstrap-pick.css"
+      "assets/styles/cobo/coboSpirite/200_200/cobo.spirite.css"
     ],
     "scripts": [
       "../node_modules/jquery/dist/jquery.js",

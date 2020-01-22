@@ -1,17 +1,7 @@
 <div class="pad13 bgwhite">
-  <div class=" mainTitleColor fsize15" [innerHtml]="des | safeHtml"></div>
-  <div class="pad_13_t pad_13_b fsize12 secondaryInfoColor">
-    <ng-container *ngFor="let item of choices">
-      <div class="flex item-c">
-        <div class="flex-shrink-0 text-l textBox2 text-r">{{item.score}}分:</div>
-        <div class="flex-grow-1 pad_5_l pad_13_r">
-          <mat-progress-bar mode="determinate" value="{{item.rates[index]*100 || 0}}"></mat-progress-bar>
-        </div>
-        <div class="flex-shrink-0 textBox2">
-          <span *ngIf="item.rates[index] > 0">{{item.rates[index]*100 |  number:'1.0-1'}}%</span>
-          <span *ngIf="item.rates[index] === 0">0%</span>
-        </div>
-      </div>
+    <div class="mainTitleColor fsize15" [innerHtml]="des | safeHtml"></div>
+    <ng-container *ngIf="choices && choices.length>0">
+      <bar-rating [(rate)]="_selectRate" [max]="maxScore" [readOnly]="true" ></bar-rating>
     </ng-container>
   </div>
-</div>
+  

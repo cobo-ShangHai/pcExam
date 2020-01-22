@@ -10,24 +10,17 @@ export class QuestionScoringItemStatisticsComponent implements OnInit {
   @Input() choices;
   @Input() des;
   @Input() showScore;
-  flags = [];
+  maxScore = 0;
+  _selectRate = 0;
   constructor() { }
 
   ngOnInit() {
     const length = this.choices.length;
     if (length > 0) {
-      this.initFlags();
       this.choices = this.choices.sort(
         (a, b) => a.score - b.score
       );
-    }
-  }
-
-  initFlags() {
-    this.flags.length = 0;
-    const length = this.choices.length;
-    for (let i = 0; i < length; i++) {
-      this.flags.push({ flag: false });
+      this.maxScore = this.choices.length;
     }
   }
 
