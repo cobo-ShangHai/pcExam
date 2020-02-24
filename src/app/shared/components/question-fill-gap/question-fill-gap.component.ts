@@ -39,7 +39,7 @@ export class QuestionFillGapComponent implements OnInit {
   // 初始化题干字符串
   initQuesStr() {
     const subs = this.question.subs;
-    let quesStr = '<div class="flex flex-wrap">';
+    let quesStr = '<div class="flex quesBrief flex-wrap">';
     for (let i = 0, num = subs.length; i < num; i++) {
       const sub = subs[i];
       if (sub.type === 'text') {
